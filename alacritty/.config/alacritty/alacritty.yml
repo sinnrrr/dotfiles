@@ -1,0 +1,28 @@
+window:
+  decorations: "Buttonless"
+  opacity: 0.95
+  padding:
+    x: 6
+    y: 6
+
+font:
+  # Normal (roman) font face
+  normal:
+    family: JetBrainsMono Nerd Font Mono
+    style: Regular
+
+  # Bold font face
+  bold:
+    family: JetBrainsMono Nerd Font Mono
+    style: Bold
+
+  # Italic font face
+  italic:
+    family: JetBrainsMono Nerd Font Mono
+    style: Italic
+
+  # Point size
+  size: 14
+
+key_bindings:
+  - { key: Space,    mods: Command|Option|Control,    action: ToggleViMode }
