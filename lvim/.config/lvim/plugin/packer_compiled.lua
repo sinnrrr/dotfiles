@@ -44,8 +44,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/Users/dmytro/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/Users/dmytro/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/Users/dmytro/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/Users/dmytro/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/Users/dmytro/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
+local package_path_str = "/Users/sinnrrr/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/Users/sinnrrr/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/Users/sinnrrr/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/Users/sinnrrr/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/Users/sinnrrr/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -74,64 +74,62 @@ _G.packer_plugins = {
     loaded = false,
     needs_bufread = false,
     only_cond = false,
-    path = "/Users/dmytro/.local/share/lunarvim/site/pack/packer/opt/Comment.nvim",
+    path = "/Users/sinnrrr/.local/share/lunarvim/site/pack/packer/opt/Comment.nvim",
     url = "https://github.com/numToStr/Comment.nvim"
   },
   ["FixCursorHold.nvim"] = {
     loaded = true,
-    path = "/Users/dmytro/.local/share/lunarvim/site/pack/packer/start/FixCursorHold.nvim",
+    path = "/Users/sinnrrr/.local/share/lunarvim/site/pack/packer/start/FixCursorHold.nvim",
     url = "https://github.com/antoinemadec/FixCursorHold.nvim"
   },
   LuaSnip = {
     config = { "\27LJ\2\nM\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\14lazy_load luasnip/loaders/from_vscode\frequire\0" },
     loaded = true,
-    path = "/Users/dmytro/.local/share/lunarvim/site/pack/packer/start/LuaSnip",
+    path = "/Users/sinnrrr/.local/share/lunarvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
+  },
+  ["alpha-nvim"] = {
+    config = { "\27LJ\2\n=\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\20lvim.core.alpha\frequire\0" },
+    loaded = true,
+    path = "/Users/sinnrrr/.local/share/lunarvim/site/pack/packer/start/alpha-nvim",
+    url = "https://github.com/goolord/alpha-nvim"
   },
   ["bufferline.nvim"] = {
     config = { "\27LJ\2\nB\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\25lvim.core.bufferline\frequire\0" },
     loaded = false,
     needs_bufread = false,
     only_cond = false,
-    path = "/Users/dmytro/.local/share/lunarvim/site/pack/packer/opt/bufferline.nvim",
+    path = "/Users/sinnrrr/.local/share/lunarvim/site/pack/packer/opt/bufferline.nvim",
     url = "https://github.com/akinsho/bufferline.nvim"
   },
   ["cmp-buffer"] = {
     loaded = true,
-    path = "/Users/dmytro/.local/share/lunarvim/site/pack/packer/start/cmp-buffer",
+    path = "/Users/sinnrrr/.local/share/lunarvim/site/pack/packer/start/cmp-buffer",
     url = "https://github.com/hrsh7th/cmp-buffer"
   },
   ["cmp-nvim-lsp"] = {
     loaded = true,
-    path = "/Users/dmytro/.local/share/lunarvim/site/pack/packer/start/cmp-nvim-lsp",
+    path = "/Users/sinnrrr/.local/share/lunarvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
   ["cmp-path"] = {
     loaded = true,
-    path = "/Users/dmytro/.local/share/lunarvim/site/pack/packer/start/cmp-path",
+    path = "/Users/sinnrrr/.local/share/lunarvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
   cmp_luasnip = {
     loaded = true,
-    path = "/Users/dmytro/.local/share/lunarvim/site/pack/packer/start/cmp_luasnip",
+    path = "/Users/sinnrrr/.local/share/lunarvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
   colorschemes = {
     loaded = true,
-    path = "/Users/dmytro/.local/share/lunarvim/site/pack/packer/start/colorschemes",
+    path = "/Users/sinnrrr/.local/share/lunarvim/site/pack/packer/start/colorschemes",
     url = "https://github.com/lunarvim/colorschemes"
-  },
-  ["dashboard-nvim"] = {
-    config = { "\27LJ\2\nA\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\24lvim.core.dashboard\frequire\0" },
-    loaded = false,
-    needs_bufread = false,
-    only_cond = false,
-    path = "/Users/dmytro/.local/share/lunarvim/site/pack/packer/opt/dashboard-nvim",
-    url = "https://github.com/ChristianChiarulli/dashboard-nvim"
   },
   ["friendly-snippets"] = {
     loaded = true,
-    path = "/Users/dmytro/.local/share/lunarvim/site/pack/packer/start/friendly-snippets",
+    path = "/Users/sinnrrr/.local/share/lunarvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
   ["gitsigns.nvim"] = {
@@ -139,115 +137,113 @@ _G.packer_plugins = {
     loaded = false,
     needs_bufread = false,
     only_cond = false,
-    path = "/Users/dmytro/.local/share/lunarvim/site/pack/packer/opt/gitsigns.nvim",
+    path = "/Users/sinnrrr/.local/share/lunarvim/site/pack/packer/opt/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
   ["lf.vim"] = {
     loaded = true,
-    path = "/Users/dmytro/.local/share/lunarvim/site/pack/packer/start/lf.vim",
+    path = "/Users/sinnrrr/.local/share/lunarvim/site/pack/packer/start/lf.vim",
     url = "https://github.com/ptzz/lf.vim"
   },
   ["lua-dev.nvim"] = {
     loaded = false,
     needs_bufread = false,
     only_cond = false,
-    path = "/Users/dmytro/.local/share/lunarvim/site/pack/packer/opt/lua-dev.nvim",
+    path = "/Users/sinnrrr/.local/share/lunarvim/site/pack/packer/opt/lua-dev.nvim",
     url = "https://github.com/folke/lua-dev.nvim"
   },
   ["lualine.nvim"] = {
     config = { "\27LJ\2\n?\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\22lvim.core.lualine\frequire\0" },
     loaded = true,
-    path = "/Users/dmytro/.local/share/lunarvim/site/pack/packer/start/lualine.nvim",
+    path = "/Users/sinnrrr/.local/share/lunarvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
   ["nlsp-settings.nvim"] = {
     loaded = true,
-    path = "/Users/dmytro/.local/share/lunarvim/site/pack/packer/start/nlsp-settings.nvim",
+    path = "/Users/sinnrrr/.local/share/lunarvim/site/pack/packer/start/nlsp-settings.nvim",
     url = "https://github.com/tamago324/nlsp-settings.nvim"
   },
   ["null-ls.nvim"] = {
     loaded = true,
-    path = "/Users/dmytro/.local/share/lunarvim/site/pack/packer/start/null-ls.nvim",
+    path = "/Users/sinnrrr/.local/share/lunarvim/site/pack/packer/start/null-ls.nvim",
     url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
   },
   ["nvim-autopairs"] = {
     config = { "\27LJ\2\nA\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\24lvim.core.autopairs\frequire\0" },
     loaded = true,
-    path = "/Users/dmytro/.local/share/lunarvim/site/pack/packer/start/nvim-autopairs",
+    path = "/Users/sinnrrr/.local/share/lunarvim/site/pack/packer/start/nvim-autopairs",
     url = "https://github.com/windwp/nvim-autopairs"
   },
   ["nvim-cmp"] = {
     config = { "\27LJ\2\n`\0\0\3\0\6\0\v6\0\0\0009\0\1\0009\0\2\0\15\0\0\0X\1\5€6\0\3\0'\2\4\0B\0\2\0029\0\5\0B\0\1\1K\0\1\0\nsetup\18lvim.core.cmp\frequire\bcmp\fbuiltin\tlvim\0" },
     loaded = true,
-    path = "/Users/dmytro/.local/share/lunarvim/site/pack/packer/start/nvim-cmp",
+    path = "/Users/sinnrrr/.local/share/lunarvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
   ["nvim-lsp-installer"] = {
     loaded = true,
-    path = "/Users/dmytro/.local/share/lunarvim/site/pack/packer/start/nvim-lsp-installer",
+    path = "/Users/sinnrrr/.local/share/lunarvim/site/pack/packer/start/nvim-lsp-installer",
     url = "https://github.com/williamboman/nvim-lsp-installer"
   },
   ["nvim-lsp-ts-utils"] = {
     loaded = true,
-    path = "/Users/dmytro/.local/share/lunarvim/site/pack/packer/start/nvim-lsp-ts-utils",
+    path = "/Users/sinnrrr/.local/share/lunarvim/site/pack/packer/start/nvim-lsp-ts-utils",
     url = "https://github.com/jose-elias-alvarez/nvim-lsp-ts-utils"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
-    path = "/Users/dmytro/.local/share/lunarvim/site/pack/packer/start/nvim-lspconfig",
+    path = "/Users/sinnrrr/.local/share/lunarvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-notify"] = {
     config = { "\27LJ\2\n>\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\21lvim.core.notify\frequire\0" },
-    loaded = false,
-    needs_bufread = false,
-    only_cond = false,
-    path = "/Users/dmytro/.local/share/lunarvim/site/pack/packer/opt/nvim-notify",
+    loaded = true,
+    path = "/Users/sinnrrr/.local/share/lunarvim/site/pack/packer/start/nvim-notify",
     url = "https://github.com/rcarriga/nvim-notify"
   },
   ["nvim-tree.lua"] = {
     config = { "\27LJ\2\n@\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\23lvim.core.nvimtree\frequire\0" },
     loaded = true,
-    path = "/Users/dmytro/.local/share/lunarvim/site/pack/packer/start/nvim-tree.lua",
+    path = "/Users/sinnrrr/.local/share/lunarvim/site/pack/packer/start/nvim-tree.lua",
     url = "https://github.com/kyazdani42/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
     config = { "\27LJ\2\nB\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\25lvim.core.treesitter\frequire\0" },
     loaded = true,
-    path = "/Users/dmytro/.local/share/lunarvim/site/pack/packer/start/nvim-treesitter",
+    path = "/Users/sinnrrr/.local/share/lunarvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["nvim-ts-context-commentstring"] = {
     loaded = false,
     needs_bufread = false,
     only_cond = false,
-    path = "/Users/dmytro/.local/share/lunarvim/site/pack/packer/opt/nvim-ts-context-commentstring",
+    path = "/Users/sinnrrr/.local/share/lunarvim/site/pack/packer/opt/nvim-ts-context-commentstring",
     url = "https://github.com/JoosepAlviste/nvim-ts-context-commentstring"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
-    path = "/Users/dmytro/.local/share/lunarvim/site/pack/packer/start/nvim-web-devicons",
+    path = "/Users/sinnrrr/.local/share/lunarvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
-    path = "/Users/dmytro/.local/share/lunarvim/site/pack/packer/start/packer.nvim",
+    path = "/Users/sinnrrr/.local/share/lunarvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
   ["plenary.nvim"] = {
     loaded = true,
-    path = "/Users/dmytro/.local/share/lunarvim/site/pack/packer/start/plenary.nvim",
+    path = "/Users/sinnrrr/.local/share/lunarvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
   ["popup.nvim"] = {
     loaded = true,
-    path = "/Users/dmytro/.local/share/lunarvim/site/pack/packer/start/popup.nvim",
+    path = "/Users/sinnrrr/.local/share/lunarvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
   },
   ["project.nvim"] = {
     config = { "\27LJ\2\n?\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\22lvim.core.project\frequire\0" },
     loaded = true,
-    path = "/Users/dmytro/.local/share/lunarvim/site/pack/packer/start/project.nvim",
+    path = "/Users/sinnrrr/.local/share/lunarvim/site/pack/packer/start/project.nvim",
     url = "https://github.com/ahmedkhalf/project.nvim"
   },
   ["rust-tools.nvim"] = {
@@ -255,33 +251,33 @@ _G.packer_plugins = {
     loaded = false,
     needs_bufread = true,
     only_cond = false,
-    path = "/Users/dmytro/.local/share/lunarvim/site/pack/packer/opt/rust-tools.nvim",
+    path = "/Users/sinnrrr/.local/share/lunarvim/site/pack/packer/opt/rust-tools.nvim",
     url = "https://github.com/simrat39/rust-tools.nvim"
   },
   ["schemastore.nvim"] = {
     loaded = true,
-    path = "/Users/dmytro/.local/share/lunarvim/site/pack/packer/start/schemastore.nvim",
+    path = "/Users/sinnrrr/.local/share/lunarvim/site/pack/packer/start/schemastore.nvim",
     url = "https://github.com/b0o/schemastore.nvim"
   },
   ["structlog.nvim"] = {
     loaded = true,
-    path = "/Users/dmytro/.local/share/lunarvim/site/pack/packer/start/structlog.nvim",
+    path = "/Users/sinnrrr/.local/share/lunarvim/site/pack/packer/start/structlog.nvim",
     url = "https://github.com/Tastyep/structlog.nvim"
   },
   ["syntastic-local-solhint"] = {
     loaded = true,
-    path = "/Users/dmytro/.local/share/lunarvim/site/pack/packer/start/syntastic-local-solhint",
+    path = "/Users/sinnrrr/.local/share/lunarvim/site/pack/packer/start/syntastic-local-solhint",
     url = "https://github.com/sohkai/syntastic-local-solhint"
   },
   ["telescope-fzf-native.nvim"] = {
     loaded = true,
-    path = "/Users/dmytro/.local/share/lunarvim/site/pack/packer/start/telescope-fzf-native.nvim",
+    path = "/Users/sinnrrr/.local/share/lunarvim/site/pack/packer/start/telescope-fzf-native.nvim",
     url = "https://github.com/nvim-telescope/telescope-fzf-native.nvim"
   },
   ["telescope.nvim"] = {
     config = { "\27LJ\2\nA\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\24lvim.core.telescope\frequire\0" },
     loaded = true,
-    path = "/Users/dmytro/.local/share/lunarvim/site/pack/packer/start/telescope.nvim",
+    path = "/Users/sinnrrr/.local/share/lunarvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   ["toggleterm.nvim"] = {
@@ -289,39 +285,44 @@ _G.packer_plugins = {
     loaded = false,
     needs_bufread = false,
     only_cond = false,
-    path = "/Users/dmytro/.local/share/lunarvim/site/pack/packer/opt/toggleterm.nvim",
+    path = "/Users/sinnrrr/.local/share/lunarvim/site/pack/packer/opt/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
   },
   ["tokyonight.nvim"] = {
     loaded = true,
-    path = "/Users/dmytro/.local/share/lunarvim/site/pack/packer/start/tokyonight.nvim",
+    path = "/Users/sinnrrr/.local/share/lunarvim/site/pack/packer/start/tokyonight.nvim",
     url = "https://github.com/folke/tokyonight.nvim"
   },
   ["vim-floaterm"] = {
     loaded = true,
-    path = "/Users/dmytro/.local/share/lunarvim/site/pack/packer/start/vim-floaterm",
+    path = "/Users/sinnrrr/.local/share/lunarvim/site/pack/packer/start/vim-floaterm",
     url = "https://github.com/voldikss/vim-floaterm"
   },
   ["vim-qml"] = {
     loaded = false,
     needs_bufread = true,
     only_cond = false,
-    path = "/Users/dmytro/.local/share/lunarvim/site/pack/packer/opt/vim-qml",
+    path = "/Users/sinnrrr/.local/share/lunarvim/site/pack/packer/opt/vim-qml",
     url = "https://github.com/peterhoeg/vim-qml"
   },
   ["vim-solidity"] = {
     loaded = true,
-    path = "/Users/dmytro/.local/share/lunarvim/site/pack/packer/start/vim-solidity",
+    path = "/Users/sinnrrr/.local/share/lunarvim/site/pack/packer/start/vim-solidity",
     url = "https://github.com/TovarishFin/vim-solidity"
   },
   ["vim-styled-components"] = {
     loaded = true,
-    path = "/Users/dmytro/.local/share/lunarvim/site/pack/packer/start/vim-styled-components",
+    path = "/Users/sinnrrr/.local/share/lunarvim/site/pack/packer/start/vim-styled-components",
     url = "https://github.com/styled-components/vim-styled-components"
+  },
+  ["vim-visual-multi"] = {
+    loaded = true,
+    path = "/Users/sinnrrr/.local/share/lunarvim/site/pack/packer/start/vim-visual-multi",
+    url = "https://github.com/mg979/vim-visual-multi"
   },
   ["vim-wakatime"] = {
     loaded = true,
-    path = "/Users/dmytro/.local/share/lunarvim/site/pack/packer/start/vim-wakatime",
+    path = "/Users/sinnrrr/.local/share/lunarvim/site/pack/packer/start/vim-wakatime",
     url = "https://github.com/wakatime/vim-wakatime"
   },
   ["which-key.nvim"] = {
@@ -329,7 +330,7 @@ _G.packer_plugins = {
     loaded = false,
     needs_bufread = false,
     only_cond = false,
-    path = "/Users/dmytro/.local/share/lunarvim/site/pack/packer/opt/which-key.nvim",
+    path = "/Users/sinnrrr/.local/share/lunarvim/site/pack/packer/opt/which-key.nvim",
     url = "https://github.com/folke/which-key.nvim"
   }
 }
@@ -363,18 +364,14 @@ if not vim.g.packer_custom_loader_enabled then
   vim.g.packer_custom_loader_enabled = true
 end
 
--- Config for: LuaSnip
-time([[Config for LuaSnip]], true)
-try_loadstring("\27LJ\2\nM\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\14lazy_load luasnip/loaders/from_vscode\frequire\0", "config", "LuaSnip")
-time([[Config for LuaSnip]], false)
+-- Config for: alpha-nvim
+time([[Config for alpha-nvim]], true)
+try_loadstring("\27LJ\2\n=\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\20lvim.core.alpha\frequire\0", "config", "alpha-nvim")
+time([[Config for alpha-nvim]], false)
 -- Config for: nvim-tree.lua
 time([[Config for nvim-tree.lua]], true)
 try_loadstring("\27LJ\2\n@\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\23lvim.core.nvimtree\frequire\0", "config", "nvim-tree.lua")
 time([[Config for nvim-tree.lua]], false)
--- Config for: project.nvim
-time([[Config for project.nvim]], true)
-try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\22lvim.core.project\frequire\0", "config", "project.nvim")
-time([[Config for project.nvim]], false)
 -- Config for: nvim-cmp
 time([[Config for nvim-cmp]], true)
 try_loadstring("\27LJ\2\n`\0\0\3\0\6\0\v6\0\0\0009\0\1\0009\0\2\0\15\0\0\0X\1\5€6\0\3\0'\2\4\0B\0\2\0029\0\5\0B\0\1\1K\0\1\0\nsetup\18lvim.core.cmp\frequire\bcmp\fbuiltin\tlvim\0", "config", "nvim-cmp")
@@ -383,37 +380,49 @@ time([[Config for nvim-cmp]], false)
 time([[Config for nvim-treesitter]], true)
 try_loadstring("\27LJ\2\nB\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\25lvim.core.treesitter\frequire\0", "config", "nvim-treesitter")
 time([[Config for nvim-treesitter]], false)
--- Config for: lualine.nvim
-time([[Config for lualine.nvim]], true)
-try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\22lvim.core.lualine\frequire\0", "config", "lualine.nvim")
-time([[Config for lualine.nvim]], false)
--- Config for: nvim-autopairs
-time([[Config for nvim-autopairs]], true)
-try_loadstring("\27LJ\2\nA\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\24lvim.core.autopairs\frequire\0", "config", "nvim-autopairs")
-time([[Config for nvim-autopairs]], false)
+-- Config for: project.nvim
+time([[Config for project.nvim]], true)
+try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\22lvim.core.project\frequire\0", "config", "project.nvim")
+time([[Config for project.nvim]], false)
 -- Config for: telescope.nvim
 time([[Config for telescope.nvim]], true)
 try_loadstring("\27LJ\2\nA\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\24lvim.core.telescope\frequire\0", "config", "telescope.nvim")
 time([[Config for telescope.nvim]], false)
+-- Config for: LuaSnip
+time([[Config for LuaSnip]], true)
+try_loadstring("\27LJ\2\nM\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\14lazy_load luasnip/loaders/from_vscode\frequire\0", "config", "LuaSnip")
+time([[Config for LuaSnip]], false)
+-- Config for: nvim-autopairs
+time([[Config for nvim-autopairs]], true)
+try_loadstring("\27LJ\2\nA\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\24lvim.core.autopairs\frequire\0", "config", "nvim-autopairs")
+time([[Config for nvim-autopairs]], false)
+-- Config for: nvim-notify
+time([[Config for nvim-notify]], true)
+try_loadstring("\27LJ\2\n>\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\21lvim.core.notify\frequire\0", "config", "nvim-notify")
+time([[Config for nvim-notify]], false)
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\22lvim.core.lualine\frequire\0", "config", "lualine.nvim")
+time([[Config for lualine.nvim]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
 vim.cmd [[au FileType rust ++once lua require("packer.load")({'rust-tools.nvim'}, { ft = "rust" }, _G.packer_plugins)]]
-vim.cmd [[au FileType qml ++once lua require("packer.load")({'vim-qml'}, { ft = "qml" }, _G.packer_plugins)]]
 vim.cmd [[au FileType rs ++once lua require("packer.load")({'rust-tools.nvim'}, { ft = "rs" }, _G.packer_plugins)]]
+vim.cmd [[au FileType qml ++once lua require("packer.load")({'vim-qml'}, { ft = "qml" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
   -- Event lazy-loads
 time([[Defining lazy-load event autocommands]], true)
-vim.cmd [[au BufWinEnter * ++once lua require("packer.load")({'bufferline.nvim', 'dashboard-nvim', 'toggleterm.nvim', 'which-key.nvim'}, { event = "BufWinEnter *" }, _G.packer_plugins)]]
-vim.cmd [[au BufRead * ++once lua require("packer.load")({'nvim-notify', 'gitsigns.nvim', 'Comment.nvim', 'vim-qml'}, { event = "BufRead *" }, _G.packer_plugins)]]
+vim.cmd [[au BufWinEnter * ++once lua require("packer.load")({'which-key.nvim', 'bufferline.nvim', 'toggleterm.nvim'}, { event = "BufWinEnter *" }, _G.packer_plugins)]]
 vim.cmd [[au BufReadPost * ++once lua require("packer.load")({'nvim-ts-context-commentstring'}, { event = "BufReadPost *" }, _G.packer_plugins)]]
+vim.cmd [[au BufRead * ++once lua require("packer.load")({'vim-qml', 'Comment.nvim', 'gitsigns.nvim'}, { event = "BufRead *" }, _G.packer_plugins)]]
 time([[Defining lazy-load event autocommands]], false)
 vim.cmd("augroup END")
 vim.cmd [[augroup filetypedetect]]
-time([[Sourcing ftdetect script at: /Users/dmytro/.local/share/lunarvim/site/pack/packer/opt/vim-qml/ftdetect/qml.vim]], true)
-vim.cmd [[source /Users/dmytro/.local/share/lunarvim/site/pack/packer/opt/vim-qml/ftdetect/qml.vim]]
-time([[Sourcing ftdetect script at: /Users/dmytro/.local/share/lunarvim/site/pack/packer/opt/vim-qml/ftdetect/qml.vim]], false)
+time([[Sourcing ftdetect script at: /Users/sinnrrr/.local/share/lunarvim/site/pack/packer/opt/vim-qml/ftdetect/qml.vim]], true)
+vim.cmd [[source /Users/sinnrrr/.local/share/lunarvim/site/pack/packer/opt/vim-qml/ftdetect/qml.vim]]
+time([[Sourcing ftdetect script at: /Users/sinnrrr/.local/share/lunarvim/site/pack/packer/opt/vim-qml/ftdetect/qml.vim]], false)
 vim.cmd("augroup END")
 if should_profile then save_profiles() end
 

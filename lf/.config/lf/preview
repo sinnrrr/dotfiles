@@ -7,7 +7,8 @@ case "$1" in
 *.tar.txz | *.txz) xz --list "$1" ;;
 *.tar) tar tf "$1" ;;
 *.zip | *.jar | *.war | *.ear | *.oxt) unzip -l "$1" ;;
-*.rar | *.7z) unar "$1" ;;
+*.rar) unrar l "$1" ;;
+*.7z) 7z l "$1" ;;
 *.[1-8]) man "$1" | col -b ;;
 *.o) nm "$1" | less ;;
 *.torrent) transmission-show "$1" ;;

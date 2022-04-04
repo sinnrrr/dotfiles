@@ -1,0 +1,14 @@
+# vim: filetype=sh
+alias cf="cd /Users/sinnrrr/.config && ls -a" \
+D="cd /Users/sinnrrr/Downloads && ls -a" \
+d="cd /Users/sinnrrr/Documents && ls -a" \
+dt="cd /Users/sinnrrr/.local/share && ls -a" \
+h="cd /Users/sinnrrr && ls -a" \
+sc="cd /Users/sinnrrr/.local/bin && ls -a" \
+src="cd /Users/sinnrrr/.local/src && ls -a" \
+bf="$EDITOR /Users/sinnrrr/.config/shell/bm-files" \
+bd="$EDITOR /Users/sinnrrr/.config/shell/bm-dirs" \
+cfz="$EDITOR /Users/sinnrrr/.config/zsh/.zshrc" \
+cfa="$EDITOR /Users/sinnrrr/.config/shell/aliasrc" \
+cfp="$EDITOR /Users/sinnrrr/.config/shell/profile" \
+cfl="$EDITOR /Users/sinnrrr/.config/lf/lfrc" \

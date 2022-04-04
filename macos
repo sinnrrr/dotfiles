@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+USER_APPS=""
+
+ROOT_APPS="
+nvim,lf,
+bin,lvim,
+alacritty,
+karabiner,skhd,yabai,
+shell,zsh"
+
+ROOT_APPS=$ROOT_APPS USER_APPS=$USER_APPS $(dirname $(realpath $0))/install "$@"

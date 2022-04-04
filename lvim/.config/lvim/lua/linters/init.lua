@@ -10,6 +10,12 @@ linters.setup {
       "vue",
     }
   },
-  qml = { "qmllint" },
-  lua = { "selene" }
+  {
+    command = "flake8",
+    filetypes = { "python" }
+  },
+  {
+    command = "qmllint",
+    filetypes = { "qml", "ui" }
+  },
 }

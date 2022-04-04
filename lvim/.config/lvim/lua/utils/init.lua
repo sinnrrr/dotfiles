@@ -37,7 +37,7 @@ local function update_wakatime()
             assert(not err, err)
             if data then
                 -- print("stdout chunk", data)
-                currenttime = " " .. data:sub(1, #data - 2) .. " "
+                currenttime = " " .. data:sub(1, #data - 2) 
             end
         end
     )
