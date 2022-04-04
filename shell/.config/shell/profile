@@ -4,7 +4,7 @@
 export EDITOR="lvim"
 export VISUAL="lvim"
 export TERMINAL="alacritty"
-export BROWSER="chrome"
+export BROWSER="open-browser"
 
 # ~/ Clean-up:
 export XDG_CONFIG_HOME="$HOME/.config"

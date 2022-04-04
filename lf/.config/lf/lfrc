@@ -1,7 +1,7 @@
 #!/bin/sh
 
 set shell zsh
-set shellopts '-ei'
+set shellopts '-euy'
 set ifs "\n"
 set scrolloff 10
 set drawbox
@@ -15,7 +15,7 @@ cmd open ${{
     case $(file --mime-type $f -b) in
         text/*) $EDITOR $fx;;
         video/*) vlc $f;;
-        application/pdf) chrome $f;;
+        image/vnd.djvu|application/pdf|application/octet-stream|application/postscript|application/pdf|application/epub*) $BROWSER "$fx" ;;
         *) for f in $fx; do setsid $OPENER $f > /dev/null 2> /dev/null & done;;
     esac
 }}
