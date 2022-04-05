@@ -42,6 +42,7 @@ source "${XDG_CONFIG_HOME:-$HOME/.config}/lf/icons"
 path=(
   /usr/local/{bin,sbin}
   /opt/homebrew/bin
+  /opt/homebrew/opt/coreutils/libexec/gnubin
   /opt/homebrew/opt/util-linux/{bin,sbin}
   $HOME/.poetry/bin
   $CARGO_HOME/bin
