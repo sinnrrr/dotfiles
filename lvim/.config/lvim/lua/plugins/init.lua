@@ -10,6 +10,7 @@ lvim.plugins = {
   { "sohkai/syntastic-local-solhint" },
   { "styled-components/vim-styled-components" },
   { "mg979/vim-visual-multi" },
+  { "kevinhwang91/nvim-bqf" },
   {
     "simrat39/rust-tools.nvim",
     config = require("plugins.rust_tools").config,

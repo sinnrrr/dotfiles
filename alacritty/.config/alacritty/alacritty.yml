@@ -1,10 +1,12 @@
+### Window
 window:
-  decorations: "Buttonless"
+  decorations: Buttonless
   opacity: 0.95
   padding:
     x: 6
     y: 6
 
+### Font
 font:
   # Normal (roman) font face
   normal:
@@ -24,5 +26,13 @@ font:
   # Point size
   size: 14
 
+draw_bold_text_with_bright_colors: true
+
+### Keybinds
 key_bindings:
   - { key: Space,    mods: Command|Option|Control,    action: ToggleViMode }
+
+### Theme
+import:
+  - ~/.config/alacritty/tokyonight.yml
+

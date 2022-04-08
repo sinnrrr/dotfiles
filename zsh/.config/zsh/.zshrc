@@ -24,7 +24,11 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
-[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+# p10k
+P10K_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/zsh/.p10k.zsh"
+[[ ! -f $P10K_PATH ]] || source $P10K_PATH
 
-export PATH="$HOME/.poetry/bin:$PATH"
+# fzf
+FZF_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/fzf/.fzf.zsh"
+[[ ! -f $FZF_PATH ]] || source $FZF_PATH
+

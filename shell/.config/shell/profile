@@ -10,6 +10,7 @@ export BROWSER="open-browser"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
+export WORK_HOME="$HOME/Work"
 export WAKATIME_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/wakatime"
 export XINITRC="${XDG_CONFIG_HOME:-$HOME/.config}/x11/xinitrc"
 export NOTMUCH_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/notmuch-config"
@@ -37,7 +38,7 @@ export ELECTRUMDIR="${XDG_DATA_HOME:-$HOME/.local/share}/electrum"
 
 # This is the list for lf icons:
 source "${XDG_CONFIG_HOME:-$HOME/.config}/lf/icons"
-[ ! -f ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ] && $HOME/.local/bin/shortcuts >/dev/null 2>&1 &
+[ ! -f ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ] && shortcutsg >/dev/null 2>&1 &
 
 path=(
   /usr/local/{bin,sbin}

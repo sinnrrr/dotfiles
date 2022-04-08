@@ -13,6 +13,9 @@ lvim.colorscheme = "tokyonight"
 lvim.leader = "space"
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 
+lvim.lsp.diagnostics.float.focusable = true
+lvim.lsp.float.focusable = true
+
 vim.g.NERDTreeHijackNetrw = 0
 vim.g.lf_replace_netrw = 1
 vim.g.lf_map_keys = 0

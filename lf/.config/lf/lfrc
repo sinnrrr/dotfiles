@@ -15,7 +15,7 @@ cmd open ${{
     case $(file --mime-type $f -b) in
         text/*) $EDITOR $fx;;
         video/*) vlc $f;;
-        image/vnd.djvu|application/pdf|application/octet-stream|application/postscript|application/pdf|application/epub*) $BROWSER "$fx" ;;
+        image/vnd.djvu|application/pdf|application/octet-stream|application/postscript|application/pdf|application/epub*) $BROWSER "$(printf %q "$f")"  ;;
         *) for f in $fx; do setsid $OPENER $f > /dev/null 2> /dev/null & done;;
     esac
 }}
@@ -23,6 +23,8 @@ cmd open ${{
 # move current file or selected files to trash folder
 # (also see 'man mv' for backup/overwrite options)
 cmd trash %set -f; mv $fx ~/.trash
+
+cmd share $curl -F"file=@$fx" https://0x0.st | pbcopy
 
 # define a custom 'delete' command
 cmd delete ${{
@@ -34,22 +36,139 @@ cmd delete ${{
 }}
 
 # use '<delete>' key for either 'trash' or 'delete' command
-# map <delete> trash
 
 cmd extract ${{
     set -f
     unar $f
 }}
 
+cmd touch %{{
+    mkdir -p "$(dirname "$*")" && touch -- "$*"
+    lf -remote "send $id select \"$*\""
+}}
+
+cmd mkdir %{{
+    mkdir -p "$@"
+    lf -remote "send $id select \"$@\""
+}}
+
+cmd paste &{{
+    set -- $(cat ~/.local/share/lf/files)
+    mode="$1"
+    shift
+    case "$mode" in
+        copy)
+            rsync -av --ignore-existing --progress -- "$@" . |
+            stdbuf -i0 -o0 -e0 tr '\r' '\n' |
+            while IFS= read -r line; do
+                lf -remote "send $id echo $line"
+            done
+            ;;
+        move) mv -n -- "$@" .;;
+    esac
+    rm ~/.local/share/lf/files
+    lf -remote "send clear"
+}}
+
+cmd recol ${{
+    w=$(tput cols)
+    if [ $w -le 80 ]; then
+        lf -remote "send $id set ratios 1:2"
+    elif [ $w -le 160 ]; then
+        lf -remote "send $id set ratios 1:2:3"
+    else
+        lf -remote "send $id set ratios 1:2:3:5"
+    fi
+}}
+
+cmd poetry_lvim ${{
+  if [ -d "$f" ]; then
+   cd $f 
+  fi
+  poetry run lvim $f
+}}
+
+cmd fzf-restore ${{
+    ids="$(echo -ne '\n'              | \
+      trash-restore                   | \
+      awk '$1 ~ /^[0-9]+/ {print $0}' | \
+      fzf --multi                     | \
+      awk '{print $1}'                | \
+      sed -z 's/\n/,/g;s/,$/\n/')"
+    echo $ids | trash-restore 
+    clear
+}}
+
+cmd fzf_search ${{
+    res="$( \
+        RG_PREFIX="rg --column --line-number --no-heading --color=always \
+            --smart-case "
+        FZF_DEFAULT_COMMAND="$RG_PREFIX ''" \
+            fzf --bind "change:reload:$RG_PREFIX {q} || true" \
+            --ansi --layout=reverse --header 'Search in files' \
+            | cut -d':' -f1
+    )"
+    [ ! -z "$res" ] && lf -remote "send $id select \"$res\""
+}}
+
+cmd fzf_jump ${{
+    res="$(find . | fzf --reverse --header='Jump to location' | sed 's/\\/\\\\/g;s/"/\\"/g')"
+    if [ -d "$res" ]; then
+        cmd="cd"
+    else 
+        cmd="select"                                                       
+    fi
+    lf -remote "send $id $cmd \"$res\""
+}}
+
+# Copy the file names (including extension) of the selections separated by \n
+cmd copy-filename ${{
+  names="$(echo $fx | tr ' ' '\n' | xargs -I{} basename {})"
+  echo $names | tr ' ' '\n' | pbcopy
+}}
+
+# Copy the absolute paths of selections separated by \n
+cmd copy-absolute-path ${{
+  echo $fx | tr ' ' '\n' | pbcopy
+}}
+
+cmd chmod ${{
+  printf "\nMode Bits: "
+  for file in "$fx"
+  do
+    chmod $* $file
+  done
+  lf -remote 'send reload'
+}}
+
+recol
+
+map ,
+map d
+
 map <enter> shell
 map <delete> delete
-map x $$f
+map x cut
 map X !$f
+map R recol 
+map yy copy
+map yn copy-filename
+map yP copy-absolute-path
+map U fzf-restore
+map ,ch push :chmod<space>
+map ,st :fzf_search
+map ,S :share
+map ,f :fzf_jump
+map ,t push :tar<space>
+map ,ll $lvim +"lua require('persistence').load({ last = true })"
+map ,e :extract
 map ee $$EDITOR "$f"
+map gp poetry_lvim
 map D trash
-map o &mimeopen $f
-map O $mimeopen --ask $f
+map o $open $f
 map ZZ quit
+map A push :mkdir<space>
+map a push :touch<space>
 
 # Shortcuts
 source "~/.config/lf/shortcutrc"
