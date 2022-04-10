@@ -10,8 +10,10 @@ lvim.format_on_save = true
 lvim.lint_on_save = true
 lvim.colorscheme = "tokyonight"
 
-lvim.leader = "space"
+lvim.leader = ","
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+
+lvim.builtin.which_key.mappings["e"] = { "<cmd>Lf<cr>", "Explorer" }
 
 lvim.lsp.diagnostics.float.focusable = true
 lvim.lsp.float.focusable = true

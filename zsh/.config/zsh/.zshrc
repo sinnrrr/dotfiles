@@ -24,6 +24,10 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+# to fix % on the terminal start (sometimes during yabai resizing)
+setopt PROMPT_SP
+export PROMPT_EOL_MARK=""
+
 # p10k
 P10K_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/zsh/.p10k.zsh"
 [[ ! -f $P10K_PATH ]] || source $P10K_PATH

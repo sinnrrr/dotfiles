@@ -13,8 +13,10 @@ set previewer ~/.config/lf/preview
 cmd open ${{
     test -L $f && f=$(readlink -f $f)
     case $(file --mime-type $f -b) in
-        text/*) $EDITOR $fx;;
-        video/*) vlc $f;;
+        text/*|application/json|inode/x-empty) $EDITOR $fx;;
+        image/svg+xml) display -- $f ;;
+        audio/*) mpv --audio-display=no $f ;;
+        video/*) setsid -f mpv $f -quiet >/dev/null 2>&1 ;;
         image/vnd.djvu|application/pdf|application/octet-stream|application/postscript|application/pdf|application/epub*) $BROWSER "$(printf %q "$f")"  ;;
         *) for f in $fx; do setsid $OPENER $f > /dev/null 2> /dev/null & done;;
     esac
@@ -22,7 +24,7 @@ cmd open ${{
 
 # move current file or selected files to trash folder
 # (also see 'man mv' for backup/overwrite options)
-cmd trash %set -f; mv $fx ~/.trash
+cmd trash %trash-put $fx
 
 cmd share $curl -F"file=@$fx" https://0x0.st | pbcopy
 
@@ -50,24 +52,6 @@ cmd touch %{{
 cmd mkdir %{{
     mkdir -p "$@"
     lf -remote "send $id select \"$@\""
-}}
-
-cmd paste &{{
-    set -- $(cat ~/.local/share/lf/files)
-    mode="$1"
-    shift
-    case "$mode" in
-        copy)
-            rsync -av --ignore-existing --progress -- "$@" . |
-            stdbuf -i0 -o0 -e0 tr '\r' '\n' |
-            while IFS= read -r line; do
-                lf -remote "send $id echo $line"
-            done
-            ;;
-        move) mv -n -- "$@" .;;
-    esac
-    rm ~/.local/share/lf/files
-    lf -remote "send clear"
 }}
 
 cmd recol ${{
