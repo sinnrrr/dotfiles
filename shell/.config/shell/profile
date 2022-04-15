@@ -43,8 +43,6 @@ source "${XDG_CONFIG_HOME:-$HOME/.config}/lf/icons"
 path=(
   /usr/local/{bin,sbin}
   /opt/homebrew/bin
-  /opt/homebrew/opt/coreutils/libexec/gnubin
-  /opt/homebrew/opt/util-linux/{bin,sbin}
   $HOME/.poetry/bin
   $CARGO_HOME/bin
   $path
@@ -57,3 +55,9 @@ export PATH="$PATH:${paths}"
 # Adds yarn global modules to $PATH
 export PATH="$(yarn global bin):$PATH"
 
+export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+export PATH="/opt/homebrew/opt/util-linux/bin:$PATH"
+export PATH="/opt/homebrew/opt/util-linux/sbin:$PATH"
+export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
+
+. "/Users/sinnrrr/.local/share/cargo/env"
