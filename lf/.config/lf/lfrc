@@ -128,11 +128,10 @@ cmd chmod ${{
 recol
 
 map ,
-map d
 
-map <enter> shell
+map <enter> rename
 map <delete> delete
-map x cut
+map x shell
 map X !$f
 map R recol 
 map yy copy

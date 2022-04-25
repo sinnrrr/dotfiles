@@ -17,7 +17,18 @@ ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 
 plugins=( 
+  ansible
+  aws
+  brew
+  docker
+  dotenv
+  heroku
   git
+  fzf
+  rust
+  pip
+  poetry
+  yarn
   zsh-autosuggestions
   zsh-syntax-highlighting
 )

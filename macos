@@ -3,8 +3,7 @@
 USER_APPS=""
 
 ROOT_APPS="
-lf,
-lvim,
+lf,lvim,karabiner,
 alacritty,
 skhd,yabai,
 shell,zsh"

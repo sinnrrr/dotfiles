@@ -1,4 +1,4 @@
-vim.list_extend(lvim.lsp.override, { "rust_analyzer" })
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "rust_analyzer" })
 lvim.plugins = {
 	{ "ptzz/lf.vim" },
 	{ "voldikss/vim-floaterm" },
@@ -8,8 +8,20 @@ lvim.plugins = {
 	{ "jose-elias-alvarez/nvim-lsp-ts-utils" },
 	{ "TovarishFin/vim-solidity" },
 	{ "sohkai/syntastic-local-solhint" },
-	{ "styled-components/vim-styled-components" },
+	{ "tyru/open-browser.vim" },
+	{ "aklt/plantuml-syntax" },
+	{ "scrooloose/vim-slumlord" },
+	{ "weirongxu/plantuml-previewer.vim" },
 	{ "mg979/vim-visual-multi" },
+	{ "pearofducks/ansible-vim" },
+	{ "godlygeek/tabular" },
+	{ "preservim/vim-markdown" },
+	{
+		"tzachar/cmp-tabnine",
+		run = "./install.sh",
+		requires = "hrsh7th/nvim-cmp",
+		event = "InsertEnter",
+	},
 	{
 		"iamcco/markdown-preview.nvim",
 		run = "cd app && npm install",

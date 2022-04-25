@@ -1,17 +1,14 @@
 -- General configuration
-require "options"
+require("options")
 
 -- Configure plugins
-require "plugins"
+require("plugins")
 
 -- Commands
-require "commands"
-
--- LSP
-require "lsp"
+require("commands")
 
 -- Formatters configuration
-require "formatters"
+require("formatters")
 
 -- Linters configuration
-require "linters"
+require("linters")

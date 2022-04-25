@@ -1,14 +1,15 @@
 # You can add comments to these files with #
-cf  ${XDG_CONFIG_HOME:-$HOME/.config}
-D   ${XDG_DOWNLOAD_DIR:-$HOME/Downloads}
-d   ${XDG_DOCUMENTS_DIR:-$HOME/Documents}
-dt  ${XDG_DATA_HOME:-$HOME/.local/share}
-h   $HOME
-sc  $HOME/.local/bin
-src $HOME/.local/src
+cf   ${XDG_CONFIG_HOME:-$HOME/.config}
+D    ${XDG_DOWNLOAD_DIR:-$HOME/Downloads}
+d    ${XDG_DOCUMENTS_DIR:-$HOME/Documents}
+dt   ${XDG_DATA_HOME:-$HOME/.local/share}
+h    $HOME
+sc   $HOME/.local/bin
+src  $HOME/.local/src
+
+opn  ${WORK_HOME:-$HOME/Work}/labs/12/nm
+opo  ${WORK_HOME:-$HOME/Work}/labs/12/oop
+opp  ${WORK_HOME:-$HOME/Work}/labs/12/physics
 
 work ${WORK_HOME:-$HOME/Work}
-opn ${WORK_HOME:-$HOME/Work}/labs/12/nm
-opo ${WORK_HOME:-$HOME/Work}/labs/12/oop
-opp ${WORK_HOME:-$HOME/Work}/labs/12/physics
-
+ocu  ${WORK_HOME:-$HOME/Work}/commercial/unrivedsdk

@@ -1,4 +1,4 @@
-vim.list_extend(lvim.lsp.override, { "tsserver" })
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "tsserver" })
 require("lvim.lsp.manager").setup("tsserver", {
 	-- Needed for inlayHints. Merge this table with your settings or copy
 	-- it from the source if you want to add your own init_options.

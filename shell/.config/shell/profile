@@ -35,6 +35,7 @@ export HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/history"
 export WEECHAT_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/weechat"
 export MBSYNCRC="${XDG_CONFIG_HOME:-$HOME/.config}/mbsync/config"
 export ELECTRUMDIR="${XDG_DATA_HOME:-$HOME/.local/share}/electrum"
+export ANSIBLE_INVENTORY="${XDG_CONFIG_HOME:-$HOME/.config}/ansible/static-inventory.ini"
 
 # This is the list for lf icons:
 source "${XDG_CONFIG_HOME:-$HOME/.config}/lf/icons"
@@ -43,6 +44,7 @@ source "${XDG_CONFIG_HOME:-$HOME/.config}/lf/icons"
 path=(
   /usr/local/{bin,sbin}
   /opt/homebrew/bin
+  /opt/homebrew/opt/openjdk/bin 
   $HOME/.poetry/bin
   $CARGO_HOME/bin
   $path
