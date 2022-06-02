@@ -1,2 +1,2 @@
-au BufRead,BufNewFile *.env.* setfiletype sh
+au BufRead,BufNewFile *.env, .env.*, *.env.* setfiletype dotenv
 

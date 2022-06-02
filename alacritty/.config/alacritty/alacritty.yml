@@ -1,7 +1,6 @@
 ### Window
 window:
   decorations: Buttonless
-  opacity: 0.95
   padding:
     x: 6
     y: 6

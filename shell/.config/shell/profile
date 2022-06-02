@@ -37,6 +37,11 @@ export MBSYNCRC="${XDG_CONFIG_HOME:-$HOME/.config}/mbsync/config"
 export ELECTRUMDIR="${XDG_DATA_HOME:-$HOME/.local/share}/electrum"
 export ANSIBLE_INVENTORY="${XDG_CONFIG_HOME:-$HOME/.config}/ansible/static-inventory.ini"
 
+export DOCKER_DEFAULT_PLATFORM="linux/amd64"  
+
+export ZSH_DOTENV_PROMPT=false
+export ZSH_DOTENV_FILE=".env.contracts"
+
 # This is the list for lf icons:
 source "${XDG_CONFIG_HOME:-$HOME/.config}/lf/icons"
 [ ! -f ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ] && shortcutsg >/dev/null 2>&1 &
@@ -47,6 +52,7 @@ path=(
   /opt/homebrew/opt/openjdk/bin 
   $HOME/.poetry/bin
   $CARGO_HOME/bin
+  $GOPATH/bin
   $path
 )
 

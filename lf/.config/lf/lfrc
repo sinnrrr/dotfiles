@@ -116,6 +116,10 @@ cmd copy-absolute-path ${{
   echo $fx | tr ' ' '\n' | pbcopy
 }}
 
+cmd copy-highlighted-file ${{
+  highlight $fx -O rtf --font-size 10 --font Consolas,\'Courier\ New\' | pbcopy
+}}
+
 cmd chmod ${{
   printf "\nMode Bits: "
   for file in "$fx"
@@ -145,6 +149,7 @@ map ,f :fzf_jump
 map ,t push :tar<space>
 map ,ll $lvim +"lua require('persistence').load({ last = true })"
 map ,e :extract
+map ,cc copy-highlighted-file
 map ee $$EDITOR "$f"
 map gp poetry_lvim
 map D trash

@@ -1,7 +1,9 @@
-lvim.autocommands.custom_groups = {
-	-- Organize typescript packages
-	{ "BufWrite", "*.ts,*.tsx", ":TSLspOrganizeSync" },
+vim.api.nvim_create_autocmd("BufWrite", {
+	pattern = { "*.ts", "*.tsx" },
+	command = ":TSLspOrganizeSync",
+})
 
-	-- Formate tables on markdown save
-	{ "BufWrite", "*.md", ":silent! TableFormat" },
-}
+vim.api.nvim_create_autocmd("VimResized", {
+	pattern = { "*" },
+	command = "FloatermUpdate",
+})

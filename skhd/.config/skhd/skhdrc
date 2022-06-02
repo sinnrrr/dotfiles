@@ -1,7 +1,9 @@
 # apps shortcuts
 ctrl + alt + cmd - return : open -n /Applications/Alacritty.app
 ctrl + alt + cmd + shift - return : "${HOME}/.config/skhd/quick_terminal.sh"
-ctrl + alt + cmd - b : open-browser
+
+ctrl + alt + cmd - b : "${HOME}/.local/bin/open-browser" 
+ctrl + alt + cmd - c : "${HOME}/.local/bin/open-browser https://calendar.google.com/u/0"
 
 # change layouts
 ctrl + alt + cmd - t : yabai -m space --layout bsp; ~/.config/yabai/scripts/smart_gaps.sh

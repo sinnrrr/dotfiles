@@ -21,6 +21,7 @@ plugins=(
   aws
   brew
   docker
+  docker-compose
   dotenv
   heroku
   git
@@ -29,6 +30,7 @@ plugins=(
   pip
   poetry
   yarn
+  terraform
   zsh-autosuggestions
   zsh-syntax-highlighting
 )
@@ -46,4 +48,6 @@ P10K_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/zsh/.p10k.zsh"
 # fzf
 FZF_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/fzf/.fzf.zsh"
 [[ ! -f $FZF_PATH ]] || source $FZF_PATH
+
+bindkey -v;
 
