@@ -52,6 +52,7 @@ yabai -m rule --add label="KeePassXC" app="^KeePassXC$" manage=off
 yabai -m rule --add label="Calculator" app="^Calculator$" manage=off
 yabai -m rule --add label="Dictionary" app="^Dictionary$" manage=off
 # yabai -m rule --add label="Spark" app="^Spark$" manage=off
+yabai -m rule --add label="Slack" app="^Slack$" manage=off
 yabai -m rule --add label="OBS" app="^OBS$" manage=off
 yabai -m rule --add label="mpv" app="^mpv$" manage=off
 yabai -m rule --add label="Software Update" title="Software Update" manage=off
