@@ -1,3 +1,6 @@
+lvim.builtin.treesitter.ensure_installed = "all"
+lvim.builtin.treesitter.ignore_install = { "phpdoc" } -- some bug on m1
+
 lvim.builtin.treesitter.textobjects = {
   -- lsp_interop = {
   --      enable = true,
@@ -48,8 +51,8 @@ lvim.builtin.treesitter.rainbow = {
   },
 }
 
-local parser_configs = require("nvim-treesitter.parsers").get_parser_configs()
-parser_configs.hcl = {
-  filetype = "hcl",
-  "terraform",
-}
+-- local parser_configs = require("nvim-treesitter.parsers").get_parser_configs()
+-- parser_configs.hcl = {
+--   filetype = "hcl",
+--   "terraform",
+-- }

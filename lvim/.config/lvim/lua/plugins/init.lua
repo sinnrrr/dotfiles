@@ -20,6 +20,27 @@ lvim.plugins = {
   { "tpope/vim-surround" },
   { "nicwest/vim-http" },
   {
+    "karb94/neoscroll.nvim",
+    config = function()
+      require("neoscroll").setup({
+        easing_function = "quadratic",
+      })
+    end,
+    event = "BufRead",
+  },
+  { "norcalli/nvim-colorizer.lua" },
+  {
+    "ruifm/gitlinker.nvim",
+    config = function()
+      require("gitlinker").setup({
+        opts = {
+          print_url = false,
+        },
+      })
+    end,
+    event = "BufRead",
+  },
+  {
     "tzachar/cmp-tabnine",
     run = "./install.sh",
     requires = "hrsh7th/nvim-cmp",
