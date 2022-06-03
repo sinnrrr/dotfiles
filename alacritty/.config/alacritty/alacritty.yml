@@ -1,4 +1,4 @@
-### Window
+---
 window:
   decorations: Buttonless
   padding:
@@ -25,13 +25,12 @@ font:
   # Point size
   size: 14
 
-draw_bold_text_with_bright_colors: true
+# draw_bold_text_with_bright_colors: true
 
 ### Keybinds
 key_bindings:
-  - { key: Space,    mods: Command|Option|Control,    action: ToggleViMode }
+  - { key: Space, mods: Command|Option|Control, action: ToggleViMode }
 
 ### Theme
 import:
   - ~/.config/alacritty/tokyonight.yml
-
