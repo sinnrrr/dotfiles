@@ -12,3 +12,6 @@ require("formatters")
 
 -- Linters configuration
 require("linters")
+
+-- Other
+require("utils.wakatime").setup()

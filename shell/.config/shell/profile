@@ -15,6 +15,7 @@ export WAKATIME_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/wakatime"
 export XINITRC="${XDG_CONFIG_HOME:-$HOME/.config}/x11/xinitrc"
 export NOTMUCH_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/notmuch-config"
 export GTK2_RC_FILES="${XDG_CONFIG_HOME:-$HOME/.config}/gtk-2.0/gtkrc-2.0"
+export THEMESWITCH_CONFIG_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/themeswitch/config"
 export LESSHISTFILE="-"
 export NETRC="${XDG_CONFIG_HOME:-$HOME/.config}/net/netrc"
 export WGETRC="${XDG_CONFIG_HOME:-$HOME/.config}/wget/wgetrc"
@@ -41,6 +42,11 @@ export DOCKER_DEFAULT_PLATFORM="linux/amd64"
 
 export ZSH_DOTENV_PROMPT=false
 export ZSH_DOTENV_FILE=".env.contracts"
+
+export NEOVIDE_FRAMELESS=true
+export NEOVIDE_MULTIGRID=true
+export NEOVIDE_FRAME=none
+
 
 # This is the list for lf icons:
 source "${XDG_CONFIG_HOME:-$HOME/.config}/lf/icons"

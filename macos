@@ -3,9 +3,20 @@
 USER_APPS=""
 
 ROOT_APPS="
-lf,lvim,karabiner,
-alacritty,k9s,
-skhd,yabai,
-shell,zsh"
+alacritty,
+k9s,
+karabiner,
+lazydocker,
+lazygit,
+lf,
+lvim,
+nvim,
+shell,
+skhd,
+yabai,
+yamllint,
+zsh,
+themeswitch
+"
 
 ROOT_APPS=$ROOT_APPS USER_APPS=$USER_APPS $(dirname $(realpath $0))/install "$@"

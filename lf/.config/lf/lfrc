@@ -1,5 +1,3 @@
-#!/bin/sh
-
 set shell zsh
 set shellopts '-euy'
 set ifs "\n"
@@ -133,9 +131,9 @@ recol
 
 map ,
 
-map <enter> rename
+map <enter> shell
 map <delete> delete
-map x shell
+# map x shell
 map X !$f
 map R recol 
 map yy copy

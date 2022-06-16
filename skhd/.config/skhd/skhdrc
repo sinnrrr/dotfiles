@@ -6,8 +6,8 @@ ctrl + alt + cmd - b : "${HOME}/.local/bin/open-browser"
 ctrl + alt + cmd - c : "${HOME}/.local/bin/open-browser https://calendar.google.com/u/0"
 
 # change layouts
-ctrl + alt + cmd - t : yabai -m space --layout bsp; ~/.config/yabai/scripts/smart_gaps.sh
-ctrl + alt + cmd - u : yabai -m space --layout stack; ~/.config/yabai/scripts/smart_gaps.sh
+# ctrl + alt + cmd - t : yabai -m space --layout bsp; ~/.config/yabai/scripts/smart_gaps.sh
+# ctrl + alt + cmd - u : yabai -m space --layout stack; ~/.config/yabai/scripts/smart_gaps.sh
 
 # focus window
 ctrl + alt + cmd - x : yabai -m window --focus recent
@@ -96,3 +96,5 @@ ctrl + alt + cmd + shift - 9 : yabai -m window --space  9; yabai -m space --focu
 ctrl + alt + cmd + shift - g : yabai -m window --space prev; yabai -m space --focus prev
 # maps to ;
 ctrl + alt + cmd + shift - 0x29 : yabai -m window --space next; yabai -m space --focus next
+
+ctrl + alt + cmd + shift - t : "${HOME}/.local/bin/switch-theme"

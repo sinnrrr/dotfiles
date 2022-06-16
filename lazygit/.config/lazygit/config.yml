@@ -1,6 +1,8 @@
 ---
 gui:
   showIcons: true
+  theme:
+    lightTheme: true
 keybinding:
   universal:
     scrollLeft: 'h'

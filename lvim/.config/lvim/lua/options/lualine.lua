@@ -1,3 +1,3 @@
-local utils = require("utils")
+local wakatime = require("utils.wakatime")
 
-lvim.builtin.lualine.sections.lualine_y = { utils.get_wakatime }
+lvim.builtin.lualine.sections.lualine_y = { wakatime.get_wakatime }
