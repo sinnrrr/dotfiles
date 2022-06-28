@@ -16,9 +16,10 @@ lvim.format_on_save = true
 lvim.lint_on_save = true
 
 lvim.colorscheme = "onedark"
+lvim.builtin.project.detection_methods = { "lsp" }
 
 vim.g.onedark_config = {
-	style = "darker",
+  style = "darker",
 }
 vim.g.tokyonight_style = "day"
 
@@ -35,10 +36,10 @@ vim.g.vim_markdown_folding_disabled = 1
 vim.g.vim_http_tempbuffer = 1
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-	underline = true,
-	virtual_text = {
-		spacing = 5,
-		severity_limit = "Warning",
-	},
-	update_in_insert = true,
+  underline = true,
+  virtual_text = {
+    spacing = 5,
+    severity_limit = "Warning",
+  },
+  update_in_insert = true,
 })

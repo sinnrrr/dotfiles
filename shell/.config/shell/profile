@@ -37,6 +37,7 @@ export WEECHAT_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/weechat"
 export MBSYNCRC="${XDG_CONFIG_HOME:-$HOME/.config}/mbsync/config"
 export ELECTRUMDIR="${XDG_DATA_HOME:-$HOME/.local/share}/electrum"
 export ANSIBLE_INVENTORY="${XDG_CONFIG_HOME:-$HOME/.config}/ansible/static-inventory.ini"
+export DENO_INSTALL="${XDG_DATA_HOME:-$HOME/.local/share}/deno"
 
 export DOCKER_DEFAULT_PLATFORM="linux/amd64"  
 
@@ -57,7 +58,9 @@ path=(
   /opt/homebrew/bin
   /opt/homebrew/opt/openjdk/bin 
   $HOME/.poetry/bin
+  $HOME/.emacs.d/bin
   $CARGO_HOME/bin
+  $DENO_INSTALL/bin
   $GOPATH/bin
   $path
 )
@@ -73,5 +76,3 @@ export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="/opt/homebrew/opt/util-linux/bin:$PATH"
 export PATH="/opt/homebrew/opt/util-linux/sbin:$PATH"
 export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
-
-. "/Users/sinnrrr/.local/share/cargo/env"

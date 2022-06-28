@@ -26,6 +26,8 @@ cmd trash %trash-put $fx
 
 cmd share $curl -F"file=@$fx" https://0x0.st | pbcopy
 
+cmd lazygit $lazygit
+
 # define a custom 'delete' command
 cmd delete ${{
     set -f
@@ -142,6 +144,7 @@ map yP copy-absolute-path
 map U fzf-restore
 map ,ch push :chmod<space>
 map ,st :fzf_search
+map ,gg lazygit
 map ,S :share
 map ,f :fzf_jump
 map ,t push :tar<space>

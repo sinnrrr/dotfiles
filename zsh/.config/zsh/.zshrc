@@ -49,5 +49,5 @@ P10K_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/zsh/.p10k.zsh"
 FZF_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/fzf/.fzf.zsh"
 [[ ! -f $FZF_PATH ]] || source $FZF_PATH
 
-bindkey -v;
-
+bindkey -v
+unsetopt correct_all

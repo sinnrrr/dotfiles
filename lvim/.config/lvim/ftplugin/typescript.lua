@@ -1,3 +1,30 @@
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "denols" })
+require("lvim.lsp.manager").setup("denols", {
+  cmd = {
+    "deno",
+    "lsp",
+  },
+  filetypes = {
+    "javascript",
+    "javascriptreact",
+    "javascript.jsx",
+    "typescript",
+    "typescriptreact",
+    "typescript.tsx",
+  },
+  init_options = {
+    enable = true,
+    lint = true,
+    unstable = false,
+  },
+  root_dir = require("lspconfig").util.root_pattern(
+    "deno.json",
+    "import_map.json",
+    "script.config.ts",
+    "script.config.js"
+  ),
+})
+
 vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "tsserver" })
 require("lvim.lsp.manager").setup("tsserver", {
   -- Needed for inlayHints. Merge this table with your settings or copy

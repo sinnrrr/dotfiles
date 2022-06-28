@@ -20,6 +20,10 @@ lvim.plugins = {
 	{ "ianding1/leetcode.vim" },
 	{ "tpope/vim-surround" },
 	{ "nicwest/vim-http" },
+	{
+		"xuhdev/vim-latex-live-preview",
+		ft = "tex",
+	},
 	-- {
 	-- 	"karb94/neoscroll.nvim",
 	-- 	config = function()
