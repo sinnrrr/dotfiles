@@ -24,15 +24,44 @@ lvim.plugins = {
 		"xuhdev/vim-latex-live-preview",
 		ft = "tex",
 	},
-	-- {
-	-- 	"karb94/neoscroll.nvim",
-	-- 	config = function()
-	-- 		require("neoscroll").setup({
-	-- 			easing_function = "cubic",
-	-- 		})
-	-- 	end,
-	-- 	event = "BufRead",
-	-- },
+	{
+		"karb94/neoscroll.nvim",
+		config = function()
+			require("neoscroll").setup({
+				easing_function = "cubic",
+			})
+		end,
+		event = "BufRead",
+	},
+	{
+		"rcarriga/nvim-dap-ui",
+		requires = { "mfussenegger/nvim-dap" },
+		config = function()
+			require("options.dapui").config()
+		end,
+	},
+	{
+		"theHamsta/nvim-dap-virtual-text",
+		config = function()
+			require("options.dap-virtual-text").config()
+		end,
+	},
+	{
+		"nvim-neotest/neotest",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+			"antoinemadec/FixCursorHold.nvim",
+			-- "nvim-neotest/neotest-python",
+			"nikita-orca/neotest-python",
+			"nvim-neotest/neotest-go",
+		},
+		config = function()
+			require("options.neotest").config()
+		end,
+	},
+	{ "ojroques/vim-oscyank" },
+	{ "lambdalisue/suda.vim" },
 	{ "norcalli/nvim-colorizer.lua" },
 	{
 		"ruifm/gitlinker.nvim",
