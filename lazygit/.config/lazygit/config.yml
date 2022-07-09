@@ -1,6 +1,7 @@
 ---
 gui:
   showIcons: true
+  expandFocusedSidePanel: true
   theme:
     lightTheme: true
 keybinding:
