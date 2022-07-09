@@ -51,3 +51,6 @@ FZF_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/fzf/.fzf.zsh"
 
 bindkey -v
 unsetopt correct_all
+
+# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
+[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
