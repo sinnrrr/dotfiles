@@ -1,4 +1,4 @@
-lvim.builtin.which_key.mappings["gg"] = { "<cmd>FloatermNew lazygit<cr>", "LazyGit" }
+-- lvim.builtin.which_key.mappings["gg"] = { "<cmd>FloatermNew lazygit<cr>", "LazyGit" }
 
 lvim.builtin.which_key.mappings["t"] = {
   name = "Test Runner",
@@ -38,13 +38,28 @@ lvim.builtin.which_key.mappings["lt"] = {
   h = { "<cmd>TSLspToggleInlayHints<cr>", "Toggle hints" },
 }
 
-lvim.builtin.which_key.mappings["gy"] = {
-  "<cmd>lua require'gitlinker'.get_buf_range_url('n')<cr>",
-  "Copy link",
+lvim.builtin.which_key.mappings["k"] = {
+  name = "LeetCode",
+  l = { "<cmd>LeetCodeList<cr>", "Browse problems" },
+  t = { "<cmd>LeetCodeTest<cr>", "Run with default test" },
+  s = { "<cmd>LeetCodeSubmit<cr>", "Submit the code" },
 }
 
-lvim.builtin.which_key.mappings["LC"] = { "<cmd>LvimCacheReset<cr>", "Cache Reset" }
-lvim.builtin.which_key.mappings["W"] = {
-  "<cmd>SudaWrite<cr>",
-  "Sudo Save",
+lvim.builtin.which_key.mappings["u"] = {
+  name = "Utils",
+  w = {
+    name = "Window",
+    v = { "<cmd>vsplit<cr>", "Vertical split" },
+    h = { "<cmd>split<cr>", "Hotizontal split" },
+  },
+  W = {
+    "<cmd>SudaWrite<cr>",
+    "Sudo Save",
+  },
+  C = { "<cmd>LvimCacheReset<cr>", "Cache Reset" },
+  l = {
+    "<cmd>lua require'gitlinker'.get_buf_range_url('n')<cr>",
+    "Copy link",
+  },
+  t = { "<cmd>TodoQuickFix<cr>", "Todos" },
 }

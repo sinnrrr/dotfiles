@@ -4,7 +4,14 @@ lvim.plugins = {
 	{ "voldikss/vim-floaterm" },
 	{ "lunarvim/colorschemes" },
 	{ "folke/tokyonight.nvim" },
-	{ "navarasu/onedark.nvim" },
+	{
+		"navarasu/onedark.nvim",
+		config = function()
+			require("onedark").setup({
+				toggle_style_key = "<leader>aka",
+			})
+		end,
+	},
 	{ "wakatime/vim-wakatime" },
 	{ "jose-elias-alvarez/nvim-lsp-ts-utils" },
 	{ "TovarishFin/vim-solidity" },
@@ -25,6 +32,27 @@ lvim.plugins = {
 		ft = "tex",
 	},
 	{
+		"folke/todo-comments.nvim",
+		requires = "nvim-lua/plenary.nvim",
+		config = function()
+			require("todo-comments").setup()
+		end,
+	},
+	{
+		"michaelb/sniprun",
+		run = "bash ./install.sh",
+		disable = not lvim.builtin.sniprun.active,
+		config = function()
+			require("sniprun").setup({
+				display = {
+					"VirtualTextOk",
+					"VirtualTextErr",
+				},
+				live_mode_toggle = "enable",
+			})
+		end,
+	},
+	{
 		"karb94/neoscroll.nvim",
 		config = function()
 			require("neoscroll").setup({
@@ -37,13 +65,13 @@ lvim.plugins = {
 		"rcarriga/nvim-dap-ui",
 		requires = { "mfussenegger/nvim-dap" },
 		config = function()
-			require("options.dapui").config()
+			require("plugins.dapui").config()
 		end,
 	},
 	{
 		"theHamsta/nvim-dap-virtual-text",
 		config = function()
-			require("options.dap-virtual-text").config()
+			require("plugins.dap-virtual-text").config()
 		end,
 	},
 	{
@@ -52,15 +80,13 @@ lvim.plugins = {
 			"nvim-lua/plenary.nvim",
 			"nvim-treesitter/nvim-treesitter",
 			"antoinemadec/FixCursorHold.nvim",
-			-- "nvim-neotest/neotest-python",
-			"nikita-orca/neotest-python",
+			"nvim-neotest/neotest-python",
 			"nvim-neotest/neotest-go",
 		},
 		config = function()
-			require("options.neotest").config()
+			require("plugins.neotest").config()
 		end,
 	},
-	{ "ojroques/vim-oscyank" },
 	{ "lambdalisue/suda.vim" },
 	{ "norcalli/nvim-colorizer.lua" },
 	{
