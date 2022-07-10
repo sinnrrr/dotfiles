@@ -10,7 +10,7 @@ done
 unset command
 
 alias chrome="open -a 'Google Chrome'"
-alias python="/opt/homebrew/bin/python3"
+# alias python="/opt/homebrew/bin/python3"
 
 # Verbosity and settings that you pretty much just always are going to want.
 alias \

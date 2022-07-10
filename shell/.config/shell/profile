@@ -55,6 +55,7 @@ source "${XDG_CONFIG_HOME:-$HOME/.config}/lf/icons"
 [ ! -f ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ] && shortcutsg >/dev/null 2>&1 &
 
 path=(
+  $(pyenv root)/shims
   /usr/local/{bin,sbin}
   /opt/homebrew/bin
   /opt/homebrew/opt/openjdk/bin 

@@ -13,4 +13,5 @@ opi  ${WORK_HOME:-$HOME/Work}/labs/12/ise
 opp  ${WORK_HOME:-$HOME/Work}/labs/12/physics
 
 work ${WORK_HOME:-$HOME/Work}
+olc  ${WORK_HOME:-$HOME/Work}/personal/leetcode
 ocu  ${WORK_HOME:-$HOME/Work}/commercial/unrivedsdk

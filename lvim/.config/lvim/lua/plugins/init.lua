@@ -8,10 +8,17 @@ lvim.plugins = {
 		"navarasu/onedark.nvim",
 		config = function()
 			require("onedark").setup({
-				toggle_style_key = "<leader>aka",
+				toggle_style_key = "<Leader>aka",
 			})
 		end,
 	},
+	-- {
+	-- 	"ray-x/lsp_signature.nvim",
+	-- 	config = function()
+	-- 		require("lsp_signature").on_attach()
+	-- 	end,
+	-- 	event = "BufRead",
+	-- },
 	{ "wakatime/vim-wakatime" },
 	{ "jose-elias-alvarez/nvim-lsp-ts-utils" },
 	{ "TovarishFin/vim-solidity" },
