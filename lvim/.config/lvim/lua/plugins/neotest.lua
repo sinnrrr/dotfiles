@@ -38,6 +38,9 @@ M.config = function()
 				dap = {
 					justMyCode = false,
 				},
+				is_test_file = function()
+					return true
+				end,
 			}),
 			require("neotest-go"),
 		},

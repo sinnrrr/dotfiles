@@ -18,7 +18,7 @@ M.config = function()
 					"scopes",
 					"breakpoints",
 					-- 'stacks',
-					-- 'watches',
+					"watches",
 				},
 				size = 50,
 				position = "left",
