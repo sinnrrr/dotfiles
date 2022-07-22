@@ -34,6 +34,7 @@ lvim.plugins = {
 	{ "ianding1/leetcode.vim" },
 	{ "tpope/vim-surround" },
 	{ "nicwest/vim-http" },
+	{ "princejoogie/tailwind-highlight.nvim" },
 	{
 		"xuhdev/vim-latex-live-preview",
 		ft = "tex",

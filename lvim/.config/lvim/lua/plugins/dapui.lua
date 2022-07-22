@@ -18,7 +18,7 @@ M.config = function()
 					"scopes",
 					"breakpoints",
 					-- 'stacks',
-					"watches",
+					-- "watches",
 				},
 				size = 50,
 				position = "left",
@@ -26,7 +26,7 @@ M.config = function()
 			{
 				elements = {
 					"repl",
-					"console",
+					-- "console",
 				},
 				size = 15,
 				position = "bottom",
