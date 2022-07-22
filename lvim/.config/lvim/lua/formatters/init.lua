@@ -29,6 +29,7 @@ formatters.setup({
 	{
 		command = "yapf",
 		filetypes = { "python" },
+		args = { "--style", "{based_on_style: google, column_limit: 79}" },
 	},
 	{
 		command = "isort",
@@ -37,6 +38,10 @@ formatters.setup({
 	{
 		command = "rustfmt",
 		filetypes = { "rust" },
+	},
+	{
+		command = "gofmt",
+		filetypes = { "go" },
 	},
 	{
 		command = "stylua",
