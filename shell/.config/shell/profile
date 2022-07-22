@@ -57,8 +57,8 @@ source "${XDG_CONFIG_HOME:-$HOME/.config}/lf/icons"
 path=(
   /opt/homebrew/bin
   /opt/homebrew/opt/openjdk/bin 
+  $HOME/.pyenv/shims
   /usr/local/{bin,sbin}
-  $(pyenv root)/shims
   $HOME/.poetry/bin
   $HOME/.emacs.d/bin
   $CARGO_HOME/bin
@@ -76,5 +76,3 @@ export PATH="$(yarn global bin):$PATH"
 
 export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="/opt/homebrew/opt/util-linux/bin:$PATH"
-export PATH="/opt/homebrew/opt/util-linux/sbin:$PATH"
-export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
