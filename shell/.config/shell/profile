@@ -57,6 +57,9 @@ source "${XDG_CONFIG_HOME:-$HOME/.config}/lf/icons"
 path=(
   /opt/homebrew/bin
   /opt/homebrew/opt/openjdk/bin 
+  /opt/homebrew/opt/libpq/bin
+  /opt/homebrew/opt/coreutils/libexec/gnubin
+  /opt/homebrew/opt/util-linux/bin
   $HOME/.pyenv/shims
   /usr/local/{bin,sbin}
   $HOME/.poetry/bin
@@ -74,5 +77,5 @@ export PATH="$PATH:${paths}"
 # Adds yarn global modules to $PATH
 export PATH="$(yarn global bin):$PATH"
 
-export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
-export PATH="/opt/homebrew/opt/util-linux/bin:$PATH"
+# export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+# export PATH="/opt/homebrew/opt/util-linux/bin:$PATH"
