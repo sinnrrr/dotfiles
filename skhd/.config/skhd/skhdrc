@@ -4,6 +4,7 @@ ctrl + alt + cmd + shift - return : "${HOME}/.config/skhd/quick_terminal.sh"
 
 ctrl + alt + cmd - b : "${HOME}/.local/bin/open-browser" 
 ctrl + alt + cmd - c : "${HOME}/.local/bin/open-browser https://calendar.google.com/u/0"
+ctrl + alt + cmd - m : open -n /Applications/Spark.app
 
 # change layouts
 # ctrl + alt + cmd - t : yabai -m space --layout bsp; ~/.config/yabai/scripts/smart_gaps.sh
