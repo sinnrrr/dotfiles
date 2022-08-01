@@ -78,7 +78,7 @@ cmd fzf-restore ${{
       awk '$1 ~ /^[0-9]+/ {print $0}' | \
       fzf --multi                     | \
       awk '{print $1}'                | \
-      sed -z 's/\n/,/g;s/,$/\n/')"
+      sed 's/\n/,/g;s/,$/\n/')"
     echo $ids | trash-restore 
     clear
 }}
@@ -129,6 +129,10 @@ cmd chmod ${{
   lf -remote 'send reload'
 }}
 
+cmd convert-image ${{
+  convert "$fx" -quality 100 ./output.jpg
+}}
+
 recol
 
 map ,
@@ -147,6 +151,7 @@ map ,st :fzf_search
 map ,gg lazygit
 map ,S :share
 map ,f :fzf_jump
+map ,ci convert-image
 map ,t push :tar<space>
 map ,ll $lvim +"lua require('persistence').load({ last = true })"
 map ,e :extract
