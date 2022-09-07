@@ -35,6 +35,11 @@ lvim.plugins = {
 	{ "tpope/vim-surround" },
 	{ "nicwest/vim-http" },
 	{ "princejoogie/tailwind-highlight.nvim" },
+	{ "nvim-treesitter/nvim-treesitter-context" },
+	{
+		"turbio/bracey.vim",
+		run = "npm install --prefix server",
+	},
 	{
 		"xuhdev/vim-latex-live-preview",
 		ft = "tex",

@@ -1,29 +1,29 @@
-vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "denols" })
-require("lvim.lsp.manager").setup("denols", {
-	cmd = {
-		"deno",
-		"lsp",
-	},
-	filetypes = {
-		"javascript",
-		"javascriptreact",
-		"javascript.jsx",
-		"typescript",
-		"typescriptreact",
-		"typescript.tsx",
-	},
-	init_options = {
-		enable = true,
-		lint = true,
-		unstable = false,
-	},
-	root_dir = require("lspconfig").util.root_pattern(
-		"deno.json",
-		"import_map.json",
-		"script.config.ts",
-		"script.config.js"
-	),
-})
+-- vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "denols" })
+-- require("lvim.lsp.manager").setup("denols", {
+-- 	cmd = {
+-- 		"deno",
+-- 		"lsp",
+-- 	},
+-- 	filetypes = {
+-- 		"javascript",
+-- 		"javascriptreact",
+-- 		"javascript.jsx",
+-- 		"typescript",
+-- 		"typescriptreact",
+-- 		"typescript.tsx",
+-- 	},
+-- 	init_options = {
+-- 		enable = true,
+-- 		lint = true,
+-- 		unstable = false,
+-- 	},
+-- 	root_dir = require("lspconfig").util.root_pattern(
+-- 		"deno.json",
+-- 		"import_map.json",
+-- 		"script.config.ts",
+-- 		"script.config.js"
+-- 	),
+-- })
 
 local tailwindcss_opts = {
 	cmd = { "tailwindcss-language-server", "--stdio" },

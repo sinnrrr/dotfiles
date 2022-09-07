@@ -36,6 +36,11 @@ formatters.setup({
 		filetypes = { "python" },
 	},
 	{
+		command = "tidy",
+		filetypes = { "html" },
+	},
+
+	{
 		command = "rustfmt",
 		filetypes = { "rust" },
 	},

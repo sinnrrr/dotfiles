@@ -1,1 +1,1 @@
-require("lvim.lsp.manager").setup("bashls")
+-- require("lvim.lsp.manager").setup("bashls")

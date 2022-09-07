@@ -39,7 +39,7 @@ export ELECTRUMDIR="${XDG_DATA_HOME:-$HOME/.local/share}/electrum"
 export ANSIBLE_INVENTORY="${XDG_CONFIG_HOME:-$HOME/.config}/ansible/static-inventory.ini"
 export DENO_INSTALL="${XDG_DATA_HOME:-$HOME/.local/share}/deno"
 
-export DOCKER_DEFAULT_PLATFORM="linux/amd64"  
+# export DOCKER_DEFAULT_PLATFORM="linux/amd64"  
 
 export ZSH_DOTENV_PROMPT=false
 export ZSH_DOTENV_FILE=".env.contracts"
@@ -54,7 +54,11 @@ export LVIM_DEBUGGERS="$HOME/.local/share/lunarvim/debuggers"
 source "${XDG_CONFIG_HOME:-$HOME/.config}/lf/icons"
 [ ! -f ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ] && shortcutsg >/dev/null 2>&1 &
 
+# Adds `~/.local/bin` to $PATH
+paths=$(find -L ~/.local/bin -type d -print | xargs printf -- '%s:')%%:
+
 path=(
+  $paths,
   /opt/homebrew/bin
   /opt/homebrew/opt/openjdk/bin 
   /opt/homebrew/opt/libpq/bin
@@ -69,10 +73,6 @@ path=(
   $GOPATH/bin
   $path
 )
-
-# Adds `~/.local/bin` to $PATH
-paths=$(find -L ~/.local/bin -type d -print | xargs printf -- '%s:')%%:
-export PATH="$PATH:${paths}"
 
 # Adds yarn global modules to $PATH
 export PATH="$(yarn global bin):$PATH"

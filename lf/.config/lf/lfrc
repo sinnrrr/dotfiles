@@ -144,7 +144,7 @@ map X !$f
 map R recol 
 map yy copy
 map yn copy-filename
-map yP copy-absolute-path
+map gy copy-absolute-path
 map U fzf-restore
 map ,ch push :chmod<space>
 map ,st :fzf_search

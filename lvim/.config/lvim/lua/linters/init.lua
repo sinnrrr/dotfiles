@@ -15,6 +15,10 @@ linters.setup({
 		filetypes = { "python" },
 	},
 	{
+		command = "tidy",
+		filetypes = { "html" },
+	},
+	{
 		command = "qmllint",
 		filetypes = { "qml", "ui" },
 	},
@@ -22,10 +26,10 @@ linters.setup({
 		command = "yamllint",
 		filetypes = { "yaml" },
 	},
-	{
-		command = "shellcheck",
-		filetypes = { "sh" },
-	},
+	-- {
+	-- 	command = "shellcheck",
+	-- 	filetypes = { "sh" },
+	-- },
 	{
 		command = "hadolint",
 		filetypes = { "dockerfile" },
