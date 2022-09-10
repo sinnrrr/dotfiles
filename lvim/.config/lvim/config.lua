@@ -37,7 +37,7 @@ lvim.builtin.motion_provider = "hop" -- change this to use different motion prov
 lvim.builtin.hlslens = { active = false } -- enable/disable hlslens
 lvim.builtin.csv_support = false -- enable/disable csv support
 lvim.builtin.sidebar = { active = false } -- enable/disable sidebar
-lvim.builtin.async_tasks = { active = false } -- enable/disable async tasks
+lvim.builtin.async_tasks = { active = true } -- enable/disable async tasks
 lvim.builtin.lf_integration = { active = true }
 lvim.builtin.winbar_provider = "filename" -- can be "filename" or "treesitter" or ""
 lvim.builtin.metals = {
