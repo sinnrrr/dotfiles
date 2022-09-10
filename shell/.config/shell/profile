@@ -38,6 +38,7 @@ export MBSYNCRC="${XDG_CONFIG_HOME:-$HOME/.config}/mbsync/config"
 export ELECTRUMDIR="${XDG_DATA_HOME:-$HOME/.local/share}/electrum"
 export ANSIBLE_INVENTORY="${XDG_CONFIG_HOME:-$HOME/.config}/ansible/static-inventory.ini"
 export DENO_INSTALL="${XDG_DATA_HOME:-$HOME/.local/share}/deno"
+export YABAI="$HOME/.config/yabai/scripts"
 
 # export DOCKER_DEFAULT_PLATFORM="linux/amd64"  
 

@@ -1,5 +1,8 @@
 #!/usr/bin/env sh
 
+# hack due to yabai not reading shell env
+YABAI="$HOME/.config/yabai/scripts"
+
 sudo yabai --load-sa
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 
@@ -36,9 +39,9 @@ yabai -m config window_gap 4
 
 # remove all rules first
 yabai -m rule --list |
-	jq '.[].index' |
-	sort -rn |
-	xargs -n 1 yabai -m rule --remove
+  jq '.[].index' |
+  sort -rn |
+  xargs -n 1 yabai -m rule --remove
 
 yabai -m rule --add title='Preferences$' manage=off
 yabai -m rule --add title='Settings$' manage=off
@@ -64,18 +67,17 @@ yabai -m rule --add app="^Spotify$" manage=off
 yabai -m rule --add label="macfeh" app="^macfeh$" manage=off
 yabai -m rule --add title="QuickTerminal" manage=off grid=20:20:5:5:10:10 sticky=on layer=above opacity=0.9 border=off
 
-YABAI="${XDG_CONFIG_HOME:-$HOME/.config}/yabai/scripts"
-
 # If no window on the current space is focused after a window is destroyed or
 # minimized, or an application is hidden, focus the window under the cursor.
-yabai -m signal --add event=window_destroyed action=$YABAI/focus.sh
-yabai -m signal --add event=window_minimized action=$YABAI/focus.sh
-yabai -m signal --add event=application_hidden action=$YABAI/focus.sh
+yabai -m signal --add event=display_changed action="$YABAI/restart.sh"
+yabai -m signal --add event=window_destroyed action="$YABAI/focus.sh"
+yabai -m signal --add event=window_minimized action="$YABAI/focus.sh"
+yabai -m signal --add event=application_hidden action="$YABAI/focus.sh"
+yabai -m signal --add event=window_created action="$YABAI/smart_gaps.sh"
+yabai -m signal --add event=window_destroyed action="$YABAI/smart_gaps.sh"
+# yabai -m signal --add event=space_changed action=$YABAI/smart_gaps.sh
+yabai -m signal --add event=window_minimized action="$YABAI/smart_gaps.sh"
+yabai -m signal --add event=window_deminimized action="$YABAI/smart_gaps.sh"
 
-yabai -m signal --add event=display_changed action=$YABAI/restart.sh
-
-yabai -m signal --add event=window_created action=$YABAI/smart_gaps.sh
-yabai -m signal --add event=window_destroyed action=$YABAI/smart_gaps.sh
-yabai -m signal --add event=space_changed action=$YABAI/smart_gaps.sh
-yabai -m signal --add event=window_minimized action=$YABAI/smart_gaps.sh
-yabai -m signal --add event=window_deminimized action=$YABAI/smart_gaps.sh
+"$YABAI/smart_gaps.sh"
+echo "yabai configuration loaded.."

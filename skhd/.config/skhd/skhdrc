@@ -1,14 +1,14 @@
 # apps shortcuts
 ctrl + alt + cmd - return : open -n /Applications/Alacritty.app
-ctrl + alt + cmd + shift - return : "${HOME}/.config/skhd/quick_terminal.sh"
-
+ctrl + alt + cmd + shift - return : ~/.config/yabai/scripts/quick_terminal.sh
+ctrl + alt + cmd + shift - s : open /System/Applications/System\ Preferences.app
 ctrl + alt + cmd - b : "${HOME}/.local/bin/open-browser" 
 ctrl + alt + cmd - c : "${HOME}/.local/bin/open-browser https://calendar.google.com/u/0"
 ctrl + alt + cmd - m : open -n /Applications/Spark.app
 
 # change layouts
-# ctrl + alt + cmd - t : yabai -m space --layout bsp; ~/.config/yabai/scripts/smart_gaps.sh
-# ctrl + alt + cmd - u : yabai -m space --layout stack; ~/.config/yabai/scripts/smart_gaps.sh
+ctrl + alt + cmd - t : yabai -m space --layout bsp; ~/.config/yabai/scripts/smart_gaps.sh
+ctrl + alt + cmd - u : yabai -m space --layout stack; ~/.config/yabai/scripts/smart_gaps.sh
 
 # focus window
 ctrl + alt + cmd - x : yabai -m window --focus recent
@@ -66,7 +66,7 @@ ctrl + alt + cmd + shift - o : yabai -m window --toggle topmost
 ## Close active application
 ctrl + alt + cmd - q : yabai -m window --close
 # toggle window zoom
-ctrl + alt + cmd - f : yabai -m window --toggle zoom-fullscreen; ~/.config/yabai/scripts/smart_gaps.sh
+ctrl + alt + cmd - f : yabai -m window --toggle zoom-fullscreen
 # toggle window native fullscreen
 ctrl + alt + cmd + shift - f : yabai -m window --toggle native-fullscreen
 # float / unfloat window 
