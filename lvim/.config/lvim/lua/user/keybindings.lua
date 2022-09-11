@@ -347,19 +347,18 @@ M.config = function()
     if lvim.builtin.test_runner.runner == "neotest" then
       lvim.builtin.which_key.mappings["t"] = {
         name = "ﭧ Test",
-        f = {
-          "<cmd>lua require('neotest').run.run({vim.fn.expand('%'), env=require('user.ntest').get_env()})<cr>",
-          "File",
+        f = { '<cmd>lua require("neotest").run.run(vim.fn.expand("%"))<cr>', "Run file" },
+        n = { "<cmd>lua require('neotest').run.run()<cr>", "Run nearest" },
+        r = { "<cmd>lua require('neotest').run.run_last()<cr>", "Re-run latest" },
+        q = { "<cmd>lua require('neotest').run.stop()<cr>", "Stop nearest" },
+        d = {
+          name = "Debug",
+          n = { "<cmd>lua require('neotest').run.run({ strategy='dap' })<cr>", "Debug nearest" },
+          f = { "<cmd>lua require('neotest').run.run({ vim.fn.expand('%'), strategy='dap' })<cr>", "Debug file" },
+          r = { "<cmd>lua require('neotest').run.run_last({ strategy='dap' })<cr>", "Re-run latest with debug" },
         },
-        o = { "<cmd>lua require('neotest').output.open({ enter = true, short = false })<cr>", "Output" },
-        r = { "<cmd>lua require('neotest').run.run({env=require('user.ntest').get_env()})<cr>", "Run" },
-        a = { "<cmd>lua require('user.ntest').run_all()<cr>", "Run All" },
-        s = { "<cmd>lua require('neotest').summary.toggle()<cr>", "Summary" },
-        n = { "<cmd>lua require('neotest').jump.next({ status = 'failed' })<cr>", "jump to next failed" },
-        p = { "<cmd>lua require('neotest').jump.prev({ status = 'failed' })<cr>", "jump to previous failed" },
-        d = { "<cmd>lua require('neotest').run.run({ strategy = 'dap' })<cr>", "Dap Run" },
-        x = { "<cmd>lua require('neotest').run.stop()<cr>", "Stop" },
-        w = { "<cmd>lua require('neotest').watch.watch()<cr>", "Watch" },
+        s = { "<cmd>lua require('neotest').summary.open()<cr>", "Toogle Summary" },
+        o = { "<cmd>lua require('neotest').output.open({ enter = true, short = false })<cr>", "Show output" },
       }
     else
       lvim.builtin.which_key.mappings["t"] = {

@@ -263,9 +263,9 @@ M.config = function()
   table.insert(dap.configurations.python, {
     type = "python",
     request = "launch",
-    name = "launch with options",
+    name = "Launch file",
+    justMyCode = false,
     program = "${file}",
-    python = function() end,
     pythonPath = function()
       local path
       for _, server in pairs(vim.lsp.buf_get_clients()) do
@@ -274,12 +274,12 @@ M.config = function()
           break
         end
       end
-      path = vim.fn.input("Python path: ", path or "", "file")
+      -- path = vim.fn.input("Python path: ", path or "", "file")
       return path ~= "" and vim.fn.expand(path) or nil
     end,
     env = function()
-			return { ["PYTHONPATH"] = vim.fn.getcwd() }
-		end,
+      return { ["PYTHONPATH"] = vim.fn.getcwd() }
+    end,
   })
   lvim.builtin.dap.on_config_done = function(_)
     lvim.builtin.which_key.mappings["d"].name = " Debug"
