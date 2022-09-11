@@ -6,6 +6,10 @@ export VISUAL="lvim"
 export TERMINAL="alacritty"
 export BROWSER="open-browser"
 
+# Adds `~/.local/bin` to $PATH
+paths=$(find -L ~/.local/bin -type d -print | xargs printf -- '%s:')%%:
+export PATH="$PATH:${paths}"
+
 # ~/ Clean-up:
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
@@ -21,8 +25,8 @@ export NETRC="${XDG_CONFIG_HOME:-$HOME/.config}/net/netrc"
 export WGETRC="${XDG_CONFIG_HOME:-$HOME/.config}/wget/wgetrc"
 export INPUTRC="${XDG_CONFIG_HOME:-$HOME/.config}/shell/inputrc"
 export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
-#export ALSA_CONFIG_PATH="$XDG_CONFIG_HOME/alsa/asoundrc"
-#export GNUPGHOME="${XDG_DATA_HOME:-$HOME/.local/share}/gnupg"
+export ALSA_CONFIG_PATH="$XDG_CONFIG_HOME/alsa/asoundrc"
+export GNUPGHOME="${XDG_DATA_HOME:-$HOME/.local/share}/gnupg"
 export WINEPREFIX="${XDG_DATA_HOME:-$HOME/.local/share}/wineprefixes/default"
 export KODI_DATA="${XDG_DATA_HOME:-$HOME/.local/share}/kodi"
 export PASSWORD_STORE_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/password-store"
@@ -39,6 +43,9 @@ export ELECTRUMDIR="${XDG_DATA_HOME:-$HOME/.local/share}/electrum"
 export ANSIBLE_INVENTORY="${XDG_CONFIG_HOME:-$HOME/.config}/ansible/static-inventory.ini"
 export DENO_INSTALL="${XDG_DATA_HOME:-$HOME/.local/share}/deno"
 export YABAI="$HOME/.config/yabai/scripts"
+export PYTHONPATH=$PYTHONPATH:.
+export PYENV_ROOT="$HOME/.pyenv"
+export YABAI="${XDG_CONFIG_HOME:-$HOME/.config}/yabai/scripts"
 
 # Parameters
 export NEOVIDE_FRAMELESS=true
@@ -48,7 +55,3 @@ export NEOVIDE_FRAME=none
 export LVIM_DEBUGGERS="$HOME/.local/share/lunarvim/debuggers"
 
 # export DOCKER_DEFAULT_PLATFORM="linux/amd64"  
-
-# Adds `~/.local/bin` to $PATH
-paths=$(find -L ~/.local/bin -type d -print | xargs printf -- '%s:')%%:
-export PATH="$PATH:${paths}"

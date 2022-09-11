@@ -1,7 +1,7 @@
-#!/usr/bin/env sh
+#!/bin/sh
 
-# hack due to yabai not reading shell env
-YABAI="$HOME/.config/yabai/scripts"
+# to load $YABAI env
+. "$HOME/.profile"
 
 sudo yabai --load-sa
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
@@ -69,15 +69,18 @@ yabai -m rule --add title="QuickTerminal" manage=off grid=20:20:5:5:10:10 sticky
 
 # If no window on the current space is focused after a window is destroyed or
 # minimized, or an application is hidden, focus the window under the cursor.
-yabai -m signal --add event=display_changed action="$YABAI/restart.sh"
-yabai -m signal --add event=window_destroyed action="$YABAI/focus.sh"
-yabai -m signal --add event=window_minimized action="$YABAI/focus.sh"
-yabai -m signal --add event=application_hidden action="$YABAI/focus.sh"
-yabai -m signal --add event=window_created action="$YABAI/smart_gaps.sh"
-yabai -m signal --add event=window_destroyed action="$YABAI/smart_gaps.sh"
+yabai -m signal --add event=window_destroyed action=$YABAI/focus.sh
+yabai -m signal --add event=window_minimized action=$YABAI/focus.sh
+yabai -m signal --add event=application_hidden action=$YABAI/focus.sh
+
+# yabai -m signal --add event=display_changed action=$YABAI/restart.sh
+
+# pass YABAI env, because of sh not autoloading .profile
+yabai -m signal --add event=window_created action="YABAI=$YABAI $YABAI/smart_gaps.sh"
+yabai -m signal --add event=window_destroyed action="YABAI=$YABAI $YABAI/smart_gaps.sh"
 # yabai -m signal --add event=space_changed action=$YABAI/smart_gaps.sh
-yabai -m signal --add event=window_minimized action="$YABAI/smart_gaps.sh"
-yabai -m signal --add event=window_deminimized action="$YABAI/smart_gaps.sh"
+yabai -m signal --add event=window_minimized action="YABAI=$YABAI $YABAI/smart_gaps.sh"
+yabai -m signal --add event=window_deminimized action="YABAI=$YABAI $YABAI/smart_gaps.sh"
 
 "$YABAI/smart_gaps.sh"
 
