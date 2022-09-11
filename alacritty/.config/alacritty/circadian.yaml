@@ -1,0 +1,11 @@
+theme-folder: ~/.config/alacritty/themes
+
+themes:
+  - time: 1:00
+    name: rose-pine
+  - time: 9:00
+    name: tokyonight
+  - time: 17:00
+    name: catppuccin
+  - time: 21:00
+    name: kanagawa
