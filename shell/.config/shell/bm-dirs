@@ -1,5 +1,5 @@
 # You can add comments to these files with #
-cf   ${XDG_CONFIG_HOME:-$HOME/.config}
+cc   ${XDG_CONFIG_HOME:-$HOME/.dotfiles}
 D    ${XDG_DOWNLOAD_DIR:-$HOME/Downloads}
 d    ${XDG_DOCUMENTS_DIR:-$HOME/Documents}
 dt   ${XDG_DATA_HOME:-$HOME/.local/share}
@@ -7,11 +7,9 @@ h    $HOME
 sc   $HOME/.local/bin
 src  $HOME/.local/src
 
-opn  ${WORK_HOME:-$HOME/Work}/labs/12/nm
-opo  ${WORK_HOME:-$HOME/Work}/labs/12/oop
-opi  ${WORK_HOME:-$HOME/Work}/labs/12/ise
-opp  ${WORK_HOME:-$HOME/Work}/labs/12/physics
+ooa  ${WORK_HOME:-$HOME/Work}/labs/2022/computer_architecture
+oos  ${WORK_HOME:-$HOME/Work}/labs/2022/operating_systems
+ood  ${WORK_HOME:-$HOME/Work}/labs/12/ise
 
 work ${WORK_HOME:-$HOME/Work}
 olc  ${WORK_HOME:-$HOME/Work}/personal/leetcode
-ocu  ${WORK_HOME:-$HOME/Work}/commercial/unrivedsdk

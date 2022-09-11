@@ -40,43 +40,15 @@ export ANSIBLE_INVENTORY="${XDG_CONFIG_HOME:-$HOME/.config}/ansible/static-inven
 export DENO_INSTALL="${XDG_DATA_HOME:-$HOME/.local/share}/deno"
 export YABAI="$HOME/.config/yabai/scripts"
 
-# export DOCKER_DEFAULT_PLATFORM="linux/amd64"  
-
-export ZSH_DOTENV_PROMPT=false
-export ZSH_DOTENV_FILE=".env.contracts"
-
+# Parameters
 export NEOVIDE_FRAMELESS=true
 export NEOVIDE_MULTIGRID=true
 export NEOVIDE_FRAME=none
 
 export LVIM_DEBUGGERS="$HOME/.local/share/lunarvim/debuggers"
 
-# This is the list for lf icons:
-source "${XDG_CONFIG_HOME:-$HOME/.config}/lf/icons"
-[ ! -f ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ] && shortcutsg >/dev/null 2>&1 &
+# export DOCKER_DEFAULT_PLATFORM="linux/amd64"  
 
 # Adds `~/.local/bin` to $PATH
 paths=$(find -L ~/.local/bin -type d -print | xargs printf -- '%s:')%%:
-
-path=(
-  $paths,
-  /opt/homebrew/bin
-  /opt/homebrew/opt/openjdk/bin 
-  /opt/homebrew/opt/libpq/bin
-  /opt/homebrew/opt/coreutils/libexec/gnubin
-  /opt/homebrew/opt/util-linux/bin
-  $HOME/.pyenv/shims
-  /usr/local/{bin,sbin}
-  $HOME/.poetry/bin
-  $HOME/.emacs.d/bin
-  $CARGO_HOME/bin
-  $DENO_INSTALL/bin
-  $GOPATH/bin
-  $path
-)
-
-# Adds yarn global modules to $PATH
-export PATH="$(yarn global bin):$PATH"
-
-# export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
-# export PATH="/opt/homebrew/opt/util-linux/bin:$PATH"
+export PATH="$PATH:${paths}"

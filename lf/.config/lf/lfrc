@@ -1,5 +1,5 @@
-set shell zsh
-set shellopts '-euy'
+set shell sh
+# set shellopts '-euy'
 set ifs "\n"
 set scrolloff 10
 set drawbox

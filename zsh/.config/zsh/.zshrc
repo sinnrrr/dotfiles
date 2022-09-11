@@ -22,8 +22,6 @@ plugins=(
   brew
   docker
   docker-compose
-  dotenv
-  heroku
   git
   fzf
   rust
@@ -56,3 +54,26 @@ unsetopt correct_all
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 
 eval "$(fnm env --use-on-cd)"
+
+# This is the list for lf icons:
+source "${XDG_CONFIG_HOME:-$HOME/.config}/lf/icons"
+[ ! -f ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ] && shortcutsg >/dev/null 2>&1 &
+
+path=(
+  /opt/homebrew/bin
+  /opt/homebrew/opt/openjdk/bin 
+  /opt/homebrew/opt/libpq/bin
+  /opt/homebrew/opt/coreutils/libexec/gnubin
+  /opt/homebrew/opt/util-linux/bin
+  $HOME/.pyenv/shims
+  /usr/local/{bin,sbin}
+  $HOME/.poetry/bin
+  $HOME/.emacs.d/bin
+  $CARGO_HOME/bin
+  $DENO_INSTALL/bin
+  $GOPATH/bin
+  $path
+)
+
+# Adds yarn global modules to $PATH
+export PATH="$(yarn global bin):$PATH"

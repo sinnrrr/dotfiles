@@ -80,4 +80,6 @@ yabai -m signal --add event=window_minimized action="$YABAI/smart_gaps.sh"
 yabai -m signal --add event=window_deminimized action="$YABAI/smart_gaps.sh"
 
 "$YABAI/smart_gaps.sh"
+
+SHELL='/bin/sh' skhd &
 echo "yabai configuration loaded.."
