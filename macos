@@ -16,7 +16,8 @@ skhd,
 yabai,
 yamllint,
 zsh,
-backup
+backup,
+bin
 "
 
 ROOT_APPS=$ROOT_APPS USER_APPS=$USER_APPS $(dirname $(realpath $0))/install "$@"
