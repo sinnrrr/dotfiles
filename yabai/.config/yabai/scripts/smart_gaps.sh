@@ -11,7 +11,7 @@ if [[ $windows_count -le 1 ]]; then
   yabai -m space --padding abs:$p:$p:$p:$p
   echo $windows_ids | xargs -n1 -P10 $YABAI/border_off.sh
 else
-  p=8
+  p=5
   yabai -m space --padding abs:$p:$p:$p:$p
   echo $windows_ids | xargs -n1 -P10 $YABAI/border_on.sh
 fi

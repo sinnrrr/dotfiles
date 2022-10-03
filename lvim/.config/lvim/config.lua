@@ -7,11 +7,14 @@ lvim.builtin.time_based_themes = true -- set false to use your own configured th
 lvim.debug = false
 vim.lsp.set_log_level "warn"
 lvim.log.level = "warn"
+lvim.lsp.float.focusable = true
+lvim.lsp.diagnostics.float.focusable = true
 -- vim.o.conceallevel = 2 -- uncomment if you want to see concealed text
 require("user.neovim").config()
 
 -- Customization
 -- =========================================
+lvim.builtin.wakatime = { active = true }
 lvim.builtin.sell_your_soul_to_devil = { active = false, prada = false } -- if you want microsoft to abuse your soul
 lvim.builtin.lastplace = { active = false } -- change to false if you are jumping to future
 lvim.builtin.tabnine = { active = true } -- change to false if you don't like tabnine

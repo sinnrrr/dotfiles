@@ -7,6 +7,12 @@ M.config = function()
   end
 
   nt.setup {
+    icons = {
+      running = "🏃",
+      passed = "✨",
+      failed = "❗",
+      skipped = "💤",
+    },
     running = {
       concurrent = false,
     },
@@ -25,11 +31,24 @@ M.config = function()
     diagnostic = {
       enabled = false,
     },
-    icons = {
-      running = require("user.lsp_kind").icons.clock,
-    },
     floating = {
       border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
+      max_height = 400,
+      max_width = 800,
+    },
+    summary = {
+      expand_errors = true,
+      follow = true,
+      mappings = {
+        attach = "a",
+        expand = { "l" },
+        expand_all = "e",
+        jumpto = "<CR>",
+        output = "o",
+        short = "O",
+        run = "r",
+        stop = "q",
+      },
     },
     adapters = {
       require "neotest-rust",
@@ -38,7 +57,7 @@ M.config = function()
           test_table = true,
         },
       },
-      require "neotest-python",
+      require "neotest-python" { args = { "-vv", "-s" }, runner = "pytest" },
       require "neotest-plenary",
     },
   }

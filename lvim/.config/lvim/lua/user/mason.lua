@@ -28,6 +28,7 @@ M.config = function()
       "typescript-language-server",
       "vim-language-server",
       "yaml-language-server",
+      "rust-analyzer",
 
       -- formatters and linters
       "shfmt",

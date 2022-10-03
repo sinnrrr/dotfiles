@@ -42,7 +42,6 @@ export MBSYNCRC="${XDG_CONFIG_HOME:-$HOME/.config}/mbsync/config"
 export ELECTRUMDIR="${XDG_DATA_HOME:-$HOME/.local/share}/electrum"
 export ANSIBLE_INVENTORY="${XDG_CONFIG_HOME:-$HOME/.config}/ansible/static-inventory.ini"
 export DENO_INSTALL="${XDG_DATA_HOME:-$HOME/.local/share}/deno"
-export YABAI="$HOME/.config/yabai/scripts"
 export PYTHONPATH=$PYTHONPATH:.
 export PYENV_ROOT="$HOME/.pyenv"
 export YABAI="${XDG_CONFIG_HOME:-$HOME/.config}/yabai/scripts"
@@ -51,7 +50,5 @@ export YABAI="${XDG_CONFIG_HOME:-$HOME/.config}/yabai/scripts"
 export NEOVIDE_FRAMELESS=true
 export NEOVIDE_MULTIGRID=true
 export NEOVIDE_FRAME=none
-
-export LVIM_DEBUGGERS="$HOME/.local/share/lunarvim/debuggers"
 
 # export DOCKER_DEFAULT_PLATFORM="linux/amd64"  

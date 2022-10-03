@@ -13,6 +13,10 @@ M.config = function()
       end,
     },
     {
+      "wakatime/vim-wakatime",
+      disable = not lvim.builtin.wakatime,
+    },
+    {
       "rose-pine/neovim",
       as = "rose-pine",
       config = function()
@@ -189,6 +193,13 @@ M.config = function()
       disable = not lvim.builtin.dap.active,
     },
     {
+      "theHamsta/nvim-dap-virtual-text",
+      config = function()
+        require("user.dap-virtual-text").config()
+      end,
+      disable = not lvim.builtin.dap.active,
+    },
+    {
       "andymass/vim-matchup",
       event = "BufReadPost",
       config = function()
@@ -225,6 +236,7 @@ M.config = function()
       end,
       event = "BufRead",
     },
+    { "nvim-treesitter/nvim-treesitter-context" },
     {
       "windwp/nvim-spectre",
       event = "BufRead",

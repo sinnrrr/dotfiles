@@ -45,8 +45,9 @@ M.config = function()
     -- Support for nix files
     nls.builtins.formatting.alejandra,
     nls.builtins.formatting.shfmt.with { extra_args = { "-i", "2", "-ci" } },
-    nls.builtins.formatting.black.with { extra_args = { "--fast" }, filetypes = { "python" } },
+    nls.builtins.formatting.black.with { extra_args = { "--fast", "--line-length", 80 }, filetypes = { "python" } },
     nls.builtins.formatting.isort.with { extra_args = { "--profile", "black" }, filetypes = { "python" } },
+    nls.builtins.diagnostics.flake8,
     nls.builtins.diagnostics.ansiblelint.with {
       condition = function(utils)
         return utils.root_has_file "roles" and utils.root_has_file "inventories"
@@ -71,7 +72,7 @@ M.config = function()
       extra_args = { "--metrics", "off", "--exclude", "vendor", "--config", semgrep_rule_folder },
     },
     nls.builtins.diagnostics.shellcheck,
-    nls.builtins.diagnostics.luacheck,
+    -- nls.builtins.diagnostics.luacheck,
     nls.builtins.diagnostics.vint,
     nls.builtins.diagnostics.chktex,
     -- Support for nix files
@@ -102,8 +103,8 @@ M.config = function()
     },
     -- TODO: try these later on
     -- nls.builtins.formatting.google_java_format,
-    -- nls.builtins.code_actions.proselint,
-    -- nls.builtins.diagnostics.proselint,
+    nls.builtins.code_actions.proselint,
+    nls.builtins.diagnostics.proselint,
     custom_go_actions.gomodifytags,
     custom_go_actions.gostructhelper,
     custom_md_hover.dictionary,

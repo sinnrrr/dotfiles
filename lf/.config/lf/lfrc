@@ -149,7 +149,7 @@ map U fzf-restore
 map ,ch push :chmod<space>
 map ,st :fzf_search
 map ,gg lazygit
-map ,s :share
+map ,S :share
 map ,f :fzf_jump
 map ,ci convert-image
 map ,t push :tar<space>
@@ -163,7 +163,7 @@ map o $open $f
 map ZZ quit
 map A push :mkdir<space>
 map a push :touch<space>
-map ,Sl $lvim +"lua require('persistence').load({ last = true })"
+map ,sl $lvim +"lua require('persistence').load({ last = true })"
 
 # Shortcuts
 source "~/.config/lf/shortcutrc"
