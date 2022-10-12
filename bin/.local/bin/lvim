@@ -1,7 +1,7 @@
 #!/bin/sh
 
-export LUNARVIM_RUNTIME_DIR="${LUNARVIM_RUNTIME_DIR:-"/Users/sinnrrr/.local/share/lunarvim"}"
-export LUNARVIM_CONFIG_DIR="${LUNARVIM_CONFIG_DIR:-"/Users/sinnrrr/.config/lvim"}"
-export LUNARVIM_CACHE_DIR="${LUNARVIM_CACHE_DIR:-"/Users/sinnrrr/.cache/lvim"}"
+export LUNARVIM_RUNTIME_DIR="${LUNARVIM_RUNTIME_DIR:-"/Users/dmytro.soltusyuk/.local/share/lunarvim"}"
+export LUNARVIM_CONFIG_DIR="${LUNARVIM_CONFIG_DIR:-"/Users/dmytro.soltusyuk/.config/lvim"}"
+export LUNARVIM_CACHE_DIR="${LUNARVIM_CACHE_DIR:-"/Users/dmytro.soltusyuk/.cache/lvim"}"
 
 exec nvim -u "$LUNARVIM_RUNTIME_DIR/lvim/init.lua" "$@"

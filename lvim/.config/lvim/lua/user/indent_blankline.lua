@@ -1,5 +1,9 @@
 local M = {}
 
+M.setup = function()
+  vim.g.indent_blankline_char = "▏"
+end
+
 M.config = function()
   local status_ok, bl = pcall(require, "indent_blankline")
   if not status_ok then

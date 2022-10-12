@@ -1,49 +1,47 @@
 #!/bin/sh
 
 # to load $YABAI env
-. "$HOME/.profile"
+source $HOME/.profile
 
 sudo yabai --load-sa
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 
 # global settings
-yabai -m config mouse_follows_focus off
-yabai -m config focus_follows_mouse off
-yabai -m config window_origin_display default
-yabai -m config window_placement second_child
-yabai -m config window_topmost off
-yabai -m config window_shadow float
-yabai -m config window_opacity off
-yabai -m config window_opacity_duration 0.0
-yabai -m config active_window_opacity 1.0
-yabai -m config normal_window_opacity 0.85
-yabai -m config window_border off
-yabai -m config window_border_width 3
-yabai -m config active_window_border_color 0xffffc107
-yabai -m config normal_window_border_color 0xff555555
-yabai -m config insert_feedback_color 0xffd75f5f
-yabai -m config split_ratio 0.50
-yabai -m config auto_balance on
-yabai -m config mouse_modifier fn
-yabai -m config mouse_action1 move
-yabai -m config mouse_action2 resize
-yabai -m config mouse_drop_action swap
-
-# general space settings
-yabai -m config layout bsp
-yabai -m config top_padding 3
-yabai -m config bottom_padding 3
-yabai -m config left_padding 3
-yabai -m config right_padding 3
-yabai -m config window_gap 4
+yabai -m config \
+	mouse_follows_focus off \
+	focus_follows_mouse off \
+	window_origin_display default \
+	window_placement second_child \
+	window_topmost off \
+	window_shadow float \
+	window_opacity off \
+	window_border off \
+	window_border_blur off \
+	window_border_width 2 \
+	window_animation_duration 0.0 \
+	window_border_hidpi on \
+	active_window_border_color 0xffc4a7e7 \
+	normal_window_border_color 0xff6e6a86 \
+	layout bsp \
+	window_gap 8 \
+	split_type auto \
+	split_ratio 0.5 \
+	insert_feedback_color 0xffd75f5f \
+	auto_balance off \
+	mouse_modifier ctrl \
+	mouse_action1 move \
+	mouse_action2 resize \
+	mouse_drop_action swap
 
 # remove all rules first
 yabai -m rule --list |
-  jq '.[].index' |
-  sort -rn |
-  xargs -n 1 yabai -m rule --remove
+	jq '.[].index' |
+	sort -rn |
+	xargs -n 1 yabai -m rule --remove
 
+# float system preferences. Most of these just diable Yabai form resizing them.
 yabai -m rule --add title='Preferences$' manage=off
+yabai -m rule --add title='^General' manage=off
 yabai -m rule --add title='Settings$' manage=off
 
 yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
@@ -51,12 +49,8 @@ yabai -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password
 yabai -m rule --add label="System Preferences" app="^System Preferences$" title=".*" manage=off
 yabai -m rule --add label="App Store" app="^App Store$" manage=off
 yabai -m rule --add label="Activity Monitor" app="^Activity Monitor$" manage=off
-yabai -m rule --add label="KeePassXC" app="^KeePassXC$" manage=off
 yabai -m rule --add label="Calculator" app="^Calculator$" manage=off
 yabai -m rule --add label="Dictionary" app="^Dictionary$" manage=off
-# yabai -m rule --add label="Spark" app="^Spark$" manage=off
-# yabai -m rule --add label="Slack" app="^Slack$" manage=off
-yabai -m rule --add label="OBS" app="^OBS$" manage=off
 yabai -m rule --add label="mpv" app="^mpv$" manage=off
 yabai -m rule --add label="Software Update" title="Software Update" manage=off
 yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
@@ -64,8 +58,7 @@ yabai -m rule --add label="About This Mac" app="System Information" title="About
 yabai -m rule --add app="^Karabiner-Elements$" manage=off
 yabai -m rule --add app="^Karabiner-EventViewer$" manage=off
 yabai -m rule --add app="^Spotify$" manage=off
-yabai -m rule --add label="macfeh" app="^macfeh$" manage=off
-yabai -m rule --add title="QuickTerminal" manage=off grid=20:20:5:5:10:10 sticky=on layer=above opacity=0.9 border=off
+yabai -m rule --add title="QuickTerminal" grid=20:20:5:5:10:10 sticky=on layer=above opacity=0.9 border=off manage=off
 
 # If no window on the current space is focused after a window is destroyed or
 # minimized, or an application is hidden, focus the window under the cursor.
@@ -78,11 +71,21 @@ yabai -m signal --add event=application_hidden action=$YABAI/focus.sh
 # pass YABAI env, because of sh not autoloading .profile
 yabai -m signal --add event=window_created action="YABAI=$YABAI $YABAI/smart_gaps.sh"
 yabai -m signal --add event=window_destroyed action="YABAI=$YABAI $YABAI/smart_gaps.sh"
-# yabai -m signal --add event=space_changed action=$YABAI/smart_gaps.sh
 yabai -m signal --add event=window_minimized action="YABAI=$YABAI $YABAI/smart_gaps.sh"
 yabai -m signal --add event=window_deminimized action="YABAI=$YABAI $YABAI/smart_gaps.sh"
+# yabai -m signal --add event=space_changed action="YABAI=$YABAI $YABAI/smart_gaps.sh"
 
-"$YABAI/smart_gaps.sh"
-
+$YABAI/smart_gaps.sh
 SHELL='/bin/sh' skhd &
 echo "yabai configuration loaded.."
+
+# notch handling (macbook pro 16) for custom title bar
+# NOTCH_UUID="37D8832A-2D66-02CA-B9F7-8F30A301B230"
+# NORMAL_BAR=32
+# NOTCH_BAR=0
+# yabai -m signal --add event=display_added action="if [[ \"\$(yabai -m query --displays | jq \".[\$YABAI_DISPLAY_ID].uuid\")\" =~ \"$NOTCH_UUID\" ]]; then yabai -m config external_bar main:$NORMAL_BAR:0; elif [[ \"\$(yabai -m query --displays | jq '.[].uuid')\" =~ \"$NOTCH_UUID\" ]]; then yabai -m config external_bar main:$NORMAL_BAR:0; else yabai -m config external_bar all:$NORMAL_BAR:0; fi"
+# yabai -m signal --add event=display_removed action="if [[ \"\$(yabai -m query --displays | jq \".[\$YABAI_DISPLAY_ID].uuid\")\" =~ \"$NOTCH_UUID\" ]]; then yabai -m config external_bar all:$NORMAL_BAR:0; elif [[ \"\$(yabai -m query --displays | jq '.[].uuid')\" =~ \"$NOTCH_UUID\" ]]; then yabai -m config external_bar all:$NOTCH_BAR:0; fi"
+# if [[ "$(yabai -m query --displays | jq '.[].uuid')" =~ "$NOTCH_UUID" ]]; then if [ "$(yabai -m query --displays | jq length)" -gt "1" ]; then yabai -m config external_bar main:$NORMAL_BAR:0; else yabai -m config external_bar all:$NOTCH_BAR:0; fi else yabai -m config external_bar all:$NORMAL_BAR:0; fi
+
+# to handle non-resizable float only windows
+# yabai -m signal --add event=window_created action='yabai -m query --windows --window $YABAI_WINDOW_ID | jq -er ".\"can-resize\" or .\"is-floating\"" || yabai -m window $YABAI_WINDOW_ID --toggle float'

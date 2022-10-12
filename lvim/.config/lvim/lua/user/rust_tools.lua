@@ -37,24 +37,33 @@ M.config = function()
       },
     },
     server = {
-      on_attach = require("lvim.lsp").common_on_attach,
       on_init = require("lvim.lsp").common_on_init,
+      on_attach = function(client, bufnr)
+        require("lvim.lsp").common_on_attach(client, bufnr)
+        local rt = require "rust-tools"
+        -- Hover actions
+        vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+        -- Code action groups
+        vim.keymap.set("n", "<leader>lA", rt.code_action_group.code_action_group, { buffer = bufnr })
+      end,
     },
   }
-  local path = vim.fn.glob(vim.fn.stdpath "data" .. "/mason/packages/codelldb/extension/")
-    or vim.fn.expand "~/" .. ".vscode/extensions/vadimcn.vscode-lldb-1.7.3/"
-  local codelldb_path = path .. "adapter/codelldb"
-  local liblldb_path = path .. "lldb/lib/liblldb.so"
 
-  if vim.fn.has "mac" == 1 then
-    liblldb_path = path .. "lldb/lib/liblldb.dylib"
-  end
+  -- local path = vim.fn.glob(vim.fn.stdpath "data" .. "/mason/packages/codelldb/extension/")
+  --     or vim.fn.expand "~/" .. ".vscode/extensions/vadimcn.vscode-lldb-1.7.3/"
+  -- local codelldb_path = path .. "adapter/codelldb"
+  -- local liblldb_path = path .. "lldb/lib/liblldb.so"
 
-  if vim.fn.filereadable(codelldb_path) and vim.fn.filereadable(liblldb_path) then
-    opts.dap = {
-      adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path),
-    }
-  end
+  -- if vim.fn.has "mac" == 1 then
+  --   liblldb_path = path .. "lldb/lib/liblldb.dylib"
+  -- end
+
+  -- if vim.fn.filereadable(codelldb_path) and vim.fn.filereadable(liblldb_path) then
+  --   opts.dap = {
+  --     adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path),
+  --   }
+  -- end
+
   rust_tools.setup(opts)
 end
 
