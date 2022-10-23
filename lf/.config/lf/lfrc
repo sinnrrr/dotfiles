@@ -25,6 +25,7 @@ set hiddenfiles ".*:*.aux:*.log:*.bbl:*.bcf:*.blg:*.run.xml"
 set previewer ~/.config/lf/preview
 
 # change columns size dependant on the available space
+# shellcheck disable=SC1083
 ${{
     w=$(tput cols)
     if [ $w -le 100 ]; then
@@ -33,7 +34,6 @@ ${{
         lf -remote "send $id set ratios 1:2:3"
     fi
 }}
-
 
 # unmap default keybings
 map gh
@@ -47,6 +47,7 @@ map yP :copy-absolute-path
 map dd :cut
 map \\ :find-prev
 map U :fzf-restore
+# shellcheck disable=SC1072,SC1073,SC1009
 map X push !$f<space>
 map x !$f
 map gg :top
