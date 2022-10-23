@@ -39,7 +39,6 @@ M.config = function()
 		"jdtls",
 		"pyright",
 		"rust_analyzer",
-		"sumneko_lua",
 		"taplo",
 		"texlab",
 		"tsserver",
@@ -55,8 +54,10 @@ M.config = function()
 	end
 
 	if lvim.builtin.debugger.active then
-		-- lvim.builtin.dap.active = false
-		require("user.dap").config()
+		-- this needed because dap comes with lunarvim out of the box
+		-- we disable it and config it with our own config
+		lvim.builtin.dap.active = false
+		-- require("user.dap").config()
 	end
 
 	-- LF integration
@@ -145,10 +146,10 @@ M.config = function()
 	lvim.builtin.terminal.active = true
 	lvim.builtin.terminal.direction = "horizontal"
 
-	-- Notify
-	-- =========================================
-	lvim.builtin.notify.active = true
-	lvim.builtin.notify.opts.stages = "fade_in_slide_out"
+	-- -- Notify
+	-- -- =========================================
+	-- lvim.builtin.notify.active = true
+	-- lvim.builtin.notify.opts.stages = "fade_in_slide_out"
 end
 
 return M
