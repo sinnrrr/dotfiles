@@ -3,8 +3,8 @@ local M = {}
 M.config = function()
 	-- General
 	-- =========================================
+	lvim.colorscheme = "tokyonight"
 	lvim.format_on_save = true
-	lvim.builtin.notify.active = true
 
 	-- Comment
 	-- =========================================
@@ -54,8 +54,15 @@ M.config = function()
 		lvim.lsp.diagnostics.virtual_text = false
 	end
 
-	if lvim.builtin.cursorline.active then
-		lvim.lsp.document_highlight = false
+	if lvim.builtin.debugger.active then
+		-- lvim.builtin.dap.active = false
+		require("user.dap").config()
+	end
+
+	-- LF integration
+	-- =========================================
+	if lvim.builtin.lf_integration.active then
+		require("user.lf").config()
 	end
 
 	-- Project
@@ -137,6 +144,11 @@ M.config = function()
 	-- =========================================
 	lvim.builtin.terminal.active = true
 	lvim.builtin.terminal.direction = "horizontal"
+
+	-- Notify
+	-- =========================================
+	lvim.builtin.notify.active = true
+	lvim.builtin.notify.opts.stages = "fade_in_slide_out"
 end
 
 return M

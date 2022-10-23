@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env zsh
 
 # to load $YABAI env
 source $HOME/.profile
@@ -9,7 +9,7 @@ yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 # global settings
 yabai -m config \
 	mouse_follows_focus off \
-	focus_follows_mouse off \
+	focus_follows_mouse autoraise \
 	window_origin_display default \
 	window_placement second_child \
 	window_topmost off \
@@ -33,17 +33,10 @@ yabai -m config \
 	mouse_action2 resize \
 	mouse_drop_action swap
 
-# remove all rules first
-yabai -m rule --list |
-	jq '.[].index' |
-	sort -rn |
-	xargs -n 1 yabai -m rule --remove
-
 # float system preferences. Most of these just diable Yabai form resizing them.
 yabai -m rule --add title='Preferences$' manage=off
 yabai -m rule --add title='^General' manage=off
 yabai -m rule --add title='Settings$' manage=off
-
 yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
 yabai -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off
 yabai -m rule --add label="System Preferences" app="^System Preferences$" title=".*" manage=off
@@ -54,17 +47,15 @@ yabai -m rule --add label="Dictionary" app="^Dictionary$" manage=off
 yabai -m rule --add label="mpv" app="^mpv$" manage=off
 yabai -m rule --add label="Software Update" title="Software Update" manage=off
 yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
-
-yabai -m rule --add app="^Karabiner-Elements$" manage=off
 yabai -m rule --add app="^Karabiner-EventViewer$" manage=off
-yabai -m rule --add app="^Spotify$" manage=off
+# yabai -m rule --add app="^Spotify$" manage=off
 yabai -m rule --add title="QuickTerminal" grid=20:20:5:5:10:10 sticky=on layer=above opacity=0.9 border=off manage=off
 
 # If no window on the current space is focused after a window is destroyed or
 # minimized, or an application is hidden, focus the window under the cursor.
-yabai -m signal --add event=window_destroyed action=$YABAI/focus.sh
-yabai -m signal --add event=window_minimized action=$YABAI/focus.sh
-yabai -m signal --add event=application_hidden action=$YABAI/focus.sh
+yabai -m signal --add event=window_destroyed action=$YABAI/focus_space.sh
+yabai -m signal --add event=window_minimized action=$YABAI/focus_space.sh
+yabai -m signal --add event=application_hidden action=$YABAI/focus_space.sh
 
 # yabai -m signal --add event=display_changed action=$YABAI/restart.sh
 
@@ -73,10 +64,10 @@ yabai -m signal --add event=window_created action="YABAI=$YABAI $YABAI/smart_gap
 yabai -m signal --add event=window_destroyed action="YABAI=$YABAI $YABAI/smart_gaps.sh"
 yabai -m signal --add event=window_minimized action="YABAI=$YABAI $YABAI/smart_gaps.sh"
 yabai -m signal --add event=window_deminimized action="YABAI=$YABAI $YABAI/smart_gaps.sh"
-# yabai -m signal --add event=space_changed action="YABAI=$YABAI $YABAI/smart_gaps.sh"
+yabai -m signal --add event=space_changed action="YABAI=$YABAI $YABAI/smart_gaps.sh"
 
 $YABAI/smart_gaps.sh
-SHELL='/bin/sh' skhd &
+SHELL="/bin/sh" skhd &
 echo "yabai configuration loaded.."
 
 # notch handling (macbook pro 16) for custom title bar
@@ -86,6 +77,3 @@ echo "yabai configuration loaded.."
 # yabai -m signal --add event=display_added action="if [[ \"\$(yabai -m query --displays | jq \".[\$YABAI_DISPLAY_ID].uuid\")\" =~ \"$NOTCH_UUID\" ]]; then yabai -m config external_bar main:$NORMAL_BAR:0; elif [[ \"\$(yabai -m query --displays | jq '.[].uuid')\" =~ \"$NOTCH_UUID\" ]]; then yabai -m config external_bar main:$NORMAL_BAR:0; else yabai -m config external_bar all:$NORMAL_BAR:0; fi"
 # yabai -m signal --add event=display_removed action="if [[ \"\$(yabai -m query --displays | jq \".[\$YABAI_DISPLAY_ID].uuid\")\" =~ \"$NOTCH_UUID\" ]]; then yabai -m config external_bar all:$NORMAL_BAR:0; elif [[ \"\$(yabai -m query --displays | jq '.[].uuid')\" =~ \"$NOTCH_UUID\" ]]; then yabai -m config external_bar all:$NOTCH_BAR:0; fi"
 # if [[ "$(yabai -m query --displays | jq '.[].uuid')" =~ "$NOTCH_UUID" ]]; then if [ "$(yabai -m query --displays | jq length)" -gt "1" ]; then yabai -m config external_bar main:$NORMAL_BAR:0; else yabai -m config external_bar all:$NOTCH_BAR:0; fi else yabai -m config external_bar all:$NORMAL_BAR:0; fi
-
-# to handle non-resizable float only windows
-# yabai -m signal --add event=window_created action='yabai -m query --windows --window $YABAI_WINDOW_ID | jq -er ".\"can-resize\" or .\"is-floating\"" || yabai -m window $YABAI_WINDOW_ID --toggle float'

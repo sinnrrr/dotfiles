@@ -1,169 +1,90 @@
+# vim:ft=sh
+
+source "~/.config/lf/commands/paste"
+source "~/.config/lf/commands/bulk-rename"
+source "~/.config/lf/commands/convert-image"
+source "~/.config/lf/commands/copy-highlighted-file"
+source "~/.config/lf/shortcutrc"
+source "~/.config/lf/commands/fzf"
+source "~/.config/lf/commands/trash"
+source "~/.config/lf/commands/open"
+source "~/.config/lf/commands/files_and_dirs"
+source "~/.config/lf/commands/archives"
+
 set shell sh
-# set shellopts '-euy'
+# set shellopts '-ey' # for zsh
+set shellopts '-eu'
 set ifs "\n"
 set scrolloff 10
-set drawbox
 set icons
+set drawbox
+set hidden true
 set period 1
+set wrapscroll true
 set hiddenfiles ".*:*.aux:*.log:*.bbl:*.bcf:*.blg:*.run.xml"
 set previewer ~/.config/lf/preview
 
-cmd open ${{
-    test -L $f && f=$(readlink -f $f)
-    case $(file --mime-type $f -b) in
-        text/*|application/json|inode/x-empty) $EDITOR $fx;;
-        image/svg+xml) display -- $f ;;
-        audio/*) mpv --audio-display=no $f ;;
-        video/*) setsid -f mpv $f -quiet >/dev/null 2>&1 ;;
-        image/vnd.djvu|application/pdf|application/octet-stream|application/postscript|application/pdf|application/epub*) $BROWSER "$(printf %q "$f")"  ;;
-        *) for f in $fx; do setsid $OPENER $f > /dev/null 2> /dev/null & done;;
-    esac
-}}
-
-# move current file or selected files to trash folder
-# (also see 'man mv' for backup/overwrite options)
-cmd trash %trash-put $fx
-
-cmd share $curl -F"file=@$fx" https://0x0.st | pbcopy
-
-cmd lazygit $lazygit
-
-# define a custom 'delete' command
-cmd delete ${{
-    set -f
-    printf "$fx\n"
-    printf "delete?[y/n]"
-    read ans
-    [ $ans = "y" ] && rm -rf $fx
-}}
-
-# use '<delete>' key for either 'trash' or 'delete' command
-
-cmd extract ${{
-    set -f
-    unar $f
-}}
-
-cmd touch %{{
-    mkdir -p "$(dirname "$*")" && touch -- "$*"
-    lf -remote "send $id select \"$*\""
-}}
-
-cmd mkdir %{{
-    mkdir -p "$@"
-    lf -remote "send $id select \"$@\""
-}}
-
-cmd recol ${{
+# change columns size dependant on the available space
+${{
     w=$(tput cols)
-    if [ $w -le 80 ]; then
-        lf -remote "send $id set ratios 1:2"
+    if [ $w -le 100 ]; then
+        lf -remote "send $id set ratios 2:2:3"
     elif [ $w -le 160 ]; then
         lf -remote "send $id set ratios 1:2:3"
-    else
-        lf -remote "send $id set ratios 1:2:3:5"
     fi
 }}
 
-cmd poetry_lvim ${{
-  if [ -d "$f" ]; then
-   cd $f 
-  fi
-  poetry run lvim $f
-}}
 
-cmd fzf-restore ${{
-    ids="$(echo -ne '\n'              | \
-      trash-restore                   | \
-      awk '$1 ~ /^[0-9]+/ {print $0}' | \
-      fzf --multi                     | \
-      awk '{print $1}'                | \
-      sed 's/\n/,/g;s/,$/\n/')"
-    echo $ids | trash-restore 
-    clear
-}}
-
-cmd fzf_search ${{
-    res="$( \
-        RG_PREFIX="rg --column --line-number --no-heading --color=always \
-            --smart-case "
-        FZF_DEFAULT_COMMAND="$RG_PREFIX ''" \
-            fzf --bind "change:reload:$RG_PREFIX {q} || true" \
-            --ansi --layout=reverse --header 'Search in files' \
-            | cut -d':' -f1
-    )"
-    [ ! -z "$res" ] && lf -remote "send $id select \"$res\""
-}}
-
-cmd fzf_jump ${{
-    res="$(find . | fzf --reverse --header='Jump to location' | sed 's/\\/\\\\/g;s/"/\\"/g')"
-    if [ -d "$res" ]; then
-        cmd="cd"
-    else 
-        cmd="select"                                                       
-    fi
-    lf -remote "send $id $cmd \"$res\""
-}}
-
-# Copy the file names (including extension) of the selections separated by \n
-cmd copy-filename ${{
-  names="$(echo $fx | tr ' ' '\n' | xargs -I{} basename {})"
-  echo $names | tr ' ' '\n' | pbcopy
-}}
-
-# Copy the absolute paths of selections separated by \n
-cmd copy-absolute-path ${{
-  echo $fx | tr ' ' '\n' | pbcopy
-}}
-
-cmd copy-highlighted-file ${{
-  highlight $fx -O rtf --font-size 10 --font Consolas,\'Courier\ New\' | pbcopy
-}}
-
-cmd chmod ${{
-  printf "\nMode Bits: "
-  for file in "$fx"
-  do
-    chmod $* $file
-  done
-  lf -remote 'send reload'
-}}
-
-cmd convert-image ${{
-  convert "$fx" -quality 100 ./output.jpg
-}}
-
-recol
-
+# unmap default keybings
+map gh
+map d
+map y
 map ,
 
-map <enter> shell
-map <delete> delete
-# map x shell
-map X !$f
-map R recol 
-map yy copy
-map yn copy-filename
-map gy copy-absolute-path
-map U fzf-restore
-map ,ch push :chmod<space>
-map ,st :fzf_search
-map ,gg lazygit
-map ,S :share
-map ,f :fzf_jump
-map ,ci convert-image
-map ,t push :tar<space>
-map ,ll $lvim +"lua require('persistence').load({ last = true })"
-map ,e :extract
-map ,cc copy-highlighted-file
-map ee $$EDITOR "$f"
-map gp poetry_lvim
-map D trash
-map o $open $f
-map ZZ quit
+map yy :copy
+map yn :copy-filename
+map yP :copy-absolute-path
+map dd :cut
+map \\ :find-prev
+map U :fzf-restore
+map X push !$f<space>
+map x !$f
+map gg :top
+map gd :delete
+map gc $code $fx
+map gl :follow_link
+map D :trash
+map t :toggle
 map A push :mkdir<space>
 map a push :touch<space>
-map ,sl $lvim +"lua require('persistence').load({ last = true })"
+map <c-r> :reload
+map <c-a> :select-files
+map <enter> :shell
+map o $open $f
+map <c-z> $kill -STOP $PPID
+map p :paste_try_cow
+# duplicate lf with current dir in another terminal
+map S &open -na Alacritty --args --working-directory=$PWD -e "lf"
 
-# Shortcuts
-source "~/.config/lf/shortcutrc"
+# vim like mappings with <leader> being ","
+map ,r :bulk-rename
+map ,st :fzf_search
+map ,sh :share
+map ,ch :chmod
+map ,ci :convert-image
+map ,cc :copy-highlighted-file
+map ,gg $lazygit
+map ,f :fzf_jump
+map ,t push :tar<space>
+map ,z push :zip<space>
+map ,e :extract
+map ,Sl $lvim +"lua require('persistence').load({ last = true })"
+map ,Sc $lvim +"lua require('persistence').load()" # pwd is current lf dir
+
+# command mode mappings
+map <up> cmd-history-prev
+map <down> cmd-history-next
+cmap <up> cmd-history-prev
+cmap <down> cmd-history-next
+cmap <tab> cmd-menu-complete
+cmap <backtab> cmd-menu-complete-back

@@ -1,0 +1,5 @@
+# vim:ft=sh
+
+cmd copy-highlighted-file ${{
+  highlight $fx -O rtf --font-size 10 --font Consolas,\'Courier\ New\' | pbcopy
+}}

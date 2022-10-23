@@ -1,0 +1,5 @@
+# vim:ft=sh
+
+cmd convert-image ${{
+  convert "$fx" -quality 100 ./output.jpg
+}}

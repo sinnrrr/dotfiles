@@ -1,0 +1,14 @@
+# vim:ft=sh
+
+cmd open ${{
+    case $(file --mime-type $f -b) in
+        text/*|application/json|inode/x-empty) $EDITOR $fx;;
+        image/svg+xml) display -- $f ;;
+        audio/*) mpv --audio-display=no $f ;;
+        video/*) setsid -f mpv $f -quiet >/dev/null 2>&1 ;;
+        image/vnd.djvu|application/pdf|application/octet-stream|application/postscript|application/pdf|application/epub*) setsid -f $BROWSER  "$fx" >/dev/null 2>&1 ;;
+        application/pgp-encrypted) $EDITOR $fx ;;
+        *) for f in $fx; do setsid -f $OPENER $f >/dev/null 2>&1; done;;
+    esac
+}}
+
