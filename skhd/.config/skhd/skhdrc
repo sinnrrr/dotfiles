@@ -1,8 +1,8 @@
 # apps shortcuts
 ctrl + alt + cmd - return : open -n /Applications/Alacritty.app
 ctrl + alt + cmd + shift - return : $YABAI/quick_terminal.sh
-ctrl + alt + cmd - o : open -n /System/Applications/System\ Preferences.app
-ctrl + alt + cmd - b : open -n /Applications/Google\ Chrome.app
+ctrl + alt + cmd - o : open -n /System/Applications/System\ Settings.app
+ctrl + alt + cmd - b : open -n /Applications/Firefox.app
 
 # change layouts
 ctrl + alt + cmd - t : yabai -m space --layout bsp; $YABAI/smart_gaps.sh
