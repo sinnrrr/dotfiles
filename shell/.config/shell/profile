@@ -3,7 +3,7 @@
 
 # Default programs:
 export EDITOR="lvim"
-export VISUAL="lvim"
+export VISUAL="$EDITOR"
 export TERMINAL="alacritty"
 export BROWSER="open-browser"
 
@@ -56,13 +56,14 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 --color=info:#98c379,prompt:#61afef,pointer:#be5046,marker:#e5c07b,spinner:#61afef,header:#61afef
 '
 
-export LESS_TERMCAP_mb=$(printf '\e[01;31m') # enter blinking mode – red
-export LESS_TERMCAP_md=$(printf '\e[01;35m') # enter double-bright mode – bold, magenta
-export LESS_TERMCAP_me=$(printf '\e[0m')     # turn off all appearance modes (mb, md, so, us)
-export LESS_TERMCAP_se=$(printf '\e[0m')     # leave standout mode
-export LESS_TERMCAP_so=$(printf '\e[01;33m') # enter standout mode – yellow
-export LESS_TERMCAP_ue=$(printf '\e[0m')     # leave underline mode
-export LESS_TERMCAP_us=$(printf '\e[04;36m') # enter underline mode – cyan
+export LESS=-R
+export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"
+export LESS_TERMCAP_md="$(printf '%b' '[1;36m')"
+export LESS_TERMCAP_me="$(printf '%b' '[0m')"
+export LESS_TERMCAP_so="$(printf '%b' '[01;44;33m')"
+export LESS_TERMCAP_se="$(printf '%b' '[0m')"
+export LESS_TERMCAP_us="$(printf '%b' '[1;32m')"
+export LESS_TERMCAP_ue="$(printf '%b' '[0m')"
 
 # Parameters
 export NEOVIDE_FRAMELESS=true

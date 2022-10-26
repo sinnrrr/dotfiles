@@ -1,16 +1,12 @@
 #!/bin/sh
 
-# Use lunarivim for vim if present.
-# [ -x "$(command -v lvim)" ] && alias vim="lvim" vimdiff="lvim -d"
+# Use neovim for vim if present.
+[ -x "$(command -v nvim)" ] && alias vim="nvim" vimdiff="nvim -d"
 
 # sudo not required for some system commands
-for command in mount umount sv pacman updatedb su shutdown poweroff reboot; do
-  alias $command="sudo $command"
+for x in mount umount sv pacman updatedb su; do
+  alias $x="sudo $x"
 done
-unset command
-
-alias chrome="open -a 'Google Chrome'"
-# alias python="/opt/homebrew/bin/python3"
 
 # Verbosity and settings that you pretty much just always are going to want.
 alias \
@@ -28,8 +24,20 @@ alias \
   ls="ls -h --color=auto" \
   grep="grep --color=auto" \
   diff="diff --color=auto" \
-  ccat="highlight --out-format=ansi" \
+  ccat="highlight -O ansi --force" \
   ip="ip -color=auto"
 
+# These common commands are just too long! Abbreviate them.
+alias \
+  g="git" \
+  c="clear" \
+  t="btop" \
+  trem="transmission-remote" \
+  sdn="sudo shutdown -h now" \
+  v="$EDITOR"
+
+alias \
+  reload-shortcuts="apply-shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" \
+  weath="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport"
+
 alias lg="lazygit"
-alias cat="highlight -O ansi --force"
