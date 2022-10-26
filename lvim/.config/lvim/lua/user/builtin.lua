@@ -3,7 +3,7 @@ local M = {}
 M.config = function()
 	-- General
 	-- =========================================
-	lvim.colorscheme = "tokyonight"
+	lvim.colorscheme = "tokyonight-storm"
 	lvim.format_on_save = true
 
 	-- Comment

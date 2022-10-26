@@ -5,7 +5,7 @@
 
 # sudo not required for some system commands
 for command in mount umount sv pacman updatedb su shutdown poweroff reboot; do
-	alias $command="sudo $command"
+  alias $command="sudo $command"
 done
 unset command
 
@@ -14,21 +14,22 @@ alias chrome="open -a 'Google Chrome'"
 
 # Verbosity and settings that you pretty much just always are going to want.
 alias \
-	cp="cp -iv" \
-	mv="mv -iv" \
-	rm="rm -v" \
-	bc="bc -ql" \
-	mkd="mkdir -pv" \
-	yt="yt-dlp --embed-metadata -i" \
-	yta="yt -x -f bestaudio/best" \
-	ffmpeg="ffmpeg -hide_banner"
+  cp="cp -iv" \
+  mv="mv -iv" \
+  rm="rm -v" \
+  bc="bc -ql" \
+  mkd="mkdir -pv" \
+  yt="yt-dlp --embed-metadata -i" \
+  yta="yt -x -f bestaudio/best" \
+  ffmpeg="ffmpeg -hide_banner"
 
 # Colorize commands when possible.
 alias \
-	ls="ls -h --color=auto" \
-	grep="grep --color=auto" \
-	diff="diff --color=auto" \
-	ccat="highlight --out-format=ansi" \
-	ip="ip -color=auto"
+  ls="ls -h --color=auto" \
+  grep="grep --color=auto" \
+  diff="diff --color=auto" \
+  ccat="highlight --out-format=ansi" \
+  ip="ip -color=auto"
 
 alias lg="lazygit"
+alias cat="highlight -O ansi --force"

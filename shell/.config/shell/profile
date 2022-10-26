@@ -1,4 +1,5 @@
-#!/bin/zsh
+# vim:ft=sh
+# shellcheck shell=sh
 
 # Default programs:
 export EDITOR="lvim"
@@ -9,6 +10,7 @@ export BROWSER="open-browser"
 # Adds `~/.local/bin` to $PATH
 paths=$(find -L ~/.local/bin -type d -print | xargs printf -- '%s:')%%:
 export PATH="$PATH:${paths}"
+export PATH="/usr/local/bin:$PATH"
 
 # ~/ Clean-up:
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -22,7 +24,7 @@ export GTK2_RC_FILES="${XDG_CONFIG_HOME:-$HOME/.config}/gtk-2.0/gtkrc-2.0"
 export THEMESWITCH_CONFIG_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/themeswitch/config"
 export LESSHISTFILE="-"
 export NETRC="${XDG_CONFIG_HOME:-$HOME/.config}/net/netrc"
-export WGETRC="${XDG_CONFIG_HOME:-$HOME/.config}/wget/wgetrc"
+# export WGETRC="${XDG_CONFIG_HOME:-$HOME/.config}/wget/wgetrc"
 export INPUTRC="${XDG_CONFIG_HOME:-$HOME/.config}/shell/inputrc"
 export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
 export ALSA_CONFIG_PATH="$XDG_CONFIG_HOME/alsa/asoundrc"
@@ -46,9 +48,45 @@ export PYTHONPATH=$PYTHONPATH:.
 export PYENV_ROOT="$HOME/.pyenv"
 export YABAI="${XDG_CONFIG_HOME:-$HOME/.config}/yabai/scripts"
 
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+export FZF_DEFAULT_OPTS="--layout=reverse --inline-info --height=50%"
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+--color=dark
+--color=fg:-1,bg:-1,hl:#c678dd,fg+:#ffffff,bg+:#4b5263,hl+:#d858fe
+--color=info:#98c379,prompt:#61afef,pointer:#be5046,marker:#e5c07b,spinner:#61afef,header:#61afef
+'
+
+export LESS_TERMCAP_mb=$(printf '\e[01;31m') # enter blinking mode – red
+export LESS_TERMCAP_md=$(printf '\e[01;35m') # enter double-bright mode – bold, magenta
+export LESS_TERMCAP_me=$(printf '\e[0m')     # turn off all appearance modes (mb, md, so, us)
+export LESS_TERMCAP_se=$(printf '\e[0m')     # leave standout mode
+export LESS_TERMCAP_so=$(printf '\e[01;33m') # enter standout mode – yellow
+export LESS_TERMCAP_ue=$(printf '\e[0m')     # leave underline mode
+export LESS_TERMCAP_us=$(printf '\e[04;36m') # enter underline mode – cyan
+
 # Parameters
 export NEOVIDE_FRAMELESS=true
 export NEOVIDE_MULTIGRID=true
 export NEOVIDE_FRAME=none
 
-# export DOCKER_DEFAULT_PLATFORM="linux/amd64"  
+# homebrew (macos intel or silicon or linux)
+test -f /home/linuxbrew/.linuxbrew/bin/brew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+test -f /usr/local/bin/brew && eval $(/usr/local/bin/brew shellenv)
+test -f /opt/homebrew/bin/brew && eval $(/opt/homebrew/bin/brew shellenv)
+
+if [[ -n "$HOMEBREW_PREFIX" ]]; then
+  export HOMEBREW_NO_ANALYTICS=1
+  # linux utils for macos
+  export PATH="${HOMEBREW_PREFIX}/opt/coreutils/libexec/gnubin:$PATH"
+  export MANPATH="${HOMEBREW_PREFIX}/opt/coreutils/libexec/gnuman:$MANPATH"
+  export PATH="${HOMEBREW_PREFIX}/opt/gnu-sed/libexec/gnubin:$PATH"
+  export MANPATH="${HOMEBREW_PREFIX}/opt/gnu-sed/libexec/gnuman:$MANPATH"
+  export PATH="${HOMEBREW_PREFIX}/opt/gnu-tar/libexec/gnubin:$PATH"
+  export MANPATH="${HOMEBREW_PREFIX}/opt/gnu-tar/libexec/gnuman:$PATH"
+  export PATH="${HOMEBREW_PREFIX}/opt/util-linux/bin:$PATH"
+  export PATH="${HOMEBREW_PREFIX}/opt/util-linux/sbin:$PATH"
+  # completions
+  export FPATH="${HOMEBREW_PREFIX}/share/zsh/site-functions:${FPATH}"
+fi
+
+# export DOCKER_DEFAULT_PLATFORM="linux/amd64"
