@@ -40,6 +40,7 @@ M.config = function()
 			"flake8",
 			"black",
 			"isort",
+			"hadolint",
 			-- you can pin a tool to a particular version
 			-- { "golangci-lint", version = "1.47.0" },
 			-- you can turn off/on auto_update per tool
