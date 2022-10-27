@@ -69,6 +69,8 @@ zinit light romkatv/powerlevel10k
 zinit ice depth=1
 zinit light jeffreytse/zsh-vi-mode
 
+zinit light akarzim/zsh-docker-aliases
+
 # Regular plugins, loaded in turbe mode (wait)
 zinit wait lucid light-mode for \
   OMZP::golang \
