@@ -30,6 +30,7 @@ M.config = function()
 			"yaml-language-server",
 			"rust-analyzer",
 			"shellcheck",
+			"lemminx",
 
 			-- formatters and linters
 			"shfmt",
