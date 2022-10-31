@@ -2,7 +2,7 @@
 
 source "~/.config/lf/commands/paste"
 source "~/.config/lf/commands/bulk-rename"
-source "~/.config/lf/commands/convert-image"
+source "~/.config/lf/commands/images"
 source "~/.config/lf/commands/copy-highlighted-file"
 source "~/.config/lf/shortcutrc"
 source "~/.config/lf/commands/fzf"
@@ -73,6 +73,7 @@ map ,st :fzf_search
 map ,sh :share
 map ,ch :chmod
 map ,ci :convert-image
+map ,yi :yank-image
 map ,cc :copy-highlighted-file
 map ,gg $lazygit
 map ,f :fzf_jump

@@ -1,4 +1,5 @@
 # vim:ft=sh
+# shellcheck disable=SC1083,2086,2296,1054,2154,2148
 
 cmd extract ${{
   set -f
@@ -7,9 +8,9 @@ cmd extract ${{
     *.tar.gz|*.tgz) tar xzvf $f;;
     *.tar.xz|*.txz) tar xJvf $f;;
     *.tar) tar xvf $f;;
-    *.zip) unzip $f;;
-    *.rar) unrar x $f;;
-    *.7z) 7z x $f;;
+    *.zip) unar $f;;
+    *.rar) unar $f;;
+    *.7z) unar $f;;
     *) echo "Unsupported format";;
   esac
 }}

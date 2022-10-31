@@ -1,4 +1,5 @@
 # vim:ft=sh
+# shellcheck disable=SC1083,2086,2296,1054,2154,2148
 
 cmd bulk-rename ${{
   old="$(mktemp)"

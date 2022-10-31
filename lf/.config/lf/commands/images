@@ -1,0 +1,10 @@
+# vim:ft=sh
+# shellcheck disable=SC1083,2086,2296,1054,2154,2148
+
+cmd convert-image ${{
+  convert "$fx" -quality 100 ./output.jpg
+}}
+
+cmd yank-image ${{
+  copyq & copyq write $(file --mime-type -b "$fx") - < "$fx" && copyq select 0
+}}
