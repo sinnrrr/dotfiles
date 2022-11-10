@@ -30,6 +30,7 @@ alias \
 # These common commands are just too long! Abbreviate them.
 alias \
   g="git" \
+  s="spt" \
   c="clear" \
   t="btop" \
   trem="transmission-remote" \
