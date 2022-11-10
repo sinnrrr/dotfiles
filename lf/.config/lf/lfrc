@@ -47,7 +47,7 @@ map yP :copy-absolute-path
 map dd :cut
 map \\ :find-prev
 map U :fzf-restore
-# shellcheck disable=SC1072,SC1073,SC1009
+# shellcheck disable=1009,1072,1073
 map X push !$f<space>
 map x !$f
 map gg :top
@@ -61,7 +61,7 @@ map a push :touch<space>
 map <c-r> :reload
 map <c-a> :select-files
 map <enter> :shell
-map o $open $f
+map o :open 
 map <c-z> $kill -STOP $PPID
 map p :paste_try_cow
 # duplicate lf with current dir in another terminal
@@ -70,18 +70,19 @@ map S &open -na Alacritty --args --working-directory=$PWD -e "lf"
 # vim like mappings with <leader> being ","
 map ,r :bulk-rename
 map ,st :fzf_search
+map ,gg $lazygit
 map ,sh :share
 map ,ch :chmod
 map ,ci :convert-image
 map ,yi :yank-image
-map ,cc :copy-highlighted-file
+map ,yh :copy-highlighted-file
 map ,gg $lazygit
 map ,f :fzf_jump
 map ,t push :tar<space>
 map ,z push :zip<space>
 map ,e :extract
-map ,Sl $lvim +"lua require('persistence').load({ last = true })"
-map ,Sc $lvim +"lua require('persistence').load()" # pwd is current lf dir
+map <c-o> $lvim +"lua require('persistence').load()" # pwd is current lf dir
+map <c-p> $lvim +"lua require('persistence').load({ last = true })" 
 
 # command mode mappings
 map <up> cmd-history-prev
