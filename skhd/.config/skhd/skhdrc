@@ -2,7 +2,7 @@
 ctrl + alt + cmd - return : open -n /Applications/Alacritty.app
 ctrl + alt + cmd + shift - return : $YABAI/quick_terminal.sh
 ctrl + alt + cmd - o : open -n /System/Applications/System\ Settings.app
-ctrl + alt + cmd - b : open -n /Applications/Firefox.app
+ctrl + alt + cmd - b : open-browser
 
 # change layouts
 ctrl + alt + cmd - t : yabai -m space --layout bsp; $YABAI/smart_gaps.sh
@@ -61,15 +61,15 @@ ctrl + alt + cmd - 8 : yabai -m space --focus 8
 ctrl + alt + cmd - 9 : yabai -m space --focus 9
 
 # send window to desktop and follow focus
-#ctrl + alt + cmd + shift - 1 : yabai -m window --space  1; yabai -m space --focus 1
-#ctrl + alt + cmd + shift - 2 : yabai -m window --space  2; yabai -m space --focus 2
-#ctrl + alt + cmd + shift - 3 : yabai -m window --space  3; yabai -m space --focus 3
-#ctrl + alt + cmd + shift - 4 : yabai -m window --space  4; yabai -m space --focus 4
-#ctrl + alt + cmd + shift - 5 : yabai -m window --space  5; yabai -m space --focus 5
-#ctrl + alt + cmd + shift - 6 : yabai -m window --space  6; yabai -m space --focus 6
-#ctrl + alt + cmd + shift - 7 : yabai -m window --space  7; yabai -m space --focus 7
-#ctrl + alt + cmd + shift - 8 : yabai -m window --space  8; yabai -m space --focus 8
-#ctrl + alt + cmd + shift - 9 : yabai -m window --space  9; yabai -m space --focus 9
+#ctrl + alt + cmd + shift - 1 : yabai -m window --space 1; yabai -m space --focus 1
+#ctrl + alt + cmd + shift - 2 : yabai -m window --space 2; yabai -m space --focus 2
+#ctrl + alt + cmd + shift - 3 : yabai -m window --space 3; yabai -m space --focus 3
+#ctrl + alt + cmd + shift - 4 : yabai -m window --space 4; yabai -m space --focus 4
+#ctrl + alt + cmd + shift - 5 : yabai -m window --space 5; yabai -m space --focus 5
+#ctrl + alt + cmd + shift - 6 : yabai -m window --space 6; yabai -m space --focus 6
+#ctrl + alt + cmd + shift - 7 : yabai -m window --space 7; yabai -m space --focus 7
+#ctrl + alt + cmd + shift - 8 : yabai -m window --space 8; yabai -m space --focus 8
+#ctrl + alt + cmd + shift - 9 : yabai -m window --space 9; yabai -m space --focus 9
 #ctrl + alt + cmd + shift - g : yabai -m window --space prev; yabai -m space --focus prev
 #ctrl + alt + cmd + shift - g : yabai -m window --space prev; yabai -m space --focus prev
 # maps to ;
