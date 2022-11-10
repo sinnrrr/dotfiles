@@ -23,7 +23,7 @@ M.config = function()
 			"solidity",
 			"sqls",
 			"tailwindcss-language-server",
-			"taplo",
+			-- "taplo",
 			"terraform-ls",
 			"typescript-language-server",
 			"vim-language-server",
@@ -31,6 +31,7 @@ M.config = function()
 			"rust-analyzer",
 			"shellcheck",
 			"lemminx",
+			"prosemd-lsp",
 
 			-- formatters and linters
 			"shfmt",
@@ -42,6 +43,8 @@ M.config = function()
 			"black",
 			"isort",
 			"hadolint",
+			"markdownlint",
+			"proselint",
 			-- you can pin a tool to a particular version
 			-- { "golangci-lint", version = "1.47.0" },
 			-- you can turn off/on auto_update per tool
