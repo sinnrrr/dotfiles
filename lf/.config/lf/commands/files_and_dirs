@@ -58,4 +58,118 @@ cmd copy-absolute-path ${{
   echo $fx | tr ' ' '\n' | pbcopy
 }}
 
+cmd copy-highlighted-file ${{
+  highlight $fx -O rtf --font-size 10 --font Consolas,\'Courier\ New\' | pbcopy
+}}
+
 cmd share $curl -F"file=@$fx" https://0x0.st | pbcopy
+
+cmd bulk-rename ${{
+  old="$(mktemp)"
+  new="$(mktemp)"
+  if [ -n "$fs" ]; then
+    fs="$(basename $fs)"
+  else
+    fs="$(ls)"
+  fi
+  printf '%s\n' "$fs" >"$old"
+  printf '%s\n' "$fs" >"$new"
+  $EDITOR "$new"
+  [ "$(wc -l < "$new")" -ne "$(wc -l < "$old")" ] && exit
+  paste "$old" "$new" | while IFS= read -r names; do
+    src="$(printf '%s' "$names" | cut -f1)"
+    dst="$(printf '%s' "$names" | cut -f2)"
+    if [ "$src" = "$dst" ] || [ -e "$dst" ]; then
+        continue
+    fi
+    mv -- "$src" "$dst"
+  done
+  rm -- "$old" "$new"
+  lf -remote "send $id unselect"
+}}
+
+cmd open ${{
+    case $(file --mime-type $f -b) in
+        text/*|application/json|inode/x-empty|application/octet-stream) $EDITOR $fx;;
+        image/svg+xml) display -- $f ;;
+        audio/*) mpv --audio-display=no $f ;;
+        video/*) setsid -f mpv $f -quiet >/dev/null 2>&1 ;;
+        image/vnd.djvu|application/pdf|application/pdf|application/epub*) setsid -f $BROWSER "$fx" >/dev/null 2>&1 ;;
+        application/pgp-encrypted) $EDITOR $fx ;;
+        *) for f in $fx; do setsid -f $OPENER $f >/dev/null 2>&1; done;;
+    esac
+}}
+
+cmd trash %trash-put $fx
+
+cmd fzf-restore ${{
+    ids="$(echo -ne '\n'              | \
+      trash-restore                   | \
+      awk '$1 ~ /^[0-9]+/ {print $0}' | \
+      fzf --multi                     | \
+      awk '{print $1}'                | \
+      sed -z 's/\n/,/g;s/,$/\n/')"
+    echo $ids | trash-restore 
+    clear
+}}
+
+cmd paste_try_cow &{{
+    set -- $(cat ~/.local/share/lf/files)
+    mode="$1"
+    shift
+
+    if [ $mode = 'copy' ]; then
+        src_targets="$(df --output=target -- "$@" | sed '1d' | sort -u)"
+
+        if [ "$(df --output=target -- "$PWD" | tail -n 1)" = \
+             "$(echo "$src_targets" | tail -n 1)" ] && \
+             (( "$(echo "$src_targets" | wc -l)" == 1 )) && \
+             [[ "$(df --output=fstype -- "$PWD" | tail -n 1)" =~ ^(btrfs|xfs|zfs)$ ]]; then
+
+            echo 'selected copy and cp reflink paste'
+
+            start=$(date '+%s')
+
+            for i in "$@"; do
+                name="${i##*/}"
+                original="$name"
+
+                count=0
+                while [ -w "$PWD/$name" ]; do
+                    count=$((count+1))
+                    name="$original.~$count~"
+                done
+
+                set +e
+                cp_out="$(cp -rn --reflink=always -- "$i" "$PWD/$name" 2>&1)"
+                set -e
+
+                if [ ! -z "$cp_out" ]; then
+                    lf -remote "send $id echoerr $cp_out"
+                    exit 0
+                fi
+            done
+
+            finish=$(( $(date '+%s') - $start ))
+            t=''
+            if (( $finish > 2 )); then
+                t="${finish}s"
+            fi
+
+            lf -remote "send clear"
+
+            green=$'\u001b[32m'
+            reset=$'\u001b[0m'
+            lf -remote "send $id echo ${green}reflinked!${reset} $t"
+        else
+            echo 'selected copy and lf native paste'
+            lf -remote "send $id paste"
+        fi
+
+    elif [ $mode = 'move' ]; then
+        echo 'selected move and lf native paste'
+        lf -remote "send $id paste"
+    fi
+
+    lf -remote "send load"
+}}

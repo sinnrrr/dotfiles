@@ -1,13 +1,8 @@
 # vim:ft=sh
 
-source "~/.config/lf/commands/paste"
-source "~/.config/lf/commands/bulk-rename"
 source "~/.config/lf/commands/images"
-source "~/.config/lf/commands/copy-highlighted-file"
 source "~/.config/lf/shortcutrc"
 source "~/.config/lf/commands/fzf"
-source "~/.config/lf/commands/trash"
-source "~/.config/lf/commands/open"
 source "~/.config/lf/commands/files_and_dirs"
 source "~/.config/lf/commands/archives"
 
@@ -26,14 +21,18 @@ set previewer ~/.config/lf/preview
 
 # change columns size dependant on the available space
 # shellcheck disable=SC1083
-${{
+cmd recol ${{
     w=$(tput cols)
-    if [ $w -le 100 ]; then
-        lf -remote "send $id set ratios 2:2:3"
+    if [ $w -le 80 ]; then
+        lf -remote "send $id set ratios 1:2"
     elif [ $w -le 160 ]; then
         lf -remote "send $id set ratios 1:2:3"
+    else
+        lf -remote "send $id set ratios 1:2:3:5"
     fi
 }}
+
+recol
 
 # unmap default keybings
 map gh
@@ -41,31 +40,45 @@ map d
 map y
 map ,
 
+# copy/yank
 map yy :copy
 map yn :copy-filename
 map yP :copy-absolute-path
+map yi :yank-image
+map yh :copy-highlighted-file
+
+# paste
+map p :paste_try_cow # uses copy-on-write to fast copy files
+
+# cut/delete
 map dd :cut
-map \\ :find-prev
-map U :fzf-restore
-# shellcheck disable=1009,1072,1073
-map X push !$f<space>
-map x !$f
-map gg :top
 map gd :delete
-map gc $code $fx
-map gl :follow_link
 map D :trash
-map t :toggle
+
+# navigation/manipulation
+map \\ :find-prev # select previous find occurance
+map gl :follow_link
+map t :toggle # space navigates down after selection
+map <c-r> :recol
+map <c-a> :select-files
+map o :open 
+map O %open "$fx"
+map <c-z> $kill -STOP $PPID
+map <enter> :shell
+# duplicate lf with current dir in another terminal
+map S & open -na Alacritty --args --working-directory=$PWD -e "lf"
+
+# fzf
+map U :fzf-restore
+
+# launch file
+map x !$f
+# shellcheck disable=1009,1072,1073
+map X push !$f<space> # launch file with arguments
+
+# create file/folder
 map A push :mkdir<space>
 map a push :touch<space>
-map <c-r> :reload
-map <c-a> :select-files
-map <enter> :shell
-map o :open 
-map <c-z> $kill -STOP $PPID
-map p :paste_try_cow
-# duplicate lf with current dir in another terminal
-map S &open -na Alacritty --args --working-directory=$PWD -e "lf"
 
 # vim like mappings with <leader> being ","
 map ,r :bulk-rename
@@ -74,9 +87,6 @@ map ,gg $lazygit
 map ,sh :share
 map ,ch :chmod
 map ,ci :convert-image
-map ,yi :yank-image
-map ,yh :copy-highlighted-file
-map ,gg $lazygit
 map ,f :fzf_jump
 map ,t push :tar<space>
 map ,z push :zip<space>
