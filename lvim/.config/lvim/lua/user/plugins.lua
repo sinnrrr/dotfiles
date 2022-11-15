@@ -157,7 +157,10 @@ M.config = function()
 			disable = not lvim.builtin.lsp_lines,
 		},
 		-- show block on top in which you're in right now (if's, while's, etc.)
-		{ "nvim-treesitter/nvim-treesitter-context" },
+		{
+			"nvim-treesitter/nvim-treesitter-context",
+			disable = lvim.builtin.winbar_provider ~= "treesitter",
+		},
 		-- -- find and replace
 		-- {
 		--   "windwp/nvim-spectre",

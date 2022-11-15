@@ -146,10 +146,9 @@ M.config = function()
 	lvim.builtin.terminal.active = true
 	lvim.builtin.terminal.direction = "horizontal"
 
-	-- -- Notify
-	-- -- =========================================
-	-- lvim.builtin.notify.active = true
-	-- lvim.builtin.notify.opts.stages = "fade_in_slide_out"
+	if lvim.builtin.winbar_provider ~= "navic" then
+		lvim.builtin.breadcrumbs.active = false
+	end
 end
 
 return M
