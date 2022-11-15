@@ -29,6 +29,7 @@ alias \
 
 # These common commands are just too long! Abbreviate them.
 alias \
+  l="ls -a -h --color=auto" \
   g="git" \
   s="spt" \
   c="clear" \
