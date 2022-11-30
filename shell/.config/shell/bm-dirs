@@ -14,4 +14,8 @@ uc  ${WORK_HOME:-$HOME/Work}/labs/2022/computer_architecture
 uo  ${WORK_HOME:-$HOME/Work}/labs/2022/operating_systems
 ua  ${WORK_HOME:-$HOME/Work}/labs/2022/algorithms_and_data_structures
 
+kc  ${WORK_HOME:-$HOME/Work}/klabs/3_term/computer_architecture
+ko  ${WORK_HOME:-$HOME/Work}/klabs/3_term/operating_systems
+ka  ${WORK_HOME:-$HOME/Work}/klabs/3_term/algorithms
+
 lc  ${WORK_HOME:-$HOME/Work}/leetcode

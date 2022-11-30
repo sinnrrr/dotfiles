@@ -53,7 +53,7 @@ font:
   size: 14
 
 # If `true`, bold text is drawn using the bright color variants.
-draw_bold_text_with_bright_colors: true
+# draw_bold_text_with_bright_colors: true
 
 selection:
   semantic_escape_chars: ',?`|:"'' ()[]{}<>'
