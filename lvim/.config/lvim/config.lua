@@ -21,7 +21,7 @@ require("user.builtin").config()
 
 -- Formatters, linters, etc.
 -- =========================================
-require("user.null_ls").config()
+require("user.null-ls").config()
 
 -- Autocommands
 -- =========================================
