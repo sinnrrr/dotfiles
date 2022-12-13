@@ -213,15 +213,18 @@ M.config = function()
 				require("user.neotest").config()
 			end,
 			requires = {
-				{ "nvim-neotest/neotest-go" },
-				{ "nvim-neotest/neotest-python" },
-				{ "nvim-neotest/neotest-plenary" },
-				{ "rouge8/neotest-rust" },
+				"nvim-lua/plenary.nvim",
+				"nvim-treesitter/nvim-treesitter",
+				"nvim-neotest/neotest-python",
+				"nvim-neotest/neotest-go",
+				"haydenmeade/neotest-jest",
+				"rouge8/neotest-rust",
 			},
 			-- opt = true,
 			-- event = { "BufEnter *_test.*,*_spec.*,test_*.*" },
 			disable = not (lvim.builtin.test_runner.active and lvim.builtin.test_runner.runner == "neotest"),
 		},
+		{ "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } },
 		-- sql completion for vim-dadbod
 		{
 			"kristijanhusak/vim-dadbod-completion",
