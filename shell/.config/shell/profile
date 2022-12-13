@@ -77,18 +77,19 @@ test -f /usr/local/bin/brew && eval $(/usr/local/bin/brew shellenv)
 test -f /opt/homebrew/bin/brew && eval $(/opt/homebrew/bin/brew shellenv)
 
 if [[ -n "$HOMEBREW_PREFIX" ]]; then
-  export HOMEBREW_NO_ANALYTICS=1
-  # linux utils for macos
-  export PATH="${HOMEBREW_PREFIX}/opt/coreutils/libexec/gnubin:$PATH"
-  export MANPATH="${HOMEBREW_PREFIX}/opt/coreutils/libexec/gnuman:$MANPATH"
-  export PATH="${HOMEBREW_PREFIX}/opt/gnu-sed/libexec/gnubin:$PATH"
-  export MANPATH="${HOMEBREW_PREFIX}/opt/gnu-sed/libexec/gnuman:$MANPATH"
-  export PATH="${HOMEBREW_PREFIX}/opt/gnu-tar/libexec/gnubin:$PATH"
-  export MANPATH="${HOMEBREW_PREFIX}/opt/gnu-tar/libexec/gnuman:$PATH"
-  export PATH="${HOMEBREW_PREFIX}/opt/util-linux/bin:$PATH"
-  export PATH="${HOMEBREW_PREFIX}/opt/util-linux/sbin:$PATH"
-  # completions
-  export FPATH="${HOMEBREW_PREFIX}/share/zsh/site-functions:${FPATH}"
+	export HOMEBREW_NO_ANALYTICS=1
+	# linux utils for macos
+	export PATH="${HOMEBREW_PREFIX}/opt/coreutils/libexec/gnubin:$PATH"
+	export MANPATH="${HOMEBREW_PREFIX}/opt/coreutils/libexec/gnuman:$MANPATH"
+	export PATH="${HOMEBREW_PREFIX}/opt/gnu-sed/libexec/gnubin:$PATH"
+	export MANPATH="${HOMEBREW_PREFIX}/opt/gnu-sed/libexec/gnuman:$MANPATH"
+	export PATH="${HOMEBREW_PREFIX}/opt/gnu-tar/libexec/gnubin:$PATH"
+	export MANPATH="${HOMEBREW_PREFIX}/opt/gnu-tar/libexec/gnuman:$PATH"
+	export PATH="${HOMEBREW_PREFIX}/opt/util-linux/bin:$PATH"
+	export PATH="${HOMEBREW_PREFIX}/opt/util-linux/sbin:$PATH"
+	# completions
+	export FPATH="${HOMEBREW_PREFIX}/share/zsh/site-functions:${FPATH}"
 fi
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
 # export DOCKER_DEFAULT_PLATFORM="linux/amd64"

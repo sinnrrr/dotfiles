@@ -1,91 +1,86 @@
 {
-  "name": "Vimium C",
-  "@time": "11/11/2022, 15:17:16",
-  "time": 1668176236170,
-  "environment": {
-    "extension": "1.99.5",
-    "platform": "mac",
-    "chromium": "106"
-  },
-  "allBrowserUrls": true,
-  "autoReduceMotion": 1,
-  "exclusionRules": [
-    {
-      "passKeys": "",
-      "pattern": ":https://tankionline.com/"
-    },
-    {
-      "passKeys": "",
-      "pattern": ":https://www.hackerrank.com/"
-    }
-  ],
-  "extAllowList": [
-    "# modified versions of X New Tab and PDF Viewer,",
-    "# NewTab Adapter, and Shortcuts Forwarding Tool",
-    "hdnehngglnbnehkfcidabjckinphnief",
-    "nacjakoppgmdcpemlfnfegmlhipddanj",
-    "",
-    "cglpcedifkgalfdklahhcchnjepcckfn",
-    "clnalilglegcjmlgenoppklmfppddien",
-    "# EdgeTranslate",
-    "bocbaocobfecmglnmeaeppambideimao",
-    "bfdogplmndidlpjfhoijckpakkdjkkil",
-    "# SalaDict",
-    "cdonnmffkdaoajfknoeeecmchibpmkmg",
-    "idghocbbahafpfhjnfhpbfbmpegphmmp",
-    ""
-  ],
-  "grabBackFocus": true,
-  "keyLayout": 1,
-  "keyMappings": [
-    "#!no-check",
-    "# Insert your preferred key mappings here.",
-    "unmap i",
-    "unmap W",
-    "unmap J",
-    "unmap K",
-    "unmap H",
-    "unmap t",
-    "unmap T",
-    "unmap L",
-    "unmap x",
-    "unmap X",
-    "map t Vomnibar.activateTabs",
-    "",
-    "map j scrollDown keepHover=false",
-    "map k scrollUp keepHover=false",
-    "map S moveTabToNewWindow",
-    "map <c-f> LinkHints.activateOpenIncognito",
-    "",
-    "shortcut userCustomized1 command=\"removeTab\"",
-    "shortcut userCustomized2 command=\"restoreTab\"",
-    "shortcut userCustomized3 command=\"Vomnibar.activateTabs\"",
-    ""
-  ],
-  "keyupTime": 100,
-  "scrollStepSize": 40,
-  "searchEngines": [
-    "g: https://www.google.com/search?q=%s Google",
-    "gi: https://www.google.com/search?tbm=isch&q=%s Google Images",
-    "gm: https://www.google.com/maps?q=%s Google Maps",
-    "recent: https://www.google.com/search?hl=en&tbo=1&tbs=qdr:y&q=%s Google (last year only)",
-    "translate: https://translate.google.com/?source=osdd#auto|auto|%s Google Translator",
-    "w: https://en.wikipedia.org/wiki/Special:Search?search=%s Wikipedia",
-    "d: https://duckduckgo.com/?q=%s DuckDuckGo",
-    "a: https://www.amazon.com/exec/obidos/external-search/?field-keywords=%s&mode=blended Amazon",
-    "e: https://www.ebay.com/sch/?_nkw=%s eBay",
-    "b: https://www.bing.com/search?setmkt=en-GB&q=%s Bing",
-    "gh: https://github.com/search?q=%s GitHub",
-    "hn: https://www.hnsearch.com/search#request/submissions&q=%s&start=0 HackerNews",
-    "so: https://stackoverflow.com/search?q=%s StackOverflow",
-    "su: https://superuser.com/search?q=%s SuperUser",
-    "sh: http://symbolhound.com/?q=%s SymbolHound",
-    "ud: https://www.urbandictionary.com/define.php?term=%s UrbanDictionary",
-    "wa: https://www.wolframalpha.com/input/?i=%s Wolfram|Alpha",
-    "yt: https://www.youtube.com/results?search_query=%s YouTube",
-    "i: https://www.felixcloutier.com/x86/%s"
-  ],
-  "searchUrl": "https://google.com/search?q=$s Google",
-  "showActionIcon": false,
-  "vimSync": true
+	"name": "Vimium C",
+	"@time": "13/12/2022, 20:33:20",
+	"time": 1670960000754,
+	"environment": {
+		"extension": "1.99.90",
+		"platform": "mac",
+		"chromium": "108"
+	},
+	"allBrowserUrls": true,
+	"autoReduceMotion": 1,
+	"exclusionRules": [
+		{
+			"passKeys": "",
+			"pattern": ":https://tankionline.com/"
+		},
+		{
+			"passKeys": "",
+			"pattern": ":https://www.hackerrank.com/"
+		}
+	],
+	"extAllowList": [
+		"# modified versions of X New Tab and PDF Viewer,",
+		"# NewTab Adapter, and Shortcuts Forwarding Tool",
+		"hdnehngglnbnehkfcidabjckinphnief",
+		"nacjakoppgmdcpemlfnfegmlhipddanj",
+		"",
+		"cglpcedifkgalfdklahhcchnjepcckfn",
+		"clnalilglegcjmlgenoppklmfppddien",
+		"# EdgeTranslate",
+		"bocbaocobfecmglnmeaeppambideimao",
+		"bfdogplmndidlpjfhoijckpakkdjkkil",
+		"# SalaDict",
+		"cdonnmffkdaoajfknoeeecmchibpmkmg",
+		"idghocbbahafpfhjnfhpbfbmpegphmmp",
+		""
+	],
+	"grabBackFocus": true,
+	"keyLayout": 1,
+	"keyMappings": [
+		"#!no-check",
+		"# Insert your preferred key mappings here.",
+		"unmap i",
+		"unmap W",
+		"unmap J",
+		"unmap K",
+		"unmap H",
+		"unmap t",
+		"unmap T",
+		"unmap L",
+		"unmap x",
+		"unmap X",
+		"map t Vomnibar.activateTabs",
+		"",
+		"map j scrollDown keepHover=false",
+		"map k scrollUp keepHover=false",
+		"map S moveTabToNewWindow",
+		"map <c-f> LinkHints.activateOpenIncognito",
+		"",
+		"shortcut userCustomized1 command=\"removeTab\"",
+		"shortcut userCustomized2 command=\"restoreTab\"",
+		"shortcut userCustomized3 command=\"Vomnibar.activateTabs\"",
+		"shortcut userCustomized4 command=\"visitPreviousTab\"",
+		""
+	],
+	"keyupTime": 100,
+	"scrollStepSize": 40,
+	"searchEngines": [
+		"tr: https://translate.google.com/?source=osdd#auto|auto|%s Google Translator",
+		"d: https://duckduckgo.com/?q=%s DuckDuckGo",
+		"gh: https://github.com/search?q=%s GitHub",
+		"yt: https://www.youtube.com/results?search_query=%s YouTube",
+		""
+	],
+	"searchUrl": "https://google.com/search?q=$s Google",
+	"showActionIcon": false,
+	"vimSync": true,
+	"vomnibarOptions": {
+		"actions": "",
+		"maxMatches": 10,
+		"queryInterval": 333,
+		"sizes": "77,3,44,0.8",
+		"styles": "dark"
+	},
+	"ignoreKeyboardLayout": 2
 }

@@ -5,8 +5,6 @@ d    ${XDG_DOCUMENTS_DIR:-$HOME/Documents}
 h    $HOME
 
 w    ${WORK_HOME:-$HOME/Work} 
-wp    ${WORK_HOME:-$HOME/Work}/personal
-wc    ${WORK_HOME:-$HOME/Work}/commercial
 
 cn  ${WORK_HOME:-$HOME/Work}/commercial/rapid-replay-axis-camera-node
 

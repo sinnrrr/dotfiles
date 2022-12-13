@@ -18,7 +18,8 @@ yamllint,
 backup,
 bin,
 btop,
-asdf
+asdf,
+bat
 "
 
 ROOT_APPS=$ROOT_APPS USER_APPS=$USER_APPS $(dirname $(realpath $0))/install "$@"
