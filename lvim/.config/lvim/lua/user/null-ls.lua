@@ -19,6 +19,7 @@ M.config = function()
 		}),
 		null_ls.builtins.formatting.black.with({ extra_args = { "--fast", "--line-length", 80 } }),
 		null_ls.builtins.formatting.isort.with({ extra_args = { "--profile", "black" } }),
+		-- null_ls.builtins.formatting.prismaFmt,
 		{ command = "stylua" },
 		{ command = "rustfmt" },
 		{ command = "gofmt" },
@@ -40,6 +41,7 @@ M.config = function()
 				})
 			end,
 		}),
+		null_ls.builtins.diagnostics.shellcheck,
 		{ command = "flake8" },
 		{ command = "qmllint" },
 		{ command = "buf" },
@@ -60,6 +62,7 @@ M.config = function()
 				})
 			end,
 		}),
+		null_ls.builtins.code_actions.shellcheck,
 	})
 end
 

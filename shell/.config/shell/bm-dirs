@@ -1,12 +1,15 @@
 # You can add comments to these files with #
 cc   ${XDG_CONFIG_HOME:-$HOME/.dotfiles}
 D    ${XDG_DOWNLOAD_DIR:-$HOME/Downloads}
-d    ${XDG_DOCUMENTS_DIR:-$HOME/Documents}
 h    $HOME
+
+d    ${XDG_DOCUMENTS_DIR:-$HOME/Documents}
+dg   ${XDG_DOCUMENTS_DIR:-$HOME/Documents/Grokking}
 
 w    ${WORK_HOME:-$HOME/Work} 
 
-cn  ${WORK_HOME:-$HOME/Work}/commercial/rapid-replay-axis-camera-node
+cn  ${WORK_HOME:-$HOME/Work}/commercial/rr-axis-camera-node
+cp  ${WORK_HOME:-$HOME/Work}/commercial/rr-pi-axis
 
 uc  ${WORK_HOME:-$HOME/Work}/labs/2022/computer_architecture
 uo  ${WORK_HOME:-$HOME/Work}/labs/2022/operating_systems
@@ -17,3 +20,4 @@ ko  ${WORK_HOME:-$HOME/Work}/klabs/3_term/operating_systems
 ka  ${WORK_HOME:-$HOME/Work}/klabs/3_term/algorithms
 
 lc  ${WORK_HOME:-$HOME/Work}/leetcode
+lg  ${WORK_HOME:-$HOME/Work}/grokking

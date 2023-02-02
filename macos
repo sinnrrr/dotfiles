@@ -19,7 +19,8 @@ backup,
 bin,
 btop,
 asdf,
-bat
+bat,
+git
 "
 
 ROOT_APPS=$ROOT_APPS USER_APPS=$USER_APPS $(dirname $(realpath $0))/install "$@"

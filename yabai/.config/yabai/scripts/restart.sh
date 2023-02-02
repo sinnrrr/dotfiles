@@ -1,5 +1,5 @@
 #!/bin/sh
 
-osascript <<< "display notification \"Restarting Yabai and skhd\" with title \"Yabai\"" &
-launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
+notify "Yabai" "Restarting Yabai and skhd"
+launchctl kickstart -k "gui/${UID}/homebrew.mxcl.fyabai"
 # skhd -r &

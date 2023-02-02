@@ -9,9 +9,6 @@ M.config = function()
 	local whk = lvim.builtin.which_key.mappings
 	whk["P"] = whk["p"]
 	whk["p"] = nil
-	whk[";"] = nil
-	lvim.lsp.buffer_mappings.normal_mode["gr"] = nil
-	whk["/"] = nil
 
 	lvim.keys.normal_mode = {
 		["<C-s>"] = "<cmd>w<cr>",

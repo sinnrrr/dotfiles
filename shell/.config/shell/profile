@@ -36,7 +36,8 @@ export PASSWORD_STORE_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/password-store"
 export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
 export ANDROID_SDK_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/android"
 export CARGO_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/cargo"
-# export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
+export YARN_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/yarn"
+export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
 export ANSIBLE_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/ansible/ansible.cfg"
 export UNISON="${XDG_DATA_HOME:-$HOME/.local/share}/unison"
 export HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/history"
@@ -45,17 +46,17 @@ export MBSYNCRC="${XDG_CONFIG_HOME:-$HOME/.config}/mbsync/config"
 export ELECTRUMDIR="${XDG_DATA_HOME:-$HOME/.local/share}/electrum"
 export ANSIBLE_INVENTORY="${XDG_CONFIG_HOME:-$HOME/.config}/ansible/static-inventory.ini"
 export DENO_INSTALL="${XDG_DATA_HOME:-$HOME/.local/share}/deno"
-export PYTHONPATH=$PYTHONPATH:.
+export PYTHONPATH="$PYTHONPATH:."
 export PYENV_ROOT="$HOME/.pyenv"
 export YABAI="${XDG_CONFIG_HOME:-$HOME/.config}/yabai/scripts"
 
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
-export FZF_DEFAULT_OPTS="--layout=reverse --inline-info --height=50%"
-export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
---color=dark
---color=fg:-1,bg:-1,hl:#c678dd,fg+:#ffffff,bg+:#4b5263,hl+:#d858fe
---color=info:#98c379,prompt:#61afef,pointer:#be5046,marker:#e5c07b,spinner:#61afef,header:#61afef
-'
+# export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+# export FZF_DEFAULT_OPTS="--layout=reverse --inline-info --height=50%"
+# export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+# --color=dark
+# --color=fg:-1,bg:-1,hl:#c678dd,fg+:#ffffff,bg+:#4b5263,hl+:#d858fe
+# --color=info:#98c379,prompt:#61afef,pointer:#be5046,marker:#e5c07b,spinner:#61afef,header:#61afef
+# '
 
 export LESS=-R
 export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"
@@ -72,9 +73,9 @@ export NEOVIDE_MULTIGRID=true
 export NEOVIDE_FRAME=none
 
 # homebrew (macos intel or silicon or linux)
-test -f /home/linuxbrew/.linuxbrew/bin/brew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-test -f /usr/local/bin/brew && eval $(/usr/local/bin/brew shellenv)
-test -f /opt/homebrew/bin/brew && eval $(/opt/homebrew/bin/brew shellenv)
+test -f /home/linuxbrew/.linuxbrew/bin/brew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+test -f /usr/local/bin/brew && eval "$(/usr/local/bin/brew shellenv)"
+test -f /opt/homebrew/bin/brew && eval "$(/opt/homebrew/bin/brew shellenv)"
 
 if [[ -n "$HOMEBREW_PREFIX" ]]; then
 	export HOMEBREW_NO_ANALYTICS=1
@@ -89,7 +90,8 @@ if [[ -n "$HOMEBREW_PREFIX" ]]; then
 	export PATH="${HOMEBREW_PREFIX}/opt/util-linux/sbin:$PATH"
 	# completions
 	export FPATH="${HOMEBREW_PREFIX}/share/zsh/site-functions:${FPATH}"
+	# other programs
+	export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+	export PATH="/opt/local/bin:$PATH"
 fi
-export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
-
-# export DOCKER_DEFAULT_PLATFORM="linux/amd64"
+export PATH="$(yarn global bin):$PATH"

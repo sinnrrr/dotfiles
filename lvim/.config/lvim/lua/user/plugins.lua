@@ -8,16 +8,16 @@ local M = {}
 M.config = function()
 	lvim.plugins = {
 		-- lsp, linters and formatters installer
-		{
-			"WhoIsSethDaniel/mason-tool-installer.nvim",
-			config = function()
-				require("user.mason").config()
-			end,
-		},
+		-- {
+		-- 	"WhoIsSethDaniel/mason-tool-installer.nvim",
+		-- 	config = function()
+		-- 		require("user.mason").config()
+		-- 	end,
+		-- },
 		-- wakatime plugin for vim
 		{
 			"wakatime/vim-wakatime",
-			disable = not lvim.builtin.wakatime,
+			enabled = lvim.builtin.wakatime,
 		},
 		-- show hints on arguments needed when writing a function
 		{
@@ -30,7 +30,7 @@ M.config = function()
 		-- pretty list of todo comments
 		{
 			"folke/todo-comments.nvim",
-			requires = "nvim-lua/plenary.nvim",
+			dependencies = "nvim-lua/plenary.nvim",
 			config = function()
 				require("todo-comments").setup({})
 			end,
@@ -39,7 +39,7 @@ M.config = function()
 		-- copy git link to line in file
 		{
 			"ruifm/gitlinker.nvim",
-			requires = "nvim-lua/plenary.nvim",
+			dependencies = "nvim-lua/plenary.nvim",
 			event = "BufRead",
 			config = function()
 				require("user.gitlinker").config()
@@ -48,7 +48,6 @@ M.config = function()
 		-- pretty list of diagnostic info
 		{
 			"folke/trouble.nvim",
-			requires = "kyazdani42/nvim-web-devicons",
 			config = function()
 				require("trouble").setup({
 					-- your configuration comes here
@@ -64,34 +63,34 @@ M.config = function()
 				require("symbols-outline").setup()
 			end,
 			event = "BufReadPost",
-			disable = lvim.builtin.tag_provider ~= "symbols-outline",
+			enabled = lvim.builtin.tag_provider == "symbols-outline",
 		},
 		-- seamless lf integration for floaterm
 		{
 			"ptzz/lf.vim",
-			disable = not lvim.builtin.lf_integration,
+			enabled = lvim.builtin.lf_integration,
 		},
 		-- terminal inside vim
 		{
 			"voldikss/vim-floaterm",
-			disable = not lvim.builtin.lf_integration,
+			enabled = lvim.builtin.lf_integration,
 		},
 		-- suggestions AI
-		{
-			"tzachar/cmp-tabnine",
-			run = "./install.sh",
-			requires = "hrsh7th/nvim-cmp",
-			config = function()
-				local tabnine = require("cmp_tabnine.config")
-				tabnine:setup({
-					max_lines = 1000,
-					max_num_results = 10,
-					sort = true,
-				})
-			end,
-			opt = true,
-			event = "InsertEnter",
-		},
+		-- {
+		-- 	"tzachar/cmp-tabnine",
+		-- 	build = "./install.sh",
+		-- 	dependencies = "hrsh7th/nvim-cmp",
+		-- 	config = function()
+		-- 		local tabnine = require("cmp_tabnine.config")
+		-- 		tabnine:setup({
+		-- 			max_lines = 1000,
+		-- 			max_num_results = 10,
+		-- 			sort = true,
+		-- 		})
+		-- 	end,
+		-- 	lazy = true,
+		-- 	event = "InsertEnter",
+		-- },
 		-- :Codi [name] opens buffers with [name] language interpreter
 		{
 			"metakirby5/codi.vim",
@@ -102,28 +101,28 @@ M.config = function()
 		},
 		{
 			"mfussenegger/nvim-dap",
-			as = "dap",
+			name = "dap",
 			config = function()
 				require("user.dap")
 			end,
 		},
 		{
 			"rcarriga/cmp-dap",
-			disable = not lvim.builtin.debugger.active,
+			enabled = lvim.builtin.debugger.active,
 		},
 		-- debugging ui
 		{
 			"rcarriga/nvim-dap-ui",
-			as = "dapui",
+			name = "dapui",
 			config = function()
 				require("user.dapui").config()
 			end,
 			ft = { "python", "rust", "go" },
 			event = "BufReadPost",
-			-- requires = {
+			-- dependencies = {
 			-- 	{ "mfussenegger/nvim-dap" },
 			-- },
-			disable = not lvim.builtin.debugger.active,
+			enabled = lvim.builtin.debugger.active,
 		},
 		-- displays info as virtual text while debugging
 		{
@@ -131,12 +130,12 @@ M.config = function()
 			config = function()
 				require("user.dap-virtual-text").config()
 			end,
-			disable = not lvim.builtin.debugger.active,
+			enabled = lvim.builtin.debugger.active,
 		},
 		-- live markdown preview in browser with scroll tracking
 		{
 			"iamcco/markdown-preview.nvim",
-			run = "cd app && npm install",
+			build = "cd app && npm install",
 			ft = "markdown",
 		},
 		-- sets up rust workflow
@@ -149,17 +148,17 @@ M.config = function()
 		},
 		-- diagnostic messages as virtual text
 		{
-			"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+			url = "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
 			config = function()
 				require("lsp_lines").setup()
 			end,
 			event = "BufRead",
-			disable = not lvim.builtin.lsp_lines,
+			enabled = lvim.builtin.lsp_lines,
 		},
 		-- show block on top in which you're in right now (if's, while's, etc.)
 		{
 			"nvim-treesitter/nvim-treesitter-context",
-			disable = lvim.builtin.winbar_provider ~= "treesitter",
+			enabled = lvim.builtin.winbar_provider == "treesitter",
 		},
 		-- -- find and replace
 		-- {
@@ -181,7 +180,6 @@ M.config = function()
 		{
 			"folke/persistence.nvim",
 			event = "BufReadPre",
-			module = "persistence",
 			config = function()
 				require("persistence").setup({
 					dir = vim.fn.expand(get_cache_dir() .. "/sessions/"), -- directory where session files are saved
@@ -200,7 +198,7 @@ M.config = function()
 				"typescriptreact",
 				"typescript.tsx",
 			},
-			opt = true,
+			lazy = true,
 			event = { "BufReadPre", "BufNew" },
 			config = function()
 				require("user.typescript").config()
@@ -212,7 +210,7 @@ M.config = function()
 			config = function()
 				require("user.neotest").config()
 			end,
-			requires = {
+			dependencies = {
 				"nvim-lua/plenary.nvim",
 				"nvim-treesitter/nvim-treesitter",
 				"nvim-neotest/neotest-python",
@@ -220,15 +218,15 @@ M.config = function()
 				"haydenmeade/neotest-jest",
 				"rouge8/neotest-rust",
 			},
-			-- opt = true,
+			-- lazy = true,
 			-- event = { "BufEnter *_test.*,*_spec.*,test_*.*" },
-			disable = not (lvim.builtin.test_runner.active and lvim.builtin.test_runner.runner == "neotest"),
+			enabled = (lvim.builtin.test_runner.active and lvim.builtin.test_runner.runner == "neotest"),
 		},
-		{ "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } },
+		{ "mxsdev/nvim-dap-vscode-js", dependencies = { "mfussenegger/nvim-dap" } },
 		-- sql completion for vim-dadbod
 		{
 			"kristijanhusak/vim-dadbod-completion",
-			disable = not lvim.builtin.sql_integration.active,
+			enabled = lvim.builtin.sql_integration.active,
 		},
 		-- vim-dadbod ui to manage DBs and tables
 		{
@@ -240,29 +238,18 @@ M.config = function()
 				"DBUIFindBuffer",
 				"DBUIRenameBuffer",
 			},
-			setup = function()
+			init = function()
 				vim.g.db_ui_use_nerd_fonts = 1
 				vim.g.db_ui_show_database_icon = 1
 			end,
-			requires = {
+			dependencies = {
 				{
 					"tpope/vim-dadbod",
-					opt = true,
+					lazy = true,
 				},
 			},
-			opt = true,
-			disable = not lvim.builtin.sql_integration.active,
-		},
-		-- smooth scroll
-		{
-			"karb94/neoscroll.nvim",
-			config = function()
-				require("neoscroll").setup({
-					easing_function = "quadratic",
-				})
-			end,
-			event = "BufRead",
-			disable = lvim.builtin.smooth_scroll ~= "neoscroll",
+			lazy = true,
+			enabled = lvim.builtin.sql_integration.active,
 		},
 		-- smooth scroll
 		{
@@ -278,12 +265,12 @@ M.config = function()
 				})
 			end,
 			event = "BufRead",
-			disable = lvim.builtin.smooth_scroll ~= "cinnamon",
+			enabled = lvim.builtin.smooth_scroll == "cinnamon",
 		},
 		-- -- fancy git diff view
 		-- {
 		-- 	"sindrets/diffview.nvim",
-		-- 	opt = true,
+		-- 	lazy = true,
 		-- 	cmd = { "DiffviewOpen", "DiffviewFileHistory" },
 		-- 	module = "diffview",
 		-- 	keys = "<leader>gd",
@@ -308,14 +295,14 @@ M.config = function()
 			end,
 		},
 		-- harpoon
-		{ "Keep-Simple/harpoon", requires = "nvim-lua/plenary.nvim" },
+		{ "Keep-Simple/harpoon", dependencies = "nvim-lua/plenary.nvim" },
 		{
 			"RishabhRD/nvim-cheat.sh",
-			requires = "RishabhRD/popfix",
+			dependencies = "RishabhRD/popfix",
 			config = function()
 				vim.g.cheat_default_window_layout = "vertical_split"
 			end,
-			opt = true,
+			lazy = true,
 			cmd = { "Cheat", "CheatWithoutComments", "CheatList", "CheatListWithoutComments" },
 		},
 		-- file loading progress
@@ -342,7 +329,7 @@ M.config = function()
 		{
 			"saecki/crates.nvim",
 			event = { "BufRead Cargo.toml" },
-			requires = { { "nvim-lua/plenary.nvim" } },
+			dependencies = { "nvim-lua/plenary.nvim" },
 			config = function()
 				require("crates").setup({})
 			end,

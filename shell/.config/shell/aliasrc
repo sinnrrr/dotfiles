@@ -5,41 +5,42 @@
 
 # sudo not required for some system commands
 for x in mount umount sv pacman updatedb su; do
-  alias $x="sudo $x"
+	alias $x="sudo $x"
 done
 
 # Verbosity and settings that you pretty much just always are going to want.
 alias \
-  cp="cp -iv" \
-  mv="mv -iv" \
-  rm="rm -v" \
-  bc="bc -ql" \
-  mkd="mkdir -pv" \
-  yt="yt-dlp --embed-metadata -i" \
-  yta="yt -x -f bestaudio/best" \
-  ffmpeg="ffmpeg -hide_banner"
+	cp="cp -iv" \
+	mv="mv -iv" \
+	rm="rm -v" \
+	bc="bc -ql" \
+	mkd="mkdir -pv" \
+	yt="yt-dlp --embed-metadata -i" \
+	yta="yt -x -f bestaudio/best" \
+	ffmpeg="ffmpeg -hide_banner"
 
 # Colorize commands when possible.
 alias \
-  ls="ls -h --color=auto" \
-  grep="grep --color=auto" \
-  diff="diff --color=auto" \
-  ccat="highlight -O ansi --force" \
-  ip="ip -color=auto"
+	ls="ls -h --color=auto" \
+	grep="grep --color=auto" \
+	diff="diff --color=auto" \
+	ccat="highlight -O ansi --force" \
+	ip="ip -color=auto"
 
 # These common commands are just too long! Abbreviate them.
 alias \
-  l="ls -a -h --color=auto" \
-  g="git" \
-  s="spt" \
-  c="clear" \
-  t="btop" \
-  trem="transmission-remote" \
-  sdn="sudo shutdown -h now" \
-  v="$EDITOR"
+	l="ls -a -h --color=auto" \
+	g="git" \
+	s="spt" \
+	c="clear" \
+	t="btop" \
+	trem="transmission-remote" \
+	sdn="sudo shutdown -h now" \
+	v="$EDITOR"
 
 alias \
-  reload-shortcuts="apply-shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" \
-  weath="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport"
+	reload-shortcuts="apply-shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" \
+	weath="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport"
 
 alias lg="lazygit"
+# alias dmenu="dmenu-mac"

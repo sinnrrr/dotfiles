@@ -6,12 +6,12 @@ bd	${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs		# A list of bookmarked direc
 
 # These do not update automatically, but on the next new instance of a program:
 
-cz	$ZDOTDIR/.zshrc						# zsh (shell) config
-ca	${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc		# aliases used by zsh (and potentially other shells)
+cfz	$ZDOTDIR/.zshrc						# zsh (shell) config
+cfa	${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc		# aliases used by zsh (and potentially other shells)
 cfp	${XDG_CONFIG_HOME:-$HOME/.config}/shell/profile		# profile file for login settings for zsh
-cl	${XDG_CONFIG_HOME:-$HOME/.config}/lf/lfrc	
-ce  ${XDG_CONFIG_HOME:-$HOME/.config}/lvim/config.lua
+clf	${XDG_CONFIG_HOME:-$HOME/.config}/lf/lfrc	
+cee  ${XDG_CONFIG_HOME:-$HOME/.config}/lvim/config.lua
 cep ${XDG_CONFIG_HOME:-$HOME/.config}/lvim/lua/user/plugins.lua
-ct	${XDG_CONFIG_HOME:-$HOME/.config}/alacritty/alacritty.yml
-cy  ${XDG_CONFIG_HOME:-$HOME/.config}/yabai/yabairc
-cs  ${XDG_CONFIG_HOME:-$HOME/.config}/skhd/skhdrc
+cft	${XDG_CONFIG_HOME:-$HOME/.config}/alacritty/alacritty.yml
+cfy  ${XDG_CONFIG_HOME:-$HOME/.config}/yabai/yabairc
+cfs  ${XDG_CONFIG_HOME:-$HOME/.config}/skhd/skhdrc

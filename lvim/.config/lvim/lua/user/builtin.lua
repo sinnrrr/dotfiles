@@ -71,7 +71,7 @@ M.config = function()
 	lvim.builtin.project.active = true
 	lvim.builtin.project.detection_methods = { "pattern", "lsp" }
 	lvim.builtin.project.patterns =
-		{ ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json", "pom.xml", ".root", "pyproject.toml" }
+		{ ".root", ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json", "pom.xml", "pyproject.toml" }
 
 	-- Treesitter
 	-- =========================================

@@ -18,6 +18,7 @@ M.config = function()
 			"json-lsp",
 			"kotlin-language-server",
 			"lua-language-server",
+			"prisma-language-server",
 			"pyright",
 			"solargraph",
 			"solidity",
