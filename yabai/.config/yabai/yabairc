@@ -26,6 +26,7 @@ yabai -m config \
 	window_origin_display default \
 	window_placement second_child \
 	window_topmost off \
+  window_zoom_persist off \
 	window_shadow float \
 	window_opacity off \
 	window_border off \
@@ -81,6 +82,6 @@ echo "yabai configuration loaded.."
 # don't need this with fyabai, c code handles that
 # If no window on the current space is focused after a window is destroyed or
 # minimized, or an application is hidden, focus the window under the cursor.
-# yabai -m signal --add event=window_destroyed action=$YABAI/focus_space.sh
-# yabai -m signal --add event=window_minimized action=$YABAI/focus_space.sh
-# yabai -m signal --add event=application_hidden action=$YABAI/focus_space.sh
+yabai -m signal --add event=window_destroyed action=$YABAI/focus_space.sh
+yabai -m signal --add event=window_minimized action=$YABAI/focus_space.sh
+yabai -m signal --add event=application_hidden action=$YABAI/focus_space.sh
