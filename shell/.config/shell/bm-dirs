@@ -1,12 +1,13 @@
 # You can add comments to these files with #
-cc   ${XDG_CONFIG_HOME:-$HOME/.dotfiles}
-D    ${XDG_DOWNLOAD_DIR:-$HOME/Downloads}
-h    $HOME
+cc  ${XDG_CONFIG_HOME:-$HOME/.dotfiles}
+D   ${XDG_DOWNLOAD_DIR:-$HOME/Downloads}
+h   $HOME
 
-d    ${XDG_DOCUMENTS_DIR:-$HOME/Documents}
-dg   ${XDG_DOCUMENTS_DIR:-$HOME/Documents/Grokking}
+d   ${XDG_DOCUMENTS_DIR:-$HOME/Documents}
+dg  ${XDG_DOCUMENTS_DIR:-$HOME/Documents/Grokking}
 
-w    ${WORK_HOME:-$HOME/Work} 
+w   ${WORK_HOME:-$HOME/Work} 
+wc  ${WORK_HOME:-$HOME/Work/commercial}
 
 cn  ${WORK_HOME:-$HOME/Work}/commercial/rr-axis-camera-node
 cp  ${WORK_HOME:-$HOME/Work}/commercial/rr-pi-axis

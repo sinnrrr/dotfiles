@@ -67,7 +67,7 @@ yabai -m rule --add app="^Karabiner-EventViewer$" manage=off
 yabai -m rule --add title="QuickTerminal" grid=20:20:5:5:10:10 sticky=on layer=above opacity=0.9 border=off manage=off
 
 $YABAI/smart_gaps.sh
-$YABAI/create_spaces.sh 6
+$YABAI/create_spaces.sh 7
 SHELL="/bin/sh" skhd > /tmp/skhd.stdout 2> /tmp/skhd.stderr
 echo "yabai configuration loaded.."
 
