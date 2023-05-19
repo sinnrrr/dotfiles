@@ -16,6 +16,7 @@ set shellopts '-ey'
 set ifs "\n"
 set scrolloff 10
 set icons
+set drawbox
 set hidden true
 set period 1
 # set wrapscroll true
@@ -68,9 +69,11 @@ map S &open -na Alacritty --args --working-directory=$PWD -e zsh -c ". ~/.zshrc;
 # vim like mappings with <leader> being ","
 map ,r :bulk-rename
 map ,st :fzf_search
+map ,gg $lazygit
 map ,sh :share
 map ,ch :chmod
 map ,f :fzf_jump
+map ,ci :convert-image
 map ,t push :tar<space>
 map ,z push :zip<space>
 map ,e :extract

@@ -1,20 +1,18 @@
 cf  ${XDG_CONFIG_HOME:-$HOME/.config}
 D   ${XDG_DOWNLOAD_DIR:-$HOME/Downloads}
 d   ${XDG_DOCUMENTS_DIR:-$HOME/Documents}
-M   ${XDG_MUSIC_DIR:-$HOME/Music}
 cdf $HOME/.dotfiles
 h   $HOME
-vm  $HOME/VM_Shared
-V   /Volumes
 
-L  $HOME/.local
-lv $HOME/.local/share/lunarvim
+L   $HOME/.local
+lv  $HOME/.local/share/lunarvim
 
-O   ${XDG_DOCUMENTS_DIR:-$HOME/Documents/commercial/orca}
-oi   ${XDG_DOCUMENTS_DIR:-$HOME/Documents/commercial/cli}
-oc   ${XDG_DOCUMENTS_DIR:-$HOME/Documents/commercial/orca-contracts}
-oa   ${XDG_DOCUMENTS_DIR:-$HOME/Documents/commercial/apisec-team}
+W   ${WORK_HOME:-$HOME/Work}
+rpi ${WORK_HOME:-$HOME/Work}/commercial/rr-pi
+ra  ${WORK_HOME:-$HOME/Work}/commercial/rr-api
+rpc ${WORK_HOME:-$HOME/Work}/commercial/rr-processing
+rmq ${WORK_HOME:-$HOME/Work}/commercial/rr-rabbit-mq-worker
 
-P   ${XDG_DOCUMENTS_DIR:-$HOME/Documents/personal}
-pu   ${XDG_DOCUMENTS_DIR:-$HOME/Documents/personal/university/labs/3_term/}
-pl   ${XDG_DOCUMENTS_DIR:-$HOME/Documents/personal/leetcode}
+P   ${WORK_HOME:-$HOME/Work}/personal
+pl  ${WORK_HOME:-$HOME/Work}/leetcode
+pg  ${WORK_HOME:-$HOME/Work}/grokking

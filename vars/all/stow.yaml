@@ -10,6 +10,7 @@ stow_common_items:
   - k9s
   - lvim
   - spotify-tui
+  - lazygit
   - zsh
   - shell
   - yamlfmt

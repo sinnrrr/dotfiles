@@ -1,5 +1,5 @@
 [user]
-	email = nikita@orca.security
-	name = Nick Yasnogorodskyi
+	email = dmytro.soltysiuk@nbcuni.com
+	name = Dmytro Soltysiuk
 [core]
-    sshCommand = "ssh -i ~/.ssh/id_rsa"
+    sshCommand = "ssh -i ~/.ssh/id_ed25519"
