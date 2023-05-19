@@ -1,9 +1,0 @@
----
-gui:
-  showIcons: true
-keybinding:
-  universal:
-    scrollLeft: 'h'
-    scrollRight: 'l'
-    prevBlock-alt: 'H' # goto the previous block / panel
-    nextBlock-alt: 'L' # goto the next block / panel
