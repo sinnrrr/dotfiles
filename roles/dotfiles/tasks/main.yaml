@@ -1,0 +1,30 @@
+---
+- name: Create config directories to prevent stow conflicts
+  file:
+    path: "{{ ansible_user_dir }}/{{ item }}"
+    state: directory
+  loop:
+    - .local/bin
+    - .local/share
+    - .config
+    - .zshrc.d
+
+- block:
+    - name: stow dotfiles
+      stow:
+        state: '{{ dotfiles_state }}'
+        dir: "{{ myansible_dir }}/roles/dotfiles/files/all"
+        package: '{{ item }}'
+      loop: "{{ stow_common_items }}"
+
+    - name: stow os-specific dotfiles
+      stow:
+        state: '{{ dotfiles_state }}'
+        dir: "{{ myansible_dir }}/roles/dotfiles/files/os_{{ ansible_system }}"
+        package: '{{ item }}'
+      loop: "{{ stow_items }}"
+  environment:
+    PATH: "{{ homebrew_brew_bin_path | default('') }}:{{ ansible_env.PATH }}" # TODO setup PATH to discover stow for linux too
+
+- name: Include additional setup
+  ansible.builtin.include_tasks: "additional_setup.yaml"

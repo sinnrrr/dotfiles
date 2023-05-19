@@ -1,0 +1,7 @@
+#!/bin/sh
+
+open-brave \
+    https://web.telegram.org \
+    https://vns.lpnu.ua/my \
+    https://trello.com/b/cV8cI5Xp/nulp \
+    "https://zubiden.github.io/nulp-timetable/#/ПЗ-22/2"

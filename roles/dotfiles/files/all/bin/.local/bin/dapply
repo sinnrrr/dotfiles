@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Downloads and applies a patch from Drupal.org.
+if [ -z "$1" ]; then
+    echo "You need to supply a URL to a patch file."
+    exit
+fi
+
+URL=$1
+
+# Download a patch and apply it.
+curl $URL | git apply -v --index
+# Commit patch and add a log message.
+git commit -m "Applied ${URL##*/}."

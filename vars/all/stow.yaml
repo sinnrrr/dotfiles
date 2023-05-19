@@ -1,0 +1,18 @@
+---
+stow_common_items:
+  - alacritty
+  - tmux
+  - asdf
+  - bat
+  - bin
+  - btop
+  - git
+  - k9s
+  - lvim
+  - spotify-tui
+  - lazygit
+  - zsh
+  - shell
+  - yamlfmt
+
+dotfiles_state: present

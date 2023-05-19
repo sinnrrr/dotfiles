@@ -1,0 +1,18 @@
+cf  ${XDG_CONFIG_HOME:-$HOME/.config}
+D   ${XDG_DOWNLOAD_DIR:-$HOME/Downloads}
+d   ${XDG_DOCUMENTS_DIR:-$HOME/Documents}
+cdf $HOME/.dotfiles
+h   $HOME
+
+L   $HOME/.local
+lv  $HOME/.local/share/lunarvim
+
+W   ${WORK_HOME:-$HOME/Work}
+rpi ${WORK_HOME:-$HOME/Work}/commercial/rr-pi
+ra  ${WORK_HOME:-$HOME/Work}/commercial/rr-api
+rpc ${WORK_HOME:-$HOME/Work}/commercial/rr-processing
+rmq ${WORK_HOME:-$HOME/Work}/commercial/rr-rabbit-mq-worker
+
+P   ${WORK_HOME:-$HOME/Work}/personal
+pl  ${WORK_HOME:-$HOME/Work}/leetcode
+pg  ${WORK_HOME:-$HOME/Work}/grokking

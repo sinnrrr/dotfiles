@@ -1,0 +1,33 @@
+---
+
+name: orca
+root: <%= ENV["SRC_ROOT"] %>/..
+on_project_exit: killall Docker
+
+windows:
+  - orca:
+      root: <%= ENV["SRC_ROOT"] %>
+      panes:
+        - lvim_restore_session_for_curr_dir
+
+  - apisec:
+      root: <%= ENV["SRC_ROOT"] %>/../apisec
+      panes:
+        - lvim_restore_session_for_curr_dir
+
+  - contracts:
+      root: <%= ENV["SRC_ROOT"] %>/../orca-contracts
+      panes:
+        - lvim_restore_session_for_curr_dir
+
+  - infra:
+      root: <%= ENV["SRC_ROOT"] %>/../devenv-infra
+      layout: main-vertical
+      panes:
+        - echo "Start docker containers? [y/n]"; read reply; if [[ $reply == "y" ]]; then open -a Docker; sleep 15; docker compose up kafka redis; else echo Alright; fi
+        - lvim readme.md
+
+  - cli:
+      root: <%= ENV["SRC_ROOT"] %>/../cli
+      panes:
+        - lf

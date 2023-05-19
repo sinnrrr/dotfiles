@@ -1,0 +1,264 @@
+---
+env:
+  LC_ALL: en_US.UTF-8
+  LANG: en_US.UTF-8
+  TERM: xterm-256color
+
+window:
+  option_as_alt: Both
+  # Allow terminal applications to change Alacritty's window title.
+  dynamic_title: false
+  # Blank space added around the window in pixels. This padding is scaled
+  # by DPI and the specified value is always added at both opposing sides.
+  padding:
+    x: 6
+    y: 6
+
+  # Spread additional padding evenly around the terminal content.
+  # dynamic_padding: true
+  # Window decorations
+  #
+  # Values for `decorations`:
+  #     - full: Borders and title bar
+  #     - none: Neither borders nor title bar
+  #
+  # Values for `decorations` (macOS only):
+  #     - transparent: Title bar, transparent background and title bar buttons
+  #     - buttonless: Title bar, transparent background, but no title bar buttons
+  decorations: buttonless
+
+  # Startup Mode (changes require restart)
+  #
+  # Values for `startup_mode`:
+  #   - Windowed
+  #   - Maximized
+  #   - Fullscreen
+  #
+  # Values for `startup_mode` (macOS only):
+  #   - SimpleFullscreen
+  startup_mode: Windowed
+  # Window title
+  # title: Alacritty
+  # Window class (Linux only):
+  # class: Alacritty
+
+scrolling:
+  # Maximum number of lines in the scrollback buffer.
+  # Specifying '0' will disable scrolling.
+  history: 10000
+
+  # Number of lines the viewport will move for every line scrolled when
+  # scrollback is enabled (history > 0).
+  multiplier: 3
+
+# Font configuration (changes require restart)
+font:
+  # Normal (roman) font face
+  normal:
+    family: JetBrainsMono Nerd Font Mono
+    style: Regular
+
+  # Bold font face
+  bold:
+    family: JetBrainsMono Nerd Font Mono
+    style: Bold
+
+  # Italic font face
+  italic:
+    family: JetBrainsMono Nerd Font Mono
+    style: Italic
+
+  # Point size
+  size: 14
+  # Thin stroke font rendering (macOS only)
+  #
+  # Thin strokes are suitable for retina displays, but for non-retina screens
+  # it is recommended to set `use_thin_strokes` to `false`
+  #
+  # macOS >= 10.14.x:
+  #
+  # If the font quality on non-retina display looks bad then set
+  # `use_thin_strokes` to `true` and enable font smoothing by running the
+  # following command:
+  #   `defaults write -g CGFontRenderingFontSmoothingDisabled -bool NO`
+  #
+  # This is a global setting and will require a log out or restart to take
+  # effect.
+
+# If `true`, bold text is drawn using the bright color variants.
+draw_bold_text_with_bright_colors: true
+
+mouse:
+  double_click: { threshold: 300 }
+  triple_click: { threshold: 300 }
+  hide_when_typing: false
+
+selection:
+  semantic_escape_chars: ',?`|:"'' ()[]{}<>'
+
+  # When set to `true`, selected text will be copied to the primary clipboard.
+  save_to_clipboard: true
+
+cursor:
+  # Cursor style
+  #
+  # Values for `style`:
+  #   - ? Block
+  #   - _ Underline
+  #   - | Beam
+  # style: Block
+  # If this is `true`, the cursor will be rendered as a hollow box when the
+  # window is not focused.
+  unfocused_hollow: true
+
+# Live config reload (changes require restart)
+live_config_reload: true
+
+working_directory: None
+
+enable_experimental_conpty_backend: false
+
+# Key bindings
+#
+# Key bindings are specified as a list of objects. Each binding will specify a
+# key and modifiers required to trigger it, terminal modes where the binding is
+# applicable, and what should be done when the key binding fires. It can either
+# send a byte sequence to the running application (`chars`), execute a
+# predefined action (`action`) or fork and execute a specified command plus
+# arguments (`command`).
+#
+# Bindings are always filled by default, but will be replaced when a new binding
+# with the same triggers is defined. To unset a default binding, it can be
+# mapped to the `None` action.
+#
+# Example:
+#   `- { key: V, mods: Control|Shift, action: Paste }`
+#
+# Available fields:
+#   - key
+#   - mods (optional)
+#   - chars | action | command (exactly one required)
+#   - mode (optional)
+#
+# Values for `key`:
+#   - `A` -> `Z`
+#   - `F1` -> `F12`
+#   - `Key1` -> `Key0`
+#
+#   A full list with available key codes can be found here:
+#   https://docs.rs/glutin/*/glutin/enum.VirtualKeyCode.html#variants
+#
+#   Instead of using the name of the keys, the `key` field also supports using
+#   the scancode of the desired key. Scancodes have to be specified as a
+#   decimal number.
+#   This command will allow you to display the hex scancodes for certain keys:
+#     `showkey --scancodes`
+#
+# Values for `mods`:
+#   - Command
+#   - Control
+#   - Option
+#   - Super
+#   - Shift
+#   - Alt
+#
+#   Multiple `mods` can be combined using `|` like this: `mods: Control|Shift`.
+#   Whitespace and capitalization is relevant and must match the example.
+#
+# Values for `chars`:
+#   The `chars` field writes the specified string to the terminal. This makes
+#   it possible to pass escape sequences.
+#   To find escape codes for bindings like `PageUp` ("\x1b[5~"), you can run
+#   the command `showkey -a` outside of tmux.
+#   Note that applications use terminfo to map escape sequences back to
+#   keys. It is therefore required to update the terminfo when
+#   changing an escape sequence.
+#
+# Values for `action`:
+#   - Paste
+#   - PasteSelection
+#   - Copy
+#   - IncreaseFontSize
+#   - DecreaseFontSize
+#   - ResetFontSize
+#   - ScrollPageUp
+#   - ScrollPageDown
+#   - ScrollLineUp
+#   - ScrollLineDown
+#   - ScrollToTop
+#   - ScrollToBottom
+#   - ClearHistory
+#   - Hide
+#   - Quit
+#   - ClearLogNotice
+#   - SpawnNewInstance
+#   - ToggleFullscreen
+#   - None
+#
+# Values for `action` (macOS only):
+#   - ToggleSimpleFullscreen: Enters fullscreen without occupying another space
+#
+# Values for `command`:
+#   The `command` field must be a map containing a `program` string and
+#   an `args` array of command line parameter strings.
+#
+#   Example:
+#       `command: { program: "alacritty", args: ["-e", "vttest"] }`
+#
+# Values for `mode`:
+#   - ~AppCursor
+#   - AppCursor
+#   - ~AppKeypad
+#   - AppKeypad
+shell:
+  program: /bin/zsh
+  args:
+    - -l # login shell
+
+key_bindings:
+  - { key: V, mods: Control, action: Paste }
+  - { key: Key0, mods: Command, action: ResetFontSize }
+  - { key: Equals, mods: Command, action: IncreaseFontSize }
+  - { key: Plus, mods: Command, action: IncreaseFontSize }
+  - { key: Minus, mods: Command, action: DecreaseFontSize }
+  - { key: LBracket, mods: Control, action: ToggleViMode }
+  - { key: V, mods: Control|Shift, action: ToggleBlockSelection, mode: Vi }
+  - { key: L, mods: Control, action: ClearLogNotice }
+  - { key: L, mods: Control, chars: "\f" }
+  - { key: H, mods: Control|Shift, chars: "\e[72;6u" } # for vim https://www.reddit.com/r/neovim/comments/mbj8m5/how_to_setup_ctrlshiftkey_mappings_in_neovim_and/
+  - { key: L, mods: Control|Shift, chars: "\e[76;6u" } # for vim
+
+colors:
+  name: TokyoNight Night
+  author: Folke
+  # Default colors
+  primary:
+    background: '0x1a1b26'
+    foreground: '0xc0caf5'
+
+  # Normal colors
+  normal:
+    black: '0x15161E'
+    red: '0xf7768e'
+    green: '0x9ece6a'
+    yellow: '0xe0af68'
+    blue: '0x7aa2f7'
+    magenta: '0xbb9af7'
+    cyan: '0x7dcfff'
+    white: '0xa9b1d6'
+
+  # Bright colors
+  bright:
+    black: '0x414868'
+    red: '0xf7768e'
+    green: '0x9ece6a'
+    yellow: '0xe0af68'
+    blue: '0x7aa2f7'
+    magenta: '0xbb9af7'
+    cyan: '0x7dcfff'
+    white: '0xc0caf5'
+
+  indexed_colors:
+    - { index: 16, color: '0xff9e64' }
+    - { index: 17, color: '0xdb4b4b' }
+theme: Tokyonight_Night

@@ -1,0 +1,6 @@
+formatter:
+  type: basic
+  include_document_start: true
+  retain_line_breaks: true
+  max_line_length: 0
+  indentless_arrays: false

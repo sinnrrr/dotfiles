@@ -1,0 +1,3 @@
+#!/bin/sh
+
+osascript <<< "display notification \"$2\" with title \"$1\""

@@ -1,0 +1,8 @@
+---
+dotfiles:
+  repo: 'https://github.com/Keep-Simple/.dotfiles'
+  target: '{{ ansible_user_dir }}/.dotfiles'
+
+myansible_dir: '{{ dotfiles.target }}'
+brewfile_dir: '{{ myansible_dir }}/files'
+wallpaper_path: '{{ myansible_dir }}/files/wall.jpeg'
