@@ -1,0 +1,7 @@
+---
+stow_items:
+  - karabiner
+  - lf
+  - skhd
+  - yabai
+brewfile_dir: '{{ myansible_dir }}/files'
