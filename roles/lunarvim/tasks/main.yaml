@@ -1,7 +1,7 @@
 ---
 - name: Register lvim
   stat:
-    path: "{{ ansible_user_dir }}/.local/share/lunarvim"
+    path: "{{ ansible_user_dir }}/.local/bin/lvim"
   register: lvim
 
 - block:

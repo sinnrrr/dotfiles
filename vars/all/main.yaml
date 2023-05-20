@@ -1,0 +1,29 @@
+---
+dotfiles:
+  repo: 'https://github.com/sinnrrr/dotfiles'
+  target: '{{ ansible_user_dir }}/.dotfiles'
+  state: present
+
+myansible_dir: '{{ dotfiles.target }}'
+wallpaper_path: '{{ myansible_dir }}/files/wallpaper.jpeg'
+
+stow_common_items:
+  - alacritty
+  - tmux
+  - asdf
+  - bat
+  - bin
+  - btop
+  - git
+  - k9s
+  - lvim
+  - spotify-tui
+  - lazygit
+  - zsh
+  - shell
+  - yamlfmt
+
+theme:
+  general: white
+  lazygit: follow
+  lunarvim: follow
