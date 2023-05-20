@@ -3,9 +3,9 @@ gui:
   showIcons: true
   expandFocusedSidePanel: true
   theme:
+    lightTheme: true
     selectedLineBgColor:
       - reverse
-#   lightTheme: true
 keybinding:
   universal:
     scrollLeft: "h"

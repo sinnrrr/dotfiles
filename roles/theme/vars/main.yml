@@ -1,0 +1,24 @@
+---
+theme_config:
+  general: day
+  lunarvim:
+    prefference: follow
+    settings:
+      day: tokyonight-day
+      night: lunar
+  alacritty:
+    prefference: follow
+    settings:
+      day: tokyonight-day
+      night: tokyonight
+  lazygit:
+    prefference: follow
+  yabai:
+    prefference: follow
+    settings:
+      day:
+        active_window_border_color: "0xff06b6d4"
+        normal_window_border_color: "0xffddd6fe"
+      night:
+        active_window_border_color: "0xffe1e3e4"
+        normal_window_border_color: "0xff6e6a86"

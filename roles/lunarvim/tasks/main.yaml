@@ -4,7 +4,9 @@
     path: "{{ ansible_user_dir }}/.local/bin/lvim"
   register: lvim
 
-- block:
+- name: Install lunarvim
+  when: not lvim.stat.exists
+  block:
     - name: Download
       ansible.builtin.get_url:
         url: https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh
@@ -22,7 +24,7 @@
     - name: Remove default config
       ansible.builtin.file:
         state: absent
-        path: "{{ ansible_user_dir }}/.config/lvim"
+        path: "{{ config_path }}/lvim"
 
     - name: Relink dotfiles
       ansible.builtin.include_role:
@@ -34,4 +36,3 @@
       register: init
       until: init is succeeded
       retries: 1
-  when: not lvim.stat.exists

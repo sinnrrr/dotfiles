@@ -1,0 +1,58 @@
+---
+- name: Determine current theme setting for every package
+  set_fact:
+    theme_config: "{{ theme_config | combine({item.key: item.value | combine({'current': theme_config.general if item.value.prefference == 'follow' else item.value.prefference})}) }}"
+  loop: "{{ theme_config | dict2items | rejectattr('key', 'equalto', 'general') | list }}"
+  loop_control:
+    label: "{{ item.key }}"
+
+- name: Apply theme for LunarVim
+  block:
+    - name: Define lunarvim current theme name based on theme color
+      set_fact:
+        current_theme: "{{ theme_config.lunarvim.settings[theme_config.lunarvim.current] }}"
+
+    - name: Apply lunarvim theme accordingly to settings
+      replace:
+        path: "{{ config_path }}/lvim/config.lua"
+        regexp: 'lvim.colorscheme = "[^"]+"'
+        replace: 'lvim.colorscheme = "{{ current_theme }}"'
+
+- name: Apply theme to Alacritty
+  block:
+    - name: Define alacritty current theme name based on theme color
+      set_fact:
+        current_theme: "{{ theme_config.alacritty.settings[theme_config.alacritty.current] }}"
+
+    - name: Apply alacritty theme accordingly to settings
+      replace:
+        path: "{{ config_path }}/alacritty/alacritty.yml"
+        regexp: 'colors: \*(.*)'
+        replace: 'colors: *{{ current_theme }}'
+
+- name: Apply theme to Lazygit
+  block:
+    - name: Apply lazygit theme accordingly to settings
+      lineinfile:
+        path: "{{ config_path }}/lazygit/config.yml"
+        regexp: '^(\s*)(lightTheme:).*'
+        line: '\1\2 {{ (theme_config.lazygit.current == "day") | string | lower }}'
+        backrefs: true
+
+- name: Apply theme to Yabai
+  block:
+    - debug:
+        var: item
+      loop: "{{ theme_config.yabai.settings[theme_config.yabai.current] | dict2items }}"
+      loop_control:
+        label: "{{ item.key }}"
+
+    - name: Apply yabai config changes
+      lineinfile:
+        path: "{{ config_path }}/yabai/yabairc"
+        regexp: '^(\s*)({{ item.key }}).*'
+        line: '\1\2 {{ item.value }} \\'
+        backrefs: true
+      loop: "{{ theme_config.yabai.settings[theme_config.yabai.current] | dict2items }}"
+      loop_control:
+        label: "{{ item.key }}"

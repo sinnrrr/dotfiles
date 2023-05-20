@@ -4,6 +4,7 @@ dotfiles:
   target: '{{ ansible_user_dir }}/.dotfiles'
   state: present
 
+config_path: "{{ ansible_env.HOME }}/.config"
 myansible_dir: '{{ dotfiles.target }}'
 wallpaper_path: '{{ myansible_dir }}/files/wallpaper.jpeg'
 
@@ -22,8 +23,3 @@ stow_common_items:
   - zsh
   - shell
   - yamlfmt
-
-theme:
-  general: white
-  lazygit: follow
-  lunarvim: follow

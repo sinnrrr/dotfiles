@@ -38,8 +38,8 @@ yabai -m config \
     window_border off \
     window_border_blur off \
     window_border_hidpi on \
-    active_window_border_color 0xffe1e3e4 \
-    normal_window_border_color 0xff6e6a86 \
+    active_window_border_color 0xff06b6d4 \
+    normal_window_border_color 0xffddd6fe \
     window_border_width 2 \
     window_border_radius 12 \
     window_animation_duration 0.0 \

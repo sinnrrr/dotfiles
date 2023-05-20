@@ -89,8 +89,8 @@ font:
 draw_bold_text_with_bright_colors: true
 
 mouse:
-  double_click: { threshold: 300 }
-  triple_click: { threshold: 300 }
+  double_click: {threshold: 300}
+  triple_click: {threshold: 300}
   hide_when_typing: false
 
 selection:
@@ -216,49 +216,132 @@ shell:
     - -l # login shell
 
 key_bindings:
-  - { key: V, mods: Control, action: Paste }
-  - { key: Key0, mods: Command, action: ResetFontSize }
-  - { key: Equals, mods: Command, action: IncreaseFontSize }
-  - { key: Plus, mods: Command, action: IncreaseFontSize }
-  - { key: Minus, mods: Command, action: DecreaseFontSize }
-  - { key: LBracket, mods: Control, action: ToggleViMode }
-  - { key: V, mods: Control|Shift, action: ToggleBlockSelection, mode: Vi }
-  - { key: L, mods: Control, action: ClearLogNotice }
-  - { key: L, mods: Control, chars: "\f" }
-  - { key: H, mods: Control|Shift, chars: "\e[72;6u" } # for vim https://www.reddit.com/r/neovim/comments/mbj8m5/how_to_setup_ctrlshiftkey_mappings_in_neovim_and/
-  - { key: L, mods: Control|Shift, chars: "\e[76;6u" } # for vim
+  - {key: V, mods: Control, action: Paste}
+  - {key: Key0, mods: Command, action: ResetFontSize}
+  - {key: Equals, mods: Command, action: IncreaseFontSize}
+  - {key: Plus, mods: Command, action: IncreaseFontSize}
+  - {key: Minus, mods: Command, action: DecreaseFontSize}
+  - {key: LBracket, mods: Control, action: ToggleViMode}
+  - {key: V, mods: Control|Shift, action: ToggleBlockSelection, mode: Vi}
+  - {key: L, mods: Control, action: ClearLogNotice}
+  - {key: L, mods: Control, chars: "\f"}
+  - {key: H, mods: Control|Shift, chars: "\e[72;6u"}
+  # for vim https://www.reddit.com/r/neovim/comments/mbj8m5/how_to_setup_ctrlshiftkey_mappings_in_neovim_and/
+  - {key: L, mods: Control|Shift, chars: "\e[76;6u",}
+  # for vim
 
-colors:
-  name: TokyoNight Night
-  author: Folke
-  # Default colors
-  primary:
-    background: '0x1a1b26'
-    foreground: '0xc0caf5'
+schemes:
+  onelight: &onelight
+    primary:
+      background: '0xf8f8f8'
+      foreground: '0x2a2b33'
 
-  # Normal colors
-  normal:
-    black: '0x15161E'
-    red: '0xf7768e'
-    green: '0x9ece6a'
-    yellow: '0xe0af68'
-    blue: '0x7aa2f7'
-    magenta: '0xbb9af7'
-    cyan: '0x7dcfff'
-    white: '0xa9b1d6'
+    normal:
+      black: '0x000000'
+      red: '0xde3d35'
+      green: '0x3e953a'
+      yellow: '0xd2b67b'
+      blue: '0x2f5af3'
+      magenta: '0xa00095'
+      cyan: '0x3e953a'
+      white: '0xbbbbbb'
 
-  # Bright colors
-  bright:
-    black: '0x414868'
-    red: '0xf7768e'
-    green: '0x9ece6a'
-    yellow: '0xe0af68'
-    blue: '0x7aa2f7'
-    magenta: '0xbb9af7'
-    cyan: '0x7dcfff'
-    white: '0xc0caf5'
+    bright:
+      black: '0x000000'
+      red: '0xde3d35'
+      green: '0x3e953a'
+      yellow: '0xd2b67b'
+      blue: '0x2f5af3'
+      magenta: '0xa00095'
+      cyan: '0x3e953a'
+      white: '0xffffff'
 
-  indexed_colors:
-    - { index: 16, color: '0xff9e64' }
-    - { index: 17, color: '0xdb4b4b' }
-theme: Tokyonight_Night
+  tokyonight: &tokyonight
+    # Default colors
+    primary:
+      background: '#1a1b26'
+      foreground: '#a9b1d6'
+
+    # Normal colors
+    normal:
+      black: '#32344a'
+      red: '#f7768e'
+      green: '#9ece6a'
+      yellow: '#e0af68'
+      blue: '#7aa2f7'
+      magenta: '#ad8ee6'
+      cyan: '#449dab'
+      white: '#787c99'
+
+    # Bright colors
+    bright:
+      black: '#444b6a'
+      red: '#ff7a93'
+      green: '#b9f27c'
+      yellow: '#ff9e64'
+      blue: '#7da6ff'
+      magenta: '#bb9af7'
+      cyan: '#0db9d7'
+      white: '#acb0d0'
+
+  tokyonight-storm: &tokyonight-storm
+    # Default colors
+    primary:
+      background: '#24283b'
+      foreground: '#a9b1d6'
+
+    # Normal colors
+    normal:
+      black: '#32344a'
+      red: '#f7768e'
+      green: '#9ece6a'
+      yellow: '#e0af68'
+      blue: '#7aa2f7'
+      magenta: '#ad8ee6'
+      cyan: '#449dab'
+      white: '#9699a8'
+
+    # Bright colors
+    bright:
+      black: '#444b6a'
+      red: '#ff7a93'
+      green: '#b9f27c'
+      yellow: '#ff9e64'
+      blue: '#7da6ff'
+      magenta: '#bb9af7'
+      cyan: '#0db9d7'
+      white: '#acb0d0'
+
+  tokyonight-day: &tokyonight-day
+    # Default colors
+    primary:
+      background: '0xe1e2e7'
+      foreground: '0x3760bf'
+
+    # Normal colors
+    normal:
+      black: '0xe9e9ed'
+      red: '0xf52a65'
+      green: '0x587539'
+      yellow: '0x8c6c3e'
+      blue: '0x2e7de9'
+      magenta: '0x9854f1'
+      cyan: '0x007197'
+      white: '0x6172b0'
+
+    # Bright colors
+    bright:
+      black: '0xa1a6c5'
+      red: '0xf52a65'
+      green: '0x587539'
+      yellow: '0x8c6c3e'
+      blue: '0x2e7de9'
+      magenta: '0x9854f1'
+      cyan: '0x007197'
+      white: '0x3760bf'
+
+    indexed_colors:
+      - {index: 16, color: '0xb15c00'}
+      - {index: 17, color: '0xc64343',}
+
+colors: *tokyonight-day
