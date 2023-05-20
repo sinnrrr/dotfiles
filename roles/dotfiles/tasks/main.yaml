@@ -9,20 +9,56 @@
     - .config
     - .zshrc.d
 
+- name: Set dotfiles templating facts
+  set_fact:
+    dotfiles_src: "{{ role_path }}/files"
+
+- block:
+    - name: Ensure dotfiles home exists
+      file:
+        path: "{{ dotfiles_home }}"
+        state: directory
+
+    - name: Find all dotfiles
+      ansible.builtin.find:
+        paths:
+          - "{{ dotfiles_src }}/all/"
+          - "{{ dotfiles_src }}/os_{{ ansible_system }}/"
+        file_type: any
+        hidden: true
+        recurse: true
+      register: dotfiles_to_symlink
+
+    - name: Filter out find results
+      set_fact:
+        dotfiles_to_symlink: "{{ dotfiles_to_symlink.files | rejectattr('isdir') | list }}"
+
+    - name: Create destination directories
+      file:
+        path: "{{ dotfiles_home }}/{{ item.path | regex_replace('^' + dotfiles_src + '/(all|os_' + ansible_system + ')/', '') | dirname }}"
+        state: directory
+      loop: "{{ dotfiles_to_symlink }}"
+      no_log: true
+
+    - name: Template dotfiles
+      template:
+        src: "{{ item.path }}"
+        dest: "{{ dotfiles_home }}/{{ item.path | regex_replace('^' + dotfiles_src + '/(all|os_' + ansible_system + ')/', '') | regex_replace('(.*)(\\.j2)$', '\\1') }}"
+      with_items: "{{ dotfiles_to_symlink }}"
+      when: "item.path.endswith('.j2')"
+
+    - name: Create a relative symlink for dotfiles
+      command: ln -fsr "{{ item.path }}" "{{ dotfiles_home }}/{{ item.path | regex_replace('^' + dotfiles_src + '/(all|os_' + ansible_system + ')/', '') }}"
+      loop: "{{ dotfiles_to_symlink }}"
+      when: "not item.path.endswith('.j2')"
+
 - block:
     - name: stow dotfiles
       stow:
         state: '{{ dotfiles_state }}'
-        dir: "{{ myansible_dir }}/roles/dotfiles/files/all"
+        dir: "{{ dotfiles_home }}"
         package: '{{ item }}'
       loop: "{{ stow_common_items }}"
-
-    - name: stow os-specific dotfiles
-      stow:
-        state: '{{ dotfiles_state }}'
-        dir: "{{ myansible_dir }}/roles/dotfiles/files/os_{{ ansible_system }}"
-        package: '{{ item }}'
-      loop: "{{ stow_items }}"
   environment:
     PATH: "{{ homebrew_brew_bin_path | default('') }}:{{ ansible_env.PATH }}" # TODO setup PATH to discover stow for linux too
 

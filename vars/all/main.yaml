@@ -1,0 +1,31 @@
+---
+configuration:
+  repo: 'https://github.com/sinnrrr/la-configurazione'
+  target: '{{ ansible_user_dir }}/la-configurazione'
+
+myansible_dir: '{{ configuration.target }}'
+wallpaper_path: '{{ myansible_dir }}/files/wallpaper.jpeg'
+
+stow_common_items:
+  - alacritty
+  - tmux
+  - asdf
+  - bat
+  - bin
+  - btop
+  - git
+  - k9s
+  - lvim
+  - spotify-tui
+  - lazygit
+  - zsh
+  - shell
+  - yamlfmt
+
+dotfiles_state: present
+dotfiles_home: "{{ ansible_env.HOME }}/.dotfiles"
+
+theme:
+  general: white
+  lazygit: follow
+  lunarvim: follow

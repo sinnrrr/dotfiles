@@ -2,7 +2,7 @@
 
 set -euoE pipefail
 
-cwd="$HOME/.dotfiles"
+cwd="$HOME/la-configurazione"
 
 _usage() {
     printf "

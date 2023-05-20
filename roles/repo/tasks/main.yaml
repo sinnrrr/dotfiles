@@ -1,6 +1,6 @@
 ---
 - name: Ensure dotfiles repository is cloned locally.
   ansible.builtin.git:
-    repo: "{{ dotfiles.repo }}"
-    dest: "{{ dotfiles.target }}"
+    repo: "{{ configuration.repo }}"
+    dest: "{{ configuration.target }}"
     update: false
