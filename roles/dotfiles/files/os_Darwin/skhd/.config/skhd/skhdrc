@@ -11,7 +11,6 @@ ctrl + alt + cmd - p : screencapture -cix /dev/null
 # screenshot with options
 ctrl + alt + cmd + shift - p : screencapture -iU /dev/null
 ctrl + alt + cmd - 0x18 : yabai -m space --toggle mission-control
-ctrl + alt + cmd - d : open -na dmenu-mac
 
 # change layouts
 ctrl + alt + cmd - t : yabai -m space --layout bsp; $YABAI/smart_gaps.sh

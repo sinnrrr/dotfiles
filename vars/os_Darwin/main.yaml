@@ -5,4 +5,5 @@ stow_items:
   - skhd
   - yabai
   - zsh
+  - bin
 brewfile_dir: '{{ myansible_dir }}/files'

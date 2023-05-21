@@ -51,6 +51,9 @@ case $command in
     run_remote)
         _run_playbook -Kk -e hosts_var=remote_servers "${@:2}"
         ;;
+    theme)
+        _run_playbook --tags "theme" "${@:2}"
+        ;;
     dotfiles_link)
         _run_playbook --tags "dotfiles" "${@:2}"
         ;;
