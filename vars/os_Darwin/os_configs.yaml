@@ -249,7 +249,7 @@ macos_defaults:
     domain: com.apple.driver.AppleBluetoothMultitouch.trackpad
     key: Clicking
     type: int
-    value: '1'
+    value: '0'
 
   - name: Configure bluetooth Apple trackpad - 2 finger tap right-click
     domain: com.apple.driver.AppleBluetoothMultitouch.trackpad

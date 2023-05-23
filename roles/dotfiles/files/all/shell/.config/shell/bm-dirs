@@ -1,7 +1,7 @@
 cf  ${XDG_CONFIG_HOME:-$HOME/.config}
+cd  $HOME/.dotfiles
 D   ${XDG_DOWNLOAD_DIR:-$HOME/Downloads}
 d   ${XDG_DOCUMENTS_DIR:-$HOME/Documents}
-cdf $HOME/.dotfiles
 h   $HOME
 
 L   $HOME/.local
@@ -14,5 +14,5 @@ rpc ${WORK_HOME:-$HOME/Work}/commercial/rr-processing
 rmq ${WORK_HOME:-$HOME/Work}/commercial/rr-rabbit-mq-worker
 
 P   ${WORK_HOME:-$HOME/Work}/personal
-pl  ${WORK_HOME:-$HOME/Work}/leetcode
-pg  ${WORK_HOME:-$HOME/Work}/grokking
+ll  ${WORK_HOME:-$HOME/Work}/leetcode
+lg  ${WORK_HOME:-$HOME/Work}/grokking
