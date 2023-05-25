@@ -7,6 +7,7 @@ require("typescript").setup({
 	-- 	on_attach = ...,
 	-- },
 })
+require("lspconfig").tsserver.setup({})
 
 lvim.builtin.which_key.mappings["lc"] = {
 	name = "Typescript",
