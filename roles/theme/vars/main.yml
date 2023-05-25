@@ -1,6 +1,6 @@
 ---
 theme_config:
-  general: day
+  general: night
   lunarvim:
     prefference: follow
     settings:
@@ -20,5 +20,5 @@ theme_config:
         active_window_border_color: "0xff06b6d4"
         normal_window_border_color: "0xffddd6fe"
       night:
-        active_window_border_color: "0xffe1e3e4"
-        normal_window_border_color: "0xff6e6a86"
+        active_window_border_color: "0xff06b6d4"
+        normal_window_border_color: "0xffddd6fe"

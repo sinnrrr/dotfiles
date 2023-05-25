@@ -1,7 +1,7 @@
 cf  ${XDG_CONFIG_HOME:-$HOME/.config}
-cd  $HOME/.dotfiles
+df  $HOME/.dotfiles
 D   ${XDG_DOWNLOAD_DIR:-$HOME/Downloads}
-d   ${XDG_DOCUMENTS_DIR:-$HOME/Documents}
+dd  ${XDG_DOCUMENTS_DIR:-$HOME/Documents}
 h   $HOME
 
 L   $HOME/.local

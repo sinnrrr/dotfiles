@@ -3,7 +3,7 @@ gui:
   showIcons: true
   expandFocusedSidePanel: true
   theme:
-    lightTheme: true
+    lightTheme: false
     selectedLineBgColor:
       - reverse
 keybinding:
@@ -12,3 +12,5 @@ keybinding:
     scrollRight: "l"
     prevBlock-alt: "H" # goto the previous block / panel
     nextBlock-alt: "L" # goto the next block / panel
+os:
+  editPreset: 'nvim'
