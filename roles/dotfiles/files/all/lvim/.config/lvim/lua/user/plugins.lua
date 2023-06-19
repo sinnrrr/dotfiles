@@ -70,8 +70,11 @@ lvim.plugins = {
 		ft = { "fugitive" },
 	},
 	{ "tpope/vim-repeat" },
+	{ "tpope/vim-surround" },
+	{ "microsoft/python-type-stubs" },
 	{
-		"tpope/vim-surround",
+		"lervag/vimtex",
+		ft = "tex",
 	},
 	-- autoclose and autorename html/xml tags
 	{

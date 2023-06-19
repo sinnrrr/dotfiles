@@ -9,7 +9,6 @@ whk["P"] = whk["p"]
 whk["p"] = nil
 whk[";"] = nil
 lvim.lsp.buffer_mappings.normal_mode["gr"] = nil
-whk["/"] = nil
 
 vim.g.tmux_navigator_no_mappings = 1
 lvim.keys.normal_mode = {

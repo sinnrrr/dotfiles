@@ -16,7 +16,6 @@ lvim.builtin.terminal.shading_factor = 1
 
 lvim.builtin.alpha.mode = "dashboard"
 
-lvim.builtin.cmp.completion.autocomplete = false
 lvim.builtin.cmp.cmdline.enable = true
 lvim.builtin.gitsigns.opts.current_line_blame = true
 

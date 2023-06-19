@@ -32,8 +32,8 @@ formatters.setup({
 		},
 	}),
 	null_ls.builtins.formatting.eslint_d.with(eslint_config),
-	{ name = "black" },
-	{ name = "isort" },
+	null_ls.builtins.formatting.black,
+	null_ls.builtins.formatting.isort.with({ extra_args = { "--profile", "black" } }),
 	{ name = "stylua" },
 	{ name = "rustfmt" },
 	{ name = "gofmt" },
@@ -50,7 +50,7 @@ formatters.setup({
 local linters = require("lvim.lsp.null-ls.linters")
 linters.setup({
 	null_ls.builtins.diagnostics.eslint_d.with(eslint_config),
-	{ name = "flake8" },
+	null_ls.builtins.diagnostics.flake8.with({ extra_args = { "--max-line-length", 88, "--extend-ignore", "E203" } }),
 	{ name = "qmllint" },
 	{ name = "buf" },
 	{ name = "hadolint" },
