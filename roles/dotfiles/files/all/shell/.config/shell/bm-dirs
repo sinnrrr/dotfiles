@@ -18,5 +18,4 @@ P   ${WORK_HOME:-$HOME/Work}/personal
 ll  ${WORK_HOME:-$HOME/Work}/leetcode
 lg  ${WORK_HOME:-$HOME/Work}/grokking
 
-
 U   ${WORK_HOME:-$HOME/Work}/university

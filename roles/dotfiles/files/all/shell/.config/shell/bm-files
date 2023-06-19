@@ -6,10 +6,11 @@ bd	${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs		# A list of bookmarked direc
 
 # These do not update automatically, but on the next new instance of a program:
 
-cfz	${ZDOTDIR:-$HOME}/.zshrc						# zsh (shell) config
-cfa	${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc		# aliases used by zsh (and potentially other shells)
-cfp	${XDG_CONFIG_HOME:-$HOME/.config}/shell/profile		# profile file for login settings for zsh
-cfl	${XDG_CONFIG_HOME:-$HOME/.config}/lf/lfrc		# lf (file browser) config
-cfv	${XDG_CONFIG_HOME:-$HOME/.config}/lvim/config.lua		# lunarvim (nvim) config
-cfy	${XDG_CONFIG_HOME:-$HOME/.config}/yabai/yabairc		# yabai (tilling window manager)
-cfs	${XDG_CONFIG_HOME:-$HOME/.config}/skhd/skhdrc		# skdh (yabai keyshortcuts)
+cfz	 ${ZDOTDIR:-$HOME}/.zshrc						# zsh (shell) config
+cfa  ${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc		# aliases used by zsh (and potentially other shells)
+cfp  ${XDG_CONFIG_HOME:-$HOME/.config}/shell/profile		# profile file for login settings for zsh
+cfl  ${XDG_CONFIG_HOME:-$HOME/.config}/lf/lfrc		# lf (file browser) config
+cfv  ${XDG_CONFIG_HOME:-$HOME/.config}/lvim/config.lua		# lunarvim (nvim) config
+cfvp ${XDG_CONFIG_HOME:-$HOME/.config}/lvim/lua/user/plugins.lua	# lunarvim (nvim) plugins file
+cfy	 ${XDG_CONFIG_HOME:-$HOME/.config}/yabai/yabairc		# yabai (tilling window manager)
+cfs	 ${XDG_CONFIG_HOME:-$HOME/.config}/skhd/skhdrc		# skdh (yabai keyshortcuts)
