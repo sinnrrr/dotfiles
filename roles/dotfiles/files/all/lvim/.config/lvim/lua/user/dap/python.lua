@@ -1,16 +1,15 @@
 local M = {}
 
-M.get_python_path = function()
-	local path
+M.get_python_path_from_lsp = function()
 	for _, server in pairs(vim.lsp.get_active_clients()) do
 		if server.name == "pyright" or server.name == "pylance" then
-			path = vim.tbl_get(server, "config", "settings", "python", "pythonPath")
-			break
+			local path = vim.tbl_get(server, "config", "settings", "python", "pythonPath")
+			return path
 		end
 	end
 	-- path = vim.fn.input("Python path: ", path or "", "file")
 	-- path = path ~= "" and vim.fn.expand(path) or nil
-	return path
+	-- return path
 end
 
 M.get_dap_config = function(tbl)
@@ -35,7 +34,7 @@ M.setup = function()
 		M.get_dap_config({
 			name = "Launch file",
 			program = "${file}",
-			pythonPath = M.get_python_path,
+			pythonPath = M.get_python_path_from_lsp,
 			env = function()
 				return { ["PYTHONPATH"] = vim.fn.getcwd() }
 			end,

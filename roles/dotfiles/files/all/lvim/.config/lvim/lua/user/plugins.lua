@@ -198,14 +198,15 @@ lvim.plugins = {
 	-- show lsp server progress
 	{
 		"j-hui/fidget.nvim",
+		branch = "legacy",
 		config = function()
 			require("fidget").setup({})
 		end,
 	},
 	-- show code context at the top of the buffer
-	"nvim-treesitter/nvim-treesitter-context",
+	{ "nvim-treesitter/nvim-treesitter-context" },
 	-- tree sitter based textobjects
-	"nvim-treesitter/nvim-treesitter-textobjects",
+	{ "nvim-treesitter/nvim-treesitter-textobjects" },
 	-- mason is lsp/debugger/formatters/linters installer, this is config
 	{
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
@@ -227,9 +228,7 @@ lvim.plugins = {
 		event = "BufRead",
 		ft = { "qml" },
 	},
-	{
-		"jose-elias-alvarez/typescript.nvim",
-	},
+	{ "jose-elias-alvarez/typescript.nvim" },
 	{ "mfussenegger/nvim-jdtls" },
 	-- telescope extension for ripgrep args
 	{
@@ -250,22 +249,27 @@ lvim.plugins = {
 	},
 	-- ai autocompletions
 	{
-		"gelfand/copilot.vim",
-		dependencies = "hrsh7th/cmp-copilot",
+		"zbirenbaum/copilot.lua",
+		cmd = "Copilot",
+		event = "InsertEnter",
 		config = function()
 			require("user.copilot").config()
 		end,
-		enabled = false,
 	},
 	{
-		"tzachar/cmp-tabnine",
-		build = "./install.sh",
-		dependencies = "hrsh7th/nvim-cmp",
-		event = "InsertEnter",
-		enabled = false,
+		"jackMort/ChatGPT.nvim",
+		event = "VeryLazy",
+		config = function()
+			require("user.chatgpt").config()
+		end,
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope.nvim",
+		},
 	},
 	-- vim training
-	{ "ThePrimeagen/vim-be-good" },
+	-- { "ThePrimeagen/vim-be-good" },
 	-- tmux
 	{
 		"christoomey/vim-tmux-navigator",

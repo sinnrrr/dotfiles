@@ -2,6 +2,7 @@ lvim.transparent_window = false
 lvim.debug = true
 lvim.log.level = "warn"
 
+lvim.builtin.comment.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.project.active = true -- keep enabled for setting cwd correctly
 lvim.builtin.dap.active = false
@@ -22,6 +23,7 @@ lvim.builtin.gitsigns.opts.current_line_blame = true
 local whk_presets = lvim.builtin.which_key.setup.plugins.presets
 whk_presets.z = true
 whk_presets.windows = true
+lvim.builtin.which_key.setup.ignore_missing = false
 
 lvim.builtin.project.detection_methods = { "pattern", "lsp" }
 lvim.builtin.project.patterns =
@@ -30,35 +32,5 @@ lvim.builtin.project.patterns =
 lvim.builtin.telescope.pickers.find_files = { hidden = true, no_ignore = true }
 
 lvim.lsp.null_ls.setup = {
-	root_dir = function()
-		return nil
-	end,
+	debug = false,
 }
-
-local status, lga_actions = pcall(require, "telescope-live-grep-args.actions")
-if not status then
-	return
-end
-local telescope = require("telescope")
-
-lvim.builtin.telescope.on_config_done = function()
-	telescope.setup({
-		extensions = {
-			live_grep_args = {
-				auto_quoting = true, -- enable/disable auto-quoting
-				-- define mappings, e.g.
-				mappings = {
-					-- extend mappings
-					i = {
-						["<C-k>"] = lga_actions.quote_prompt(),
-						["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
-					},
-				},
-				-- ... also accepts theme settings, for example:
-				-- theme = "dropdown", -- use dropdown theme
-				-- theme = { }, -- use own theme spec
-				-- layout_config = { mirror=true }, -- mirror preview pane
-			},
-		},
-	})
-end

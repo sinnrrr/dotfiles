@@ -43,7 +43,7 @@ M.config = function()
 			require("neotest-python")({
 				args = { "-vv", "-s" },
 				runner = "pytest",
-				python = require("user.dap.python").get_python_path,
+				python = require("user.dap.python").get_python_path_from_lsp,
 				dap = require("user.dap.python").get_dap_config({}),
 			}),
 			require("neotest-go"),

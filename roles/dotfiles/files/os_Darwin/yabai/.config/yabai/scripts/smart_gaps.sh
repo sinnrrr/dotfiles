@@ -16,10 +16,10 @@ if [[ $windows_count -eq 0 ]]; then
 fi
 if [[ $windows_count -eq 1 ]]; then
     p=0
-    echo $windows_ids | xargs -n1 -P10 $YABAI/border_off.sh
     yabai -m space $space_sel --padding abs:$p:$p:$p:$p
+    echo $windows_ids | xargs -n1 -P10 $YABAI/border_off.sh
 else
     p=8
-    echo $windows_ids | xargs -n1 -P10 $YABAI/border_on.sh
     yabai -m space $space_sel --padding abs:$p:$p:$p:$p
+    echo $windows_ids | xargs -n1 -P10 $YABAI/border_on.sh
 fi
