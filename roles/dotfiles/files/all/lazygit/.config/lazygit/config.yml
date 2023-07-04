@@ -13,4 +13,7 @@ keybinding:
     prevBlock-alt: "H" # goto the previous block / panel
     nextBlock-alt: "L" # goto the next block / panel
 os:
-  editPreset: 'nvim'
+  edit: 'lvim {{filename}}'
+  editAtLine: 'lvim +{{line}} {{filename}}'
+  editAtLineAndWait: 'lvim --remote-tab-silent +{{line}} {{filename}}'
+  editInTerminal: true

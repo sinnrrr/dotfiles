@@ -10,6 +10,7 @@ whk["p"] = nil
 whk[";"] = nil
 lvim.lsp.buffer_mappings.normal_mode["gr"] = nil
 
+vim.o.timeoutlen = 150
 vim.g.tmux_navigator_no_mappings = 1
 lvim.keys.normal_mode = {
 	["<M-h>"] = "<cmd>TmuxNavigateLeft<cr>",
@@ -58,6 +59,33 @@ whk["W"] = {
 	N = { "<cmd>noautocmd wa<cr>", "no format save all" },
 }
 
+whk["C"] = {
+	name = "ChatGPT",
+	d = { "<cmd>ChatGPT<cr>", "Dialogue" },
+	a = { "<cmd>ChatGPTActAs<cr>", "Act as" },
+	e = { "<cmd>ChatGPTEditWithInstructions<cr>", "Edit with instructions" },
+	r = {
+		name = "Run",
+		g = { "<cmd>ChatGPTRun grammar_correction<cr>", "Grammar correction" },
+		t = { "<cmd>ChatGPTRun translate<cr>", "Translate" },
+		k = { "<cmd>ChatGPTRun keywords<cr>", "Keywords" },
+		d = { "<cmd>ChatGPTRun docstring<cr>", "Docstring" },
+		a = { "<cmd>ChatGPTRun add_tests<cr>", "Add tests" },
+		o = { "<cmd>ChatGPTRun optimize_code<cr>", "Optimize code" },
+		s = { "<cmd>ChatGPTRun summarize<cr>", "Summarize" },
+		f = { "<cmd>ChatGPTRun fix_bugs<cr>", "Fix bugs" },
+		e = { "<cmd>ChatGPTRun explain_code<cr>", "Explain code" },
+		r = { "<cmd>ChatGPTRun roxygen_edit<cr>", "Roxygen edit" },
+		c = { "<cmd>ChatGPTRun code_readability_analysis<cr>", "Code readability analysis" },
+	},
+}
+
+whk["c"] = {
+	name = "Copilot",
+	t = { "<cmd>lua require('copilot.suggestion').toggle_auto_trigger()<cr>", "Toggle" },
+	p = { "<cmd>Copilot panel<cr>", "Panel" },
+}
+
 whk["T"] = {
 	name = "Trouble",
 	r = { "<cmd>TroubleToggle lsp_references<cr>", "References" },
@@ -91,7 +119,6 @@ whk["r"] = {
 
 whk["Y"] = { ":OSCYankVisual<cr>", "OSC52 Copy (for ssh)", mode = "v" }
 whk["e"] = { "<cmd>Lf<cr>", "Explorer" }
-whk["c"] = { "<cmd>Copilot panel<cr>", "Copilot" }
 whk["s"]["t"] = { "<cmd>lua require'telescope'.extensions.live_grep_args.live_grep_args()<cr>", "Text" }
 
 local _, trouble = pcall(require, "trouble.providers.telescope")
@@ -180,7 +207,7 @@ whk_v["R"] = {
 -- Harpoon
 whk["a"] = { "<cmd>lua require('harpoon.mark').add_file()<cr>", "Add Mark" }
 whk["<leader>"] = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", "Harpoon" }
-whk["C"] = { "<cmd>lua require('harpoon.cmd-ui').toggle_quick_menu()<cr>", "Commands" }
+-- whk["H"] = { "<cmd>lua require('harpoon.cmd-ui').toggle_quick_menu()<cr>", "Harpoon" }
 
 whk["?"] = { "<cmd>Cheat<cr>", "Cheat.sh" }
 

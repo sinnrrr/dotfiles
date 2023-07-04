@@ -1,0 +1,8 @@
+#!/bin/sh
+
+open-browser --profile-directory="Default" \
+    "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22103366113%22%2C%22105376518%22%5D&keywords=tech%20recruiter" \
+
+open-browser --profile-directory="Default" \
+    "https://ca.indeed.com/jobs?q=backend+developer&l=British+Columbia" \
+    "https://www.linkedin.com/feed/" \
