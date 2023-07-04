@@ -8,6 +8,5 @@ _zinit_asdf_install() {
     asdf exec direnv allow
     popd
     asdf exec direnv hook zsh >asdf_direnv_hook.zsh
-    echo 'direnv() { asdf exec direnv "$@"; }' >>asdf_direnv_hook.zsh
     echo "✅ [asdf] installed!"
 }

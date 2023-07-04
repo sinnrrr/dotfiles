@@ -30,6 +30,7 @@ M.config = function()
 				debug = "d",
 				debug_marked = "D",
 				mark = "t",
+				watch = "W",
 				run_marked = "R",
 				clear_marked = "c",
 				stop = "q",
@@ -43,7 +44,18 @@ M.config = function()
 			require("neotest-python")({
 				args = { "-vv", "-s" },
 				runner = "pytest",
-				python = require("user.dap.python").get_python_path_from_lsp,
+				python = (function()
+					local func = require("user.dap.python").get_python_path_from_lsp
+					local cache = {}
+					return function(root)
+						local path = cache[root]
+						if not path then
+							path = func()
+							cache[root] = path
+						end
+						return path
+					end
+				end)(),
 				dap = require("user.dap.python").get_dap_config({}),
 			}),
 			require("neotest-go"),

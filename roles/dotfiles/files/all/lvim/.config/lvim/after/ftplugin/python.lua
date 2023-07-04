@@ -14,7 +14,7 @@ local function get_python_path(workspace)
 		end
 		match = vim.fn.glob(util.path.join(workspace, "pyproject.toml"))
 		if match ~= "" then
-			local venv = vim.fn.trim(vim.fn.system("poetry env info -p"))
+			local venv = vim.fn.trim(vim.fn.system("poetry env info -p")):match(".*\n([^\n]*)$") -- poetry 1.5 throws deprecation notice, pick only the last line with actual path
 			if venv then
 				return util.path.join(venv, "bin", "python")
 			end
@@ -25,16 +25,17 @@ local function get_python_path(workspace)
 	return vim.fn.exepath("python3") or vim.fn.exepath("python") or "python"
 end
 
-local function set_python_path(path, bufnr)
-	local clients = vim.lsp.get_active_clients({
-		bufnr = bufnr,
-		name = "pyright",
-	})
-	for _, client in ipairs(clients) do
-		client.config.settings =
-			vim.tbl_deep_extend("force", client.config.settings, { python = { pythonPath = path } })
-		client.notify("workspace/didChangeConfiguration", { settings = nil })
+local function set_python_path(client, path)
+	if
+		client.config.settings.python
+		and client.config.settings.python.pythonPath
+		and client.config.settings.python.pythonPath == path
+	then
+		return
 	end
+	-- print("changing path", path)
+	client.config.settings = vim.tbl_deep_extend("force", client.config.settings, { python = { pythonPath = path } })
+	-- client.notify("workspace/didChangeConfiguration", { settings = nil })
 end
 
 local python_path_per_project_cache = {}
@@ -60,10 +61,15 @@ local opts = {
 	on_attach = function(client, bufnr)
 		local root_dir = find_root_dir(vim.api.nvim_buf_get_name(bufnr)) -- can't use client.config.root_dir, because it's not updated when this function is invoked
 		if not python_path_per_project_cache[root_dir] then
-			python_path_per_project_cache[root_dir] = get_python_path()
-			set_python_path(python_path_per_project_cache[root_dir], bufnr)
+			python_path_per_project_cache[root_dir] = get_python_path(root_dir)
 		end
-		return python_path_per_project_cache[root_dir]
+		set_python_path(client, python_path_per_project_cache[root_dir])
+		vim.api.nvim_create_autocmd("BufEnter", {
+			buffer = bufnr,
+			callback = function()
+				set_python_path(client, python_path_per_project_cache[root_dir])
+			end,
+		})
 	end,
 }
 
