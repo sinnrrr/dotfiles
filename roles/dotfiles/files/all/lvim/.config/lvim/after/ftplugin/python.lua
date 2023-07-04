@@ -14,7 +14,7 @@ local function get_python_path(workspace)
 		end
 		match = vim.fn.glob(util.path.join(workspace, "pyproject.toml"))
 		if match ~= "" then
-			local venv = vim.fn.trim(vim.fn.system("poetry env info -p")):match(".*\n([^\n]*)$") -- poetry 1.5 throws deprecation notice, pick only the last line with actual path
+			local venv = vim.fn.trim(vim.fn.system("poetry env info -p"))
 			if venv then
 				return util.path.join(venv, "bin", "python")
 			end
