@@ -7,21 +7,21 @@ local function get_python_path(workspace)
 	end
 
 	-- Find and use virtualenv in workspace directory.
-	for _, pattern in ipairs({ "*", ".*" }) do
-		local match = vim.fn.glob(util.path.join(workspace, pattern, "pyvenv.cfg"))
-		if match ~= "" then
-			return util.path.join(util.path.dirname(match), "bin", "python")
-		end
-		match = vim.fn.glob(util.path.join(workspace, "pyproject.toml"))
-		if match ~= "" then
-			local venv = vim.fn.trim(vim.fn.system("poetry env info -p"))
-			if venv then
-				return util.path.join(venv, "bin", "python")
-			end
+	local match = vim.fn.glob(util.path.join(workspace, "pyproject.toml"))
+	if match ~= "" then
+		local venv = vim.fn.trim(vim.fn.system("poetry env info -p")):match("[^\n]*$") -- poetry 1.5 throws deprecation notice, pick only the last line with actual path
+		if venv then
+			return util.path.join(venv, "bin", "python")
 		end
 	end
 
-	-- Fallback to system Python.
+	for _, pattern in ipairs({ "*", ".*" }) do
+		match = vim.fn.glob(util.path.join(workspace, pattern, "pyvenv.cfg"))
+		if match ~= "" then
+			return util.path.join(util.path.dirname(match), "bin", "python")
+		end
+	end
+
 	return vim.fn.exepath("python3") or vim.fn.exepath("python") or "python"
 end
 
@@ -33,7 +33,6 @@ local function set_python_path(client, path)
 	then
 		return
 	end
-	-- print("changing path", path)
 	client.config.settings = vim.tbl_deep_extend("force", client.config.settings, { python = { pythonPath = path } })
 	-- client.notify("workspace/didChangeConfiguration", { settings = nil })
 end
