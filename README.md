@@ -9,7 +9,7 @@ Currently only macos is fully supported
 ## Local Installation
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/Keep-Simple/.dotfiles/macos/setup.sh | sh -s
+curl -fsSL https://raw.githubusercontent.com/sinnrrr/dotfiles/macos/setup.sh | sh -s
 ```
 
 ## Remote Installation

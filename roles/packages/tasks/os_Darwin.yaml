@@ -1,38 +1,23 @@
 ---
 - name: Register Brewfile
   stat:
-    path: "{{ brewfile_dir }}/Brewfile"
+    path: "{{ role_path }}/files/macos/Brewfile"
   register: brew_file
 
-- block:
+- when: brew_file.stat.exists
+  block:
     - name: Check if install is needed
-      command: "{{ homebrew_brew_bin_path }}/brew bundle check chdir={{ brewfile_dir }}"
+      command: "brew bundle check --file={{ brew_file.stat.path }}"
       register: brew_check
       changed_when: false
       failed_when: false
 
-    - name: Install with passowrdless sudo
-      block:
-        - name: allow passwordless sudo
-          lineinfile:
-            path: /etc/sudoers
-            line: 'ALL ALL=(ALL) NOPASSWD: ALL'
-          become: true
-
-        - name: Install from Brewfile
-          command: "{{ homebrew_brew_bin_path }}/brew bundle --no-lock chdir={{ brewfile_dir }} "
-          async: 100000
-          poll: 5
-
-      always:
-        - name: disable passwordless sudo
-          lineinfile:
-            path: /etc/sudoers
-            line: 'ALL ALL=(ALL) NOPASSWD: ALL'
-            state: absent
-          become: true
+    - name: Install from Brewfile
       when: brew_check.rc == 1
-  when: brew_file.stat.exists
+      command: "brew bundle --no-lock --file={{ brew_file.stat.path }}"
+      changed_when: false
+      async: 100000
+      poll: 5
 
 - name: Update all homebrew packages
   community.general.homebrew:
