@@ -83,5 +83,3 @@ zinit wait lucid light-mode for \
 autoload -U colors && colors
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-eval "$(github-copilot-cli alias -- "$0")"

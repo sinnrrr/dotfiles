@@ -1,8 +1,8 @@
 #!/bin/sh
 
 open-browser --profile-directory="Default" \
-    "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22103366113%22%2C%22105376518%22%5D&keywords=tech%20recruiter" \
+    'https://www.linkedin.com/search/results/people/?geoUrn=%5B%22103366113%22%2C%22105376518%22%5D&keywords=tech%20recruiter&currentCompany=%5B"2988"%2C"89296584"%2C"165158"%2C"2387"%2C"1666"%2C"8697"%2C"1539"%2C"1480"%2C"1586"%2C"2382910"%2C"80069"%2C"1025"%2C"10256524"%2C"1035"%2C"10667"%2C"1115"%2C"1360576"%2C"1372"%2C"1481"%2C"1482"%2C"1491350"%2C"15088102"%2C"157240"%2C"1612748"%2C"17719"%2C"1815218"%2C"1974"%2C"20226"%2C"24612"%2C"2605005"%2C"2732417"%2C"2751"%2C"288540"%2C"3033"%2C"385372"%2C"503432"%2C"5053"%2C"5390798"%5D'
 
 open-browser --profile-directory="Default" \
     "https://ca.indeed.com/jobs?q=backend+developer&l=British+Columbia" \
-    "https://www.linkedin.com/feed/" \
+    "https://www.linkedin.com/feed/"
