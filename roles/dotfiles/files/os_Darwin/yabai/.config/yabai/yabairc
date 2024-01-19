@@ -58,6 +58,7 @@ yabai -m config \
 yabai -m rule --add title='Preferences$' manage=off
 yabai -m rule --add title='^General' manage=off
 yabai -m rule --add title='Settings$' manage=off
+yabai -m rule --add label="Simulator" app="^Simulator$" manage=off layer=above
 yabai -m rule --add label='FaceTime' app="^FaceTime$" manage=off
 yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
 yabai -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off
