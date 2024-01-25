@@ -8,8 +8,10 @@ ctrl + alt + cmd - o : open -n /System/Applications/System\ Settings.app
 ctrl + alt + cmd - b : open -n /Applications/Google\ Chrome.app
 # selection screenshot to the clipboard without sound
 ctrl + alt + cmd - p : screencapture -cix /dev/null
+# selection screenshot to the file and open preview without sound
+ctrl + alt + cmd + shift - p : screencapture -Pix /dev/null
 # screenshot with options
-ctrl + alt + cmd + shift - p : screencapture -iU /dev/null
+ctrl + alt + cmd + shift - r : screencapture -iU /dev/null
 ctrl + alt + cmd - 0x18 : yabai -m space --toggle mission-control
 
 # change layouts
