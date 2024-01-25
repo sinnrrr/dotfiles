@@ -69,12 +69,20 @@ yabai -m rule --add label="Calculator" app="^Calculator$" manage=off
 yabai -m rule --add label="Dictionary" app="^Dictionary$" manage=off
 yabai -m rule --add label="mpv" app="^mpv$" manage=off
 yabai -m rule --add title="Steam" manage=off
-yabai -m rule --add title="Spotify" space=6
-yabai -m rule --add app="^YouTube Music$" space=6
 yabai -m rule --add label="Software Update" title="Software Update" manage=off
 yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
 yabai -m rule --add app="^Karabiner-EventViewer$" manage=off
 yabai -m rule --add title="QuickTerminal" grid=40:20:4:7:12:26 sticky=on layer=above opacity=0.9 border=off manage=off
+
+# Space 1
+yabai -m rule --add app="Google Chrome" title="Work" space=1
+
+# Space 3
+yabai -m rule --add app="Google Chrome" title="LeetCode" space=3
+
+# Space 6
+yabai -m rule --add app="Spotify" space=6
+yabai -m rule --add app="YouTube Music" space=6
 
 $YABAI/smart_gaps.sh
 $YABAI/create_spaces.sh 7
