@@ -215,6 +215,23 @@ lvim.plugins = {
 		end,
 	},
 
+	-- -- Asciidoc preivew
+	-- {
+	-- 	"shuntaka9576/preview-asciidoc.vim",
+	-- 	dependencies = {
+	-- 		"vim-denops/denops.vim",
+	-- 	},
+	-- },
+	{
+		"marioortizmanero/adoc-pdf-live.nvim",
+		config = function()
+			require("adoc_pdf_live").setup({
+				viewer = "open",
+			})
+		end,
+	},
+	{ "habamax/vim-asciidoctor" },
+
 	-- language specific
 	{
 		"simrat39/rust-tools.nvim",

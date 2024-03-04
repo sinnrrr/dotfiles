@@ -99,7 +99,11 @@ whk["T"] = {
 whk["gy"] = { "<cmd>lua require'gitlinker'.get_buf_range_url('n')<cr>", "Copy link" }
 whk["gm"] = { "<cmd>Git<cr>", "Git menu" }
 
-whk["m"] = { "<cmd>MarkdownPreviewToggle<cr>", "Live Markdown" }
+whk["p"] = {
+	name = "Preview Live",
+	m = { "<cmd>MarkdownPreviewToggle<cr>", "Markdown" },
+	a = { "<cmd>AdocPdfLiveStart<cr><cmd>AdocPdfLiveOpen<cr>", "AsciiDoc" },
+}
 
 whk["lo"] = { "<cmd>SymbolsOutline<cr>", "Outline" }
 

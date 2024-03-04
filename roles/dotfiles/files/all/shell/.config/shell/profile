@@ -60,6 +60,7 @@ if [[ -n "$HOMEBREW_PREFIX" ]]; then
 	PATH="${HOMEBREW_PREFIX}/opt/gnu-tar/libexec/gnubin:$PATH"
 	PATH="${HOMEBREW_PREFIX}/opt/util-linux/bin:$PATH"
 	PATH="${HOMEBREW_PREFIX}/opt/util-linux/sbin:$PATH"
+  PATH="${HOMEBREW_PREFIX}/opt/findutils/libexec/gnubin:$PATH"
 fi
 
 export PATH
