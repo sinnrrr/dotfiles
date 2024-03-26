@@ -6,4 +6,4 @@ yarn 1.22.19
 direnv 2.32.3
 java openjdk-18
 terraform 1.6.5 # https://github.com/asdf-community/asdf-hashicorp
-poetry 1.5.1
+poetry 1.8.2

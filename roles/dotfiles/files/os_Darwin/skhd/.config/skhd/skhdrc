@@ -5,7 +5,7 @@
 # ctrl + alt + cmd - return : open -n /Applications/Alacritty.app
 # ctrl + alt + cmd - return : kitty -d ~
 
-ctrl + alt + cmd - return : kitty --single-instance --instance-group base -d ~ tmux
+ctrl + alt + cmd - return : kitty --single-instance --instance-group base -d ~ zsh -l -c tmux
 ctrl + alt + cmd + shift - return : $YABAI/quick_terminal.sh
 ctrl + alt + cmd - o : open -n /System/Applications/System\ Settings.app
 ctrl + alt + cmd - b : open -n /Applications/Brave\ Browser.app
