@@ -7,3 +7,4 @@ direnv 2.32.3
 java openjdk-18
 terraform 1.6.5 # https://github.com/asdf-community/asdf-hashicorp
 poetry 1.8.2
+dotnet 8.0.203
