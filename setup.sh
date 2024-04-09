@@ -48,7 +48,7 @@ install_brew() {
         echo "[INFO] Installing Homebrew package manager..."
         export NONINTERACTIVE=1
         bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-        brew analytics off
+        /opt/homebrew/bin/brew analytics off
         echo "✅ [homebrew] installed!"
     fi
 }
@@ -79,7 +79,7 @@ debian_deps() {
 
 macos_deps() {
     install_brew
-    brew install ansible
+    /opt/homebrew/bin/brew install ansible wget
 }
 
 install_deps() {
