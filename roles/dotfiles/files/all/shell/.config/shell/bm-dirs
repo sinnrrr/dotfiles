@@ -16,5 +16,5 @@ oc   ${XDG_DOCUMENTS_DIR:-$HOME/Documents/commercial/orca-contracts}
 oa   ${XDG_DOCUMENTS_DIR:-$HOME/Documents/commercial/apisec}
 
 P   ${XDG_DOCUMENTS_DIR:-$HOME/Documents/personal}
-pu   ${XDG_DOCUMENTS_DIR:-$HOME/Documents/personal/university/labs/3_term/}
+pu   ${XDG_DOCUMENTS_DIR:-$HOME/Documents/personal/labs/5_term}
 pl   ${XDG_DOCUMENTS_DIR:-$HOME/Documents/personal/leetcode}
