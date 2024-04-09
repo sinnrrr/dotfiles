@@ -2,4 +2,14 @@
 - name: Install tmux plugin manager
   ansible.builtin.git:
     repo: https://github.com/tmux-plugins/tpm
-    dest: ~/.tmux/plugins/tpm
+    dest: "{{ ansible_user_dir }}/.tmux/plugins/tpm"
+
+- name: Register tpm plugins
+  stat:
+    path: "{{ ansible_user_dir }}/.config/tmux/plugins"
+  register: tpm_plugins
+
+- name: Install tpm plugins
+  ansible.builtin.command:
+    cmd: ~/.tmux/plugins/tpm/bin/install_plugins
+  when: not tpm_plugins.stat.exists
