@@ -1,4 +1,6 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
+
+tmuxinator_list=$(command -v tmuxinator > /dev/null && tmuxinator list | tail -n +2 | tr ' ' '\n' | grep -v '^$')
 
 if [[ $# -eq 1 ]]; then
     selected=$1
@@ -15,6 +17,7 @@ else
             fd . \
                 ~/Documents/commercial/orca-contracts/lib \
                 --type d --max-depth 3;
+            echo $tmuxinator_list
     } | fzf)
 fi
 
@@ -23,7 +26,7 @@ if [[ -z $selected ]]; then
 fi
 
 selected_name=$(basename "$selected" | tr . _)
-is_preconfigured_tmux=$(command -v tmuxinator > /dev/null && tmuxinator list | tail -n +2 | tr ' ' '\n' | grep -q "^$selected_name\$" ; echo $?)
+is_preconfigured_tmux=$(echo $tmuxinator_list | grep -q "^$selected_name\$" ; echo $?)
 tmux_running=$(pgrep tmux)
 
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then

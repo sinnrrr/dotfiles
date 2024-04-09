@@ -3,8 +3,7 @@
 
 # apps shortcuts
 ctrl + alt + cmd - return : kitty --single-instance --instance-group base -d ~ zsh -l -c tmux
-ctrl + alt + cmd + shift - return : $YABAI/quick_terminal.sh
-# ctrl + alt + cmd + shift - return : yabai -m window --toggle QuickTerminal || ($YABAI/quick_terminal_2.sh && sleep 0.2 && yabai -m window --toggle QuickTerminal)
+ctrl + alt + cmd + shift - return : yabai -m window --toggle QuickTerminal || kitty --single-instance --instance-group quickterm --title QuickTerminal --directory "${HOME}" tmux new -A -s quickterm
 ctrl + alt + cmd - o : open -n /System/Applications/System\ Settings.app
 ctrl + alt + cmd - b : open -n /Applications/Brave\ Browser.app
 # selection screenshot to the clipboard without sound
