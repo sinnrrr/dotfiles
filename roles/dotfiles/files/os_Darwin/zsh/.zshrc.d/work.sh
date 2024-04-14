@@ -1,6 +1,6 @@
-# sudo mkdir /opt/hack_path/date
+# sudo mkdir /opt/hack_path
 # sudo ln -s /bin/date /opt/hack_path/date
-export PATH="/opt/hack_path/date:$PATH"
+export PATH="/opt/hack_path:$PATH"
 
 # The next line updates PATH for the Google Cloud SDK.
 # if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi

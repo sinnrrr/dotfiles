@@ -419,6 +419,11 @@ macos_defaults:
     type: bool
     value: 'false'
 
+  - name: Disable key long press feature
+    domain: NSGlobalDomain
+    key: ApplePressAndHoldEnabled
+    type: bool
+    value: 'false'
 
 macos_defaults_xml:
   - key: com.apple.symbolichotkeys

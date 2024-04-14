@@ -11,7 +11,7 @@ return {
 	init = function()
 		local harpoon = require("harpoon")
 		vim.keymap.set("n", "<leader>a", function()
-			harpoon:list():append()
+			harpoon:list():add()
 		end, { desc = "Add harpoon mark" })
 
 		vim.keymap.set("n", "<leader>,", function()
