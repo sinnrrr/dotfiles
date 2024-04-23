@@ -11,7 +11,7 @@ else
                 ~/Documents/commercial \
                 ~/Documents/commercial/apisec/services ~/Documents/commercial/apisec/lib \
                 ~/Documents/commercial/orca-contracts/services \
-                ~/Documents/personal/university \
+                ~/Documents/personal/labs \
                 ~/Documents/personal/projects \
                 --type d --max-depth 1;
             fd . \

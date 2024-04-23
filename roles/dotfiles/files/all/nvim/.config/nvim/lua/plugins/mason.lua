@@ -14,6 +14,7 @@ return {
 			"ansible-language-server",
 			"clangd",
 			"gopls",
+			"omnisharp",
 			"json-lsp",
 			"kotlin-language-server",
 			"lua-language-server",
@@ -35,9 +36,7 @@ return {
 			"stylua",
 			"prettierd",
 			"eslint_d",
-			"flake8",
-			"black",
-			"isort",
+			"ruff",
 			"ansible-lint",
 			"fixjson",
 			"beautysh", -- shell fmt
