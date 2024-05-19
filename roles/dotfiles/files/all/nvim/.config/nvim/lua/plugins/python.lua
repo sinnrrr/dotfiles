@@ -27,14 +27,12 @@ local function get_python_path(workspace)
 end
 
 local function set_python_path(client, path)
-	if
-		client.config.settings.python
-		and client.config.settings.python.pythonPath
-		and client.config.settings.python.pythonPath == path
-	then
-		return
+	if client.settings then
+		client.settings = vim.tbl_deep_extend("force", client.settings, { python = { pythonPath = path } })
+	else
+		client.config.settings =
+			vim.tbl_deep_extend("force", client.config.settings, { python = { pythonPath = path } })
 	end
-	client.config.settings = vim.tbl_deep_extend("force", client.config.settings, { python = { pythonPath = path } })
 	-- technically lsp client should be notified about pythonPath change, but it works without it somehow. During notify lsp refreshes all files which is not good
 	-- client.notify("workspace/didChangeConfiguration", { settings = nil })
 end
@@ -74,6 +72,32 @@ local function find_root_dir(fname)
 	}
 	return util.root_pattern(unpack(root_files))(fname) or util.find_git_ancestor(fname)
 end
+
+-- Function to list LSP clients attached to the current buffer with their configs
+function ListLSPClientsWithConfigs()
+	local buf_clients = vim.lsp.buf_get_clients()
+	if next(buf_clients) == nil then
+		print("No LSP clients attached to this buffer.")
+		return
+	end
+
+	for client_id, client in pairs(buf_clients) do
+		print("Client name: " .. client.name)
+		print("Client id: " .. client_id)
+		print("Config:")
+		for k, v in pairs(client.config) do
+			print("  " .. k .. ": " .. vim.inspect(v))
+		end
+		print("Settings:")
+		for k, v in pairs(client.settings or {}) do
+			print("  " .. k .. ": " .. vim.inspect(v))
+		end
+		print("\n")
+	end
+end
+
+-- Command to call the function
+vim.api.nvim_command("command! ListLSPClients lua ListLSPClientsWithConfigs()")
 
 local pyright_opts = {
 	root_dir = find_root_dir,
