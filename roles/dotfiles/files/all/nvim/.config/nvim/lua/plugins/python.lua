@@ -41,6 +41,9 @@ local get_python_path_from_lsp = function()
 	for _, server in pairs(vim.lsp.get_active_clients()) do
 		if server.name == "pyright" or server.name == "pylance" then
 			local path = vim.tbl_get(server, "config", "settings", "python", "pythonPath")
+			if not path then
+				path = vim.tbl_get(server, "settings", "python", "pythonPath")
+			end
 			return path
 		end
 	end

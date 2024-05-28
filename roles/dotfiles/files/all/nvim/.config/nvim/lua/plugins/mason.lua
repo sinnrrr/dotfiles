@@ -33,6 +33,7 @@ return {
 			"shfmt",
 			"taplo",
 			"buf",
+			"hadolint",
 			"stylua",
 			"prettierd",
 			"eslint_d",
