@@ -1,9 +1,9 @@
 nodejs 20.5.0
 python 3.11.3
-rust 1.71.0
+rust 1.74.0
 golang 1.20.2
 yarn 1.22.19
-direnv 2.32.3
+direnv 2.34.0
 java openjdk-18
 terraform 1.6.5 # https://github.com/asdf-community/asdf-hashicorp
 poetry 1.8.2

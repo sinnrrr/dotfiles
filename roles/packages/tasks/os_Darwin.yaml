@@ -38,3 +38,8 @@
   community.general.homebrew:
     update_homebrew: true
     upgrade_all: true
+
+- name: Install ripdrag from cargo
+  community.general.cargo:
+    name: ripdrag
+    state: latest

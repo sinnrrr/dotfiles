@@ -8,6 +8,7 @@ source "~/.config/lf/commands/trash"
 source "~/.config/lf/commands/open"
 source "~/.config/lf/commands/files_and_dirs"
 source "~/.config/lf/commands/archives"
+source "~/.config/lf/commands/drag_drop"
 
 set shell zsh
 set cursorpreviewfmt "\033[7;2m"
@@ -66,6 +67,7 @@ map p :paste_try_cow
 # duplicate lf with current dir in another terminal
 # map S &open -na Alacritty --args --working-directory=$PWD -e zsh -c ". ~/.zshrc; lf; zsh -i"
 map S &kitty --single-instance -d $PWD -e zsh -c ". ~/.zshrc; lf; zsh -i"
+map ,S drag_drop
 
 
 # vim like mappings with <leader> being ","
