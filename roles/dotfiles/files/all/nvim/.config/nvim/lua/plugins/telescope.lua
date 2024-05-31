@@ -103,6 +103,25 @@ return {
 				end,
 				desc = "All text (git with ignore)",
 			},
+			{
+				"<leader>sW",
+				function()
+					require("telescope.builtin").grep_string({
+						additional_args = { "--hidden", "--glob=!.git/" },
+						cwd = get_git_dir(),
+					})
+				end,
+				desc = "Word (git)",
+			},
+			{
+				"<leader>sw",
+				function()
+					require("telescope.builtin").grep_string({
+						additional_args = { "--hidden", "--glob=!.git/" },
+					})
+				end,
+				desc = "Word",
+			},
 			{ "<leader>sh", "<cmd>Telescope help_tags<cr>", desc = "Help Pages" },
 			{ "<leader>sH", "<cmd>Telescope highlights<cr>", desc = "Search Highlight Groups" },
 			{ "<leader>sk", "<cmd>Telescope keymaps<cr>", desc = "Key Maps" },
