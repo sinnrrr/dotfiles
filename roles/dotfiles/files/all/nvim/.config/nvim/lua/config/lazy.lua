@@ -19,6 +19,7 @@ require("lazy").setup({
 		{ import = "lazyvim.plugins.extras.lang.omnisharp" },
 		{ import = "lazyvim.plugins.extras.util.dot" },
 		{ import = "lazyvim.plugins.extras.coding.copilot" },
+		{ import = "lazyvim.plugins.extras.lsp.neoconf" },
 		-- import/override with your plugins
 		{ import = "plugins" },
 	},

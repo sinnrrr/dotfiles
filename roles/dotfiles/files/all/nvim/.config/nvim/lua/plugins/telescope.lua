@@ -1,5 +1,3 @@
-local Util = require("lazyvim.util")
-
 local function get_git_dir()
 	return vim.fn.fnamemodify(vim.fn.finddir(".git", ".;"), ":h")
 end
@@ -131,12 +129,12 @@ return {
 			{ "<leader>sr", "<cmd>Telescope resume<cr>", desc = "Resume" },
 			{
 				"<leader>uC",
-				Util.telescope("colorscheme", { enable_preview = true }),
+				LazyVim.pick("colorscheme", { enable_preview = true }),
 				desc = "Colorscheme with preview",
 			},
 			{
 				"<leader>ss",
-				Util.telescope("lsp_document_symbols", {
+				LazyVim.pick("lsp_document_symbols", {
 					symbols = {
 						"Class",
 						"Function",
@@ -154,7 +152,7 @@ return {
 			},
 			{
 				"<leader>sS",
-				Util.telescope("lsp_dynamic_workspace_symbols", {
+				LazyVim.pick("lsp_dynamic_workspace_symbols", {
 					symbols = {
 						"Class",
 						"Function",

@@ -17,7 +17,8 @@
   },
   "lspconfig": {
     "pyright": {
-      "python.analysis.diagnosticMode": "workspace"
+      "python.analysis.diagnosticMode": "workspace",
+      "pyright.disableOrganizeImports": true
     }
   }
 }
