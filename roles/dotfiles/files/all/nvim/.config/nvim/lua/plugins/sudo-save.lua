@@ -2,11 +2,12 @@
 return {
 	"lambdalisue/suda.vim",
 	dependencies = {
-		"folke/which-key.nvim",
-		opts = {
-			prefixes = {
-				["<leader>W"] = { name = "+save options" },
-			},
+		{
+			"folke/which-key.nvim",
+			opts = function(_, opts)
+				require("which-key").add({ "<leader>W", group = "save options" })
+				return opts
+			end,
 		},
 	},
 	keys = {

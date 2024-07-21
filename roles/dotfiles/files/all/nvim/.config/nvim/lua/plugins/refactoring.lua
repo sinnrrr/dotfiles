@@ -3,15 +3,15 @@ return {
 	dependencies = {
 		{ "nvim-lua/plenary.nvim" },
 		{ "nvim-treesitter/nvim-treesitter" },
-
 		{
 			"folke/which-key.nvim",
-			opts = {
-				prefixes = {
-					["<leader>R"] = { name = "+refactor", mode = { "n", "v" } },
-					["<leader>Rd"] = { name = "+prints" },
-				},
-			},
+			opts = function(_, opts)
+				require("which-key").add({
+					{ "<leader>R", group = "refactor" },
+					{ "<leader>Rd", group = "prints" },
+				})
+				return opts
+			end,
 		},
 	},
 	opts = {

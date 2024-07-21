@@ -3,11 +3,10 @@ return {
 	dependencies = {
 		{
 			"folke/which-key.nvim",
-			opts = {
-				prefixes = {
-					["<leader>r"] = { name = "+search & replace" },
-				},
-			},
+			opts = function(_, opts)
+				require("which-key").add({ "<leader>r", group = "search & replace" })
+				return opts
+			end,
 		},
 		{ "nvim-lua/plenary.nvim" },
 	},

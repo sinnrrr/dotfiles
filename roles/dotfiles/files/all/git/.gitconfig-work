@@ -3,3 +3,4 @@
 	name = Nick Yasnogorodskyi
 [core]
     sshCommand = "ssh -i ~/.ssh/id_rsa"
+    hooksPath = /Users/nickyasnogorodskyi/.git/hooks

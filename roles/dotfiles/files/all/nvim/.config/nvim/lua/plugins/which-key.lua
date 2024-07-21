@@ -1,27 +1,25 @@
 return {
 	"folke/which-key.nvim",
+	opts_extend = { "prefixes" },
 	opts = {
 		prefixes = {
 			mode = { "n", "v" },
-			["g"] = { name = "+goto" },
-			["]"] = { name = "+next" },
-			["["] = { name = "+prev" },
-			["<leader><tab>"] = { name = "+tabs" },
-			["<leader>c"] = { name = "+code" },
-			["<leader>d"] = { name = "+debug" },
-			["<leader>t"] = { name = "+test" },
-			["<leader>g"] = { name = "+git" },
-			["<leader>gh"] = { name = "+hunks" },
-			["<leader>s"] = { name = "+search" },
-			["<leader>u"] = { name = "+ui" },
-			["<leader>x"] = { name = "+diagnostics/quickfix" },
+			{ "g", group = "goto" },
+			{ "]", group = "next" },
+			{ "[", group = "prev" },
+			{ "<leader><tab>", group = "tabs" },
+			{ "<leader>c", group = "code" },
+			{ "<leader>d", group = "debug" },
+			{ "<leader>g", group = "git" },
+			{ "<leader>gh", group = "hunks" },
+			{ "<leader>s", group = "search" },
+			{ "<leader>u", group = "ui" },
+			{ "<leader>x", group = "diagnostics/quickfix" },
 		},
 	},
 	config = function(_, opts)
 		local wk = require("which-key")
+		opts["spec"] = opts["prefixes"]
 		wk.setup(opts)
-		-- lazynvim has not extensible setup with opts.defaults.
-		-- to avoid overwritting each default value, I just introduced my opts.prefixes
-		wk.register(opts.prefixes)
 	end,
 }

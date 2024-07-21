@@ -1,11 +1,12 @@
 return {
 	"nvim-neotest/neotest",
 	dependencies = {
-		"folke/which-key.nvim",
-		opts = {
-			prefixes = {
-				["<leader>td"] = { name = "+debug" },
-			},
+		{
+			"folke/which-key.nvim",
+			opts = function(_, opts)
+				require("which-key").add({ { "<leader>td", group = "debug" }, { "<leader>t", group = "test" } })
+				return opts
+			end,
 		},
 	},
 	keys = function()

@@ -14,11 +14,10 @@ return {
 		},
 		{
 			"folke/which-key.nvim",
-			opts = {
-				prefixes = {
-					["<leader>F"] = { name = "+find/files" },
-				},
-			},
+			opts = function(_, opts)
+				require("which-key").add({ "<leader>F", group = "find/files" })
+				return opts
+			end,
 		},
 	},
 	keys = function()

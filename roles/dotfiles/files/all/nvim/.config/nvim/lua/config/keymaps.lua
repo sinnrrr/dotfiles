@@ -73,7 +73,6 @@ end, { desc = "Toggle Spelling" })
 map("n", "<leader>uw", function()
 	Util.toggle("wrap")
 end, { desc = "Toggle Word Wrap" })
-map("n", "<leader>ud", Util.toggle.diagnostics, { desc = "Toggle Diagnostics" })
 local conceallevel = vim.o.conceallevel > 0 and vim.o.conceallevel or 3
 map("n", "<leader>uc", function()
 	Util.toggle("conceallevel", false, { 0, conceallevel })
