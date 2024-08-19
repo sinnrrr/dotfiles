@@ -1,0 +1,51 @@
+#!/bin/bash
+
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 <horizontal|vertical>"
+    exit 1
+fi
+
+ORIENTATION=$1
+
+if [[ "$ORIENTATION" != "horizontal" && "$ORIENTATION" != "vertical" ]]; then
+    echo "Invalid argument. Use 'horizontal' or 'vertical'."
+    exit 1
+fi
+
+# Get the current active display
+ACTIVE_DISPLAY=$(python -c "
+from Quartz import CGDisplayCopyCurrentMode, CGDisplayIDToOpenGLDisplayMask, CGDisplayGetActiveDisplayList, CGDisplayGetDisplayMode
+import Quartz
+import ctypes
+import sys
+
+active_displays = Quartz.CGDisplayGetActiveDisplayList(0, None, None)
+if not active_displays:
+    sys.exit(1)
+
+display_id = active_displays[0]
+mode = CGDisplayCopyCurrentMode(display_id)
+display_mask = CGDisplayIDToOpenGLDisplayMask(display_id)
+print(display_id)
+")
+
+# Set rotation based on orientation
+if [ "$ORIENTATION" == "horizontal" ]; then
+    ROTATION=0
+elif [ "$ORIENTATION" == "vertical" ]; then
+    ROTATION=90
+fi
+
+echo "Setting display rotation to $ROTATION degrees"
+
+# Use `displayplacer` to set display rotation (install via `brew install displayplacer` if not already installed)
+displayplacer "id:$ACTIVE_DISPLAY" rotate:$ROTATION
+
+# Configure yabai based on orientation
+if [ "$ORIENTATION" == "horizontal" ]; then
+    yabai -m config layout bsp
+elif [ "$ORIENTATION" == "vertical" ]; then
+    yabai -m config layout stack
+fi
+
+echo "Yabai layout set to $ORIENTATION"

@@ -9,7 +9,8 @@ ctrl + alt + cmd - b : open -n /Applications/Brave\ Browser.app
 # selection screenshot to the clipboard without sound
 ctrl + alt + cmd - p : screencapture -cix /dev/null
 # screenshot with options
-ctrl + alt + cmd + shift - p : screencapture -iU /dev/null
+ctrl + alt + cmd + shift - p : screencapture -Pix /dev/null
+ctrl + alt + cmd + shift - r : screencapture -iU /dev/null
 ctrl + alt + cmd - 0x18 : yabai -m space --toggle mission-control
 ctrl + alt + cmd - d : killall dmenu-mac; exec dmenu-mac
 

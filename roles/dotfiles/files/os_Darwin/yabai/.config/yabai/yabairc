@@ -51,6 +51,8 @@ yabai -m config \
 yabai -m rule --add title='Preferences$' manage=off
 yabai -m rule --add title='^General' manage=off
 yabai -m rule --add title='Settings$' manage=off
+yabai -m rule --add label="Simulator" app="^Simulator$" manage=on
+yabai -m rule --add label='FaceTime' app="^FaceTime$" manage=off
 yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
 yabai -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off
 yabai -m rule --add label="System Settings" app="^System Settings$" title=".*" manage=off grid=20:20:6:4:12:12
@@ -64,6 +66,19 @@ yabai -m rule --add label="Software Update" title="Software Update" manage=off
 yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
 yabai -m rule --add app="^Karabiner-EventViewer$" manage=off
 yabai -m rule --add title="QuickTerminal" grid=40:20:4:7:12:26 opacity=0.9 scratchpad="QuickTerminal" sticky=on
+
+# Space 1
+yabai -m rule --add app="Google Chrome" title="Work" space=1
+
+# Space 2
+yabai -m rule --add app="Spark Desktop" space=2
+
+# Space 3
+yabai -m rule --add app="Google Chrome" title="LeetCode" space=3
+
+# Space 6
+yabai -m rule --add app="Spotify" space=6
+yabai -m rule --add app="YouTube Music" space=6
 
 $YABAI/create_spaces.sh 7
 $YABAI/smart_indicator.sh

@@ -1,6 +1,6 @@
 [user]
-	email = nikyasnogorodskyi@gmail.com
-	name = Nick Yasnogorodskyi
+	email = dimasoltusyuk@gmail.com
+	name = Dmytro Soltysiuk
 [core]
 	pager = delta 
   sshCommand = "ssh -i ~/.ssh/personal_key"
