@@ -29,6 +29,7 @@ alias \
 # These common commands are just too long! Abbreviate them.
 alias \
     g="git" \
+    lg="lazygit" \
     c="clear" \
     s="spotify_player" \
     t="btop" \

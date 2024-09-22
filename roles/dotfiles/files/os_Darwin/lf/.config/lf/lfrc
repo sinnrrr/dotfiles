@@ -17,6 +17,7 @@ set shellopts '-ey'
 set ifs "\n"
 set scrolloff 10
 set icons
+set drawbox
 set hidden true
 set period 1
 # set wrapscroll true
@@ -27,10 +28,12 @@ set cleaner ~/.config/lf/previews/cleaner.sh
 # change columns size dependant on the available space
 ${{
         w=$(tput cols)
-        if [ $w -le 100 ]; then
-            lf -remote "send $id set ratios 2:2:3"
+        if [ $w -le 80 ]; then
+            lf -remote "send $id set ratios 1:2"
         elif [ $w -le 160 ]; then
             lf -remote "send $id set ratios 1:2:3"
+        else
+            lf -remote "send $id set ratios 1:2:3:5"
         fi
 }}
 
@@ -44,6 +47,7 @@ map ,
 map yy :copy
 map yn :copy-filename
 map yP :copy-absolute-path
+map yi :yank-image
 map dd :cut
 map \\ :find-prev
 map U :fzf-restore
@@ -75,6 +79,9 @@ map ,r :bulk-rename
 map ,st :fzf_search
 map ,sh :share
 map ,ch :chmod
+map ,ci :convert-image
+map ,gg $lazygit
+map ,cm :convert-music
 map ,f :fzf_jump
 map ,t push :tar<space>
 map ,z push :zip<space>

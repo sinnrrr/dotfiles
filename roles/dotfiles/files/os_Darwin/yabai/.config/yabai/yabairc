@@ -9,8 +9,8 @@ launchctl unload -F /System/Library/LaunchAgents/com.apple.WindowManager.plist >
 sudo yabai --load-sa
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 
-yabai -m signal --add event=display_added action="sleep 1 && $YABAI/create_spaces.sh"
-yabai -m signal --add event=display_removed action="sleep 1 && $YABAI/create_spaces.sh"
+yabai -m signal --add event=display_added action="sleep 1 && $YABAI/create_spaces.sh 6"
+yabai -m signal --add event=display_removed action="sleep 1 && $YABAI/create_spaces.sh 6"
 
 
 # If no window on the current space is focused after a window is destroyed or
@@ -53,6 +53,8 @@ yabai -m rule --add title='^General' manage=off
 yabai -m rule --add title='Settings$' manage=off
 yabai -m rule --add label="Simulator" app="^Simulator$" manage=on
 yabai -m rule --add label='FaceTime' app="^FaceTime$" manage=off
+yabai -m rule --add label='' app="Tips" manage=off
+yabai -m rule --add label='UTM' app="^UTM$" manage=off
 yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
 yabai -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off
 yabai -m rule --add label="System Settings" app="^System Settings$" title=".*" manage=off grid=20:20:6:4:12:12
@@ -80,7 +82,7 @@ yabai -m rule --add app="Google Chrome" title="LeetCode" space=3
 yabai -m rule --add app="Spotify" space=6
 yabai -m rule --add app="YouTube Music" space=6
 
-$YABAI/create_spaces.sh 7
+$YABAI/create_spaces.sh 6
 $YABAI/smart_indicator.sh
 SHELL="/bin/sh" skhd &
 echo "yabai configuration loaded.."

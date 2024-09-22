@@ -10,7 +10,7 @@ return {
 			{ "<leader><tab>", group = "tabs" },
 			{ "<leader>c", group = "code" },
 			{ "<leader>d", group = "debug" },
-			{ "<leader>g", group = "git" },
+			-- { "<leader>g", group = "git" },
 			{ "<leader>gh", group = "hunks" },
 			{ "<leader>s", group = "search" },
 			{ "<leader>u", group = "ui" },
