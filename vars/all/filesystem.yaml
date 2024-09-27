@@ -1,4 +1,4 @@
 ---
 dotfiles:
-  repo: 'https://github.com/Keep-Simple/.dotfiles'
+  repo: 'https://github.com/sinnrrr/dotfiles'
   target: '{{ ansible_user_dir }}/.dotfiles'

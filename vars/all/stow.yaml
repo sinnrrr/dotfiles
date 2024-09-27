@@ -9,9 +9,10 @@ stow_common_items:
   - git
   - k9s
   - nvim
-  - spotify-player
   - zsh
   - shell
   - yamlfmt
+  - youtube-music
+  - lazygit
 
 dotfiles_state: present

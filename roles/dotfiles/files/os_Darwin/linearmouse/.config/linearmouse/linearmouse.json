@@ -1,0 +1,43 @@
+{
+  "$schema" : "https:\/\/schema.linearmouse.app\/0.10.0",
+  "schemes" : [
+    {
+      "if" : {
+        "device" : {
+          "productID" : "0xb030",
+          "serialNumber" : "56EC2E91",
+          "category" : "mouse",
+          "productName" : "Logi POP Mouse",
+          "vendorID" : "0x46d"
+        }
+      },
+      "scrolling" : {
+        "reverse" : {
+          "vertical" : true
+        },
+        "speed" : {
+          "vertical" : 0
+        },
+        "distance" : {
+          "vertical" : "auto"
+        },
+        "acceleration" : 1
+      }
+    },
+    {
+      "if" : {
+        "device" : {
+          "vendorID" : "0x5ac",
+          "category" : "trackpad",
+          "productID" : "0x281",
+          "productName" : "Apple Internal Keyboard \/ Trackpad"
+        }
+      },
+      "scrolling" : {
+        "reverse" : {
+          "vertical" : false
+        }
+      }
+    }
+  ]
+}
