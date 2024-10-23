@@ -44,7 +44,7 @@ install_brew() {
         echo "[INFO] Installing rosetta 2"
         softwareupdate --install-rosetta --agree-to-license
         echo "[INFO] Installing xcode cli"
-        xcode-select --install
+        xcode-select --install || true
         echo "[INFO] Installing Homebrew package manager..."
         export NONINTERACTIVE=1
         bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
