@@ -2,7 +2,7 @@
 
 set -euoE pipefail
 
-source="https://github.com/Keep-Simple/.dotfiles"
+source="https://github.com/sinnrrr/.dotfiles"
 branch="${branch:-macos}"
 tarball="$source/tarball/$branch"
 target="$HOME/.dotfiles"
