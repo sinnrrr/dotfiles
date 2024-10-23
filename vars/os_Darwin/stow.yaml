@@ -1,11 +1,6 @@
----
 stow_items:
   - karabiner
   - lf
-  - bin
-  - skhd
-  - yabai
   - zsh
-  - kitty
-  - hammerspoon
   - linearmouse
+  - aerospace

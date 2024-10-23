@@ -1,8 +1,0 @@
----
-
-name: spotify
-
-windows:
-  - spotify-cli:
-      panes:
-        - s

@@ -678,8 +678,12 @@
                     "from": { "key_code": "right_option" },
                     "to": [{ "key_code": "backslash" }]
                 }
-            ]
+            ],
+            "virtual_hid_keyboard": { "keyboard_type_v2": "ansi" }
         },
-        { "name": "New profile" }
+        {
+            "name": "New profile",
+            "virtual_hid_keyboard": { "keyboard_type_v2": "ansi" }
+        }
     ]
 }

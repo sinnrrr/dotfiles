@@ -1,4 +1,0 @@
-#!/bin/sh
-
-open -a "Brave Browser" -n --args "$@" </dev/null &
->/dev/null &

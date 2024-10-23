@@ -25,6 +25,3 @@
       loop: "{{ stow_items }}"
   environment:
     PATH: "{{ homebrew_brew_bin_path | default('') }}:{{ ansible_env.PATH }}" # TODO setup PATH to discover stow for linux too
-
-- name: Include additional setup
-  ansible.builtin.include_tasks: "additional_setup.yaml"

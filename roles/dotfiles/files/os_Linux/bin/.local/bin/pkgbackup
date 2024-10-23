@@ -1,3 +1,0 @@
-#!/bin/sh
-
-sudo pacman -Qqe >$XDG_BACKUP_DIR/pkglist.txt

@@ -1,3 +1,0 @@
-#!/bin/sh
-
-brew bundle cleanup --force $@

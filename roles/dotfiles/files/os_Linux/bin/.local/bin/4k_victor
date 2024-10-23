@@ -1,9 +1,0 @@
-#!/bin/sh
-
-xrandr \
-    --output eDP1 --off \
-    --output HDMI1 --mode 2560x1440
-
-setbg $HOME/.local/share/bg
-
-remaps

@@ -1,18 +1,15 @@
 ---
 stow_common_items:
-  - alacritty
-  - tmux
   - asdf
   - bat
   - bin
   - btop
   - git
-  - k9s
   - nvim
   - zsh
   - shell
-  - yamlfmt
   - youtube-music
   - lazygit
+  - kitty
 
 dotfiles_state: present

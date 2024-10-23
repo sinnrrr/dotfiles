@@ -1,3 +1,0 @@
-#!/bin/sh
-
-sudo yay -S --needed - <$XDG_BACKUP_DIR/pkglist.txt

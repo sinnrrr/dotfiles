@@ -1,9 +1,0 @@
----
-
-name: cli
-root: <%= ENV["SRC_ROOT"] %>/../cli
-
-windows:
-  - cli:
-      panes:
-        - lf

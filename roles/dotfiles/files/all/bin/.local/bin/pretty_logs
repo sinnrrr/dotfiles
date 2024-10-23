@@ -1,3 +1,0 @@
-#!/bin/bash
-
-jq -rR '. as $raw | try (fromjson | .message) catch ($raw)'

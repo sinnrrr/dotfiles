@@ -41,5 +41,6 @@ alias \
     YT="youtube-viewer" \
     sdn="sudo shutdown -h now" \
     v="$EDITOR" \
+    bu="brew upgrade | tee /dev/tty | grep -q 'yabai' && yabaiheadupdate" \
     reload-shortcuts="apply-shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" \
     ubuntu="docker run --rm -ti ubuntu /bin/bash"
